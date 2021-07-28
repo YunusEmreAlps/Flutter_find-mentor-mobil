@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:find_mentor/page/word_detail_page.dart';
 import 'package:find_mentor/util/app_constant.dart';
 
 class EventsPage extends StatefulWidget {
@@ -78,47 +77,6 @@ class _EventsPageState extends State<EventsPage> {
                   color: Colors.red, borderRadius: BorderRadius.circular(4)),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _historyItem({@required String title}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Material(
-        color: Colors.white,
-        elevation: 4,
-        shadowColor: Colors.black26,
-        borderRadius: BorderRadius.circular(6),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(6),
-          onTap: () {
-            Navigator.push(context,
-                CupertinoPageRoute(builder: (context) => WordDetailPage()));
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  '$title',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppConstant.colorPrimary,
-                  size: 18,
-                )
-              ],
-            ),
-          ),
         ),
       ),
     );
