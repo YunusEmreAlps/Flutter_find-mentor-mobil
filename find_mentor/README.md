@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/tree/master/find_mentor">
-    <img src="ss/Logo1.png" alt="Logo" width="400">
+    <img src="ss/Logo1.png" alt="Logo" width="200">
   </a>
 
   <h3 align="center">Find Mentor</h3>
