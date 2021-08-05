@@ -1,16 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:find_mentor/page/home/mentees_page/mentees_detail_page.dart';
 
-class JobsPage extends StatefulWidget {
+class MenteesPage extends StatefulWidget {
   @override
-  _JobsPageState createState() => _JobsPageState();
+  _MenteesPageState createState() => _MenteesPageState();
 }
 
-class _JobsPageState extends State<JobsPage> {
-  PageController _pageController = PageController(initialPage: 1);
+class _MenteesPageState extends State<MenteesPage> {
   bool isEmpty = false;
-  int _selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,10 @@ class _JobsPageState extends State<JobsPage> {
         centerTitle: true,
         backgroundColor: AppConstant.colorPageBg,
         title: Text(
-          AppConstant.jobsText,
+          AppConstant.menteesText +
+              ((AppConstant.menteesCount != 0)
+                  ? " (${AppConstant.menteesCount})"
+                  : ""),
           style: TextStyle(
               fontFamily: "Gilroy",
               foreground: Paint()
@@ -37,7 +39,9 @@ class _JobsPageState extends State<JobsPage> {
       ),
       body: Stack(
         alignment: Alignment.center,
-        children: <Widget>[],
+        children: <Widget>[
+          MenteesDetailPage(),
+        ],
       ),
     );
   }

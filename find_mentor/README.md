@@ -50,13 +50,13 @@
 ## About The Project
 Meet -> Ask -> Listen -> Learn -> Change Your Career
 
-- [x] App Structure
+- [x] App Structure (Updated)
 - [x] Portrait Mode
 - [x] Support Multiple Language (TR/EN)
+- [x] Mentors Page (This part working very well because (Mentor Data < 400>)) 
+- [ ] Mentees Page (I'm working on pagination part because I keep getting error and afterwards my application crash. (Mentee Data > 400))
 - [ ] Events Page 
 - [ ] Jobs Page
-- [ ] Mentors Page 
-- [ ] Mentees Page
 - [ ] Result Page
 - [ ] ...
 
@@ -123,9 +123,10 @@ See the [open issues](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil
 
 
 <!-- CONTRIBUTING -->
-## 🤔 Contributing
+## 🤔 Contributing (Feel free to contribute!)
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+Every night & every deploy, the spread sheet will be parsed by GitHub actions, then generate this beauty. Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -171,3 +172,7 @@ How It Works?              |  Contact Us                | Follow Us             
 Events             | Jobs               | Mentors                |  Mentees
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/13.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/14.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/15.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/16.png?raw=true)|
+
+Mentors Page (Top)             | Mentors Page               | Mentors Page                |  Mentors Page (Bottom)
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/17.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/18.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/19.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/20.png?raw=true)|

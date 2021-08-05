@@ -22,7 +22,7 @@ class AppBottomSheetWidgets {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            AppWidget.pullDown(AppConstant.colorPullDown2),
+            AppWidget.pullDown(AppConstant.colorPullDown1),
             widget,
             // 
             Padding(
@@ -67,7 +67,7 @@ class AppBottomSheetWidgets {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          AppWidget.pullDown(AppConstant.colorPullDown2),
+          AppWidget.pullDown(AppConstant.colorPullDown1),
           widget,
           Expanded(
             child: Column(
@@ -121,7 +121,7 @@ class AppBottomSheetWidgets {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            AppWidget.pullDown(AppConstant.colorPullDown2),
+            AppWidget.pullDown(AppConstant.colorPullDown1),
             widget,
             Padding(
               padding: const EdgeInsets.only(top: 32.0),

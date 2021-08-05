@@ -25,7 +25,7 @@ class AppWidget {
     );
   }
 
-  static Widget getSearchBox(isKeyboardVisible, context, {FocusNode focusNode}) {
+  static Widget getSearchBox(isKeyboardVisible, context, pageHintText, {FocusNode focusNode}) {
     TextEditingController _searchController = TextEditingController();
     return Row(
       children: <Widget>[
@@ -52,7 +52,7 @@ class AppWidget {
                       focusNode: focusNode,
                       controller: _searchController,
                       decoration: InputDecoration(
-                        hintText: AppConstant.searchText,
+                        hintText: pageHintText,
                         hintStyle: TextStyle(fontSize: 14, color: AppConstant.colorBackButton),
                         //
                         filled: true,

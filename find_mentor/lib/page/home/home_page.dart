@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:find_mentor/page/search_page.dart';
+import 'package:find_mentor/page/search/search_page.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/system_overlay.dart';
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              AppWidget.pullDown(AppConstant.colorPullDown2),
+              AppWidget.pullDown(AppConstant.colorPullDown1),
             ],
           ),
           SizedBox(height: 16),

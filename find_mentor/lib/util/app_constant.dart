@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_localizations.dart';
 
+// Constants
 class AppConstant {
   // Colors
   static final Color colorPrimary = Color(0xFF71BFBC); // Color(0xFFE11E3C);
@@ -13,21 +14,37 @@ class AppConstant {
   static final Color colorUnifiedWordSearch = Color(0xFF73A5AA);
   static final Color colorUnifiedWordText = Color(0xFF2E494C);
   static final Color colorProverbsIdiomsBg = Color(0xFFF9F5F1);
-  static final Color colorProverbsIdiomsSearch = Color(0xFFBB8E62);
-  static final Color colorProverbsIdiomsText = Color(0xFF4F3822);
-  static final Color colorVersionText = Color(0xFFF3A5B1);
   static final Color colorDrawerButton = Color(0xFFE8EAED);
-  static final Color colorPullDown1 = Color(0xFFB41830);
-  static final Color colorPullDown2 = Color(0xFFDEE3E3);
+  static final Color colorPullDown1 = Color(0xFFDEE3E3);
   static final Color colorBackButton = Color(0xFF48515B);
   static final Color colorAppDescription = Color(0xFF33414C);
   static final Color colorBottomSheetItemHeader = Color(0xFF183148);
   static final Color colorBottomSheetDivider = Color(0xFFEEF0F2);
-  static final Color colorDarkBlue = Color(0xff0047CC);
-  static final Color colorDarkGrey = Color(0xFF7B8BB2);
   static const Color colortextBlueDark = Color(0xFF2D4379);
   static const Color colorlightBlueGrey = Color(0xFFDEE7FF);
   static const Color colortextDark = Color(0xFF0D253C);
+  static const Color colorSkyBlue = Color(0xFF71B4FB);
+  static final Color colorDarkBlue = Color(0xFF0047CC);
+  static const Color colorLightBlue = Color(0xFF7FBCFB);
+  static const Color colorExtraLightBlue = Color(0xFFD9EEFF);
+  static const Color colorOrange = Color(0xFFFA8C73);
+  static const Color colorLightOrange = Color(0xFFFA9881);
+  static const Color colorSubTitleTextColor = Color(0xFFB9BFCD);
+  static const Color colorGrey = Color(0xFFB8BFCE);
+  static final Color colorDarkGrey = Color(0xFF7B8BB2);
+  static const Color colorPurple = Color(0xFF8873F4);
+  static const Color colorPurpleLight = Color(0xFF9489F4);
+  static const Color colorPurpleExtraLight = Color(0xFFB1A5F6);
+  static const Color colorIconColor = Color(0xffcbd0db);
+  static const Color colorGreen = Color(0xFF4CD1BC);
+  static const Color colorLightGreen = Color(0xFF5ED6C3);
+
+  static const Color colorGitHub = Color(0xFF222123);
+  static const Color colorTwitter = Color(0xFF65AFF6);
+  static const Color colorLinkedin = Color(0xFF007AB9);
+  static const Color colorBoth = Color(0xFFFFC400);
+  static const Color colorMentor = Color(0xFF17AA90);
+  static const Color colorMentee = Color(0xFF206694);
 
   // Gradient
   static final Shader primaryTextGradientColor = LinearGradient(
@@ -40,7 +57,6 @@ class AppConstant {
     colors: [Color(0xFF216383), Color(0xFF71BFBC)],
   );
 
-
   // Fonts
   static const double fontSizeCaption = 12;
   static const double fontSizeBody2 = 14;
@@ -51,16 +67,15 @@ class AppConstant {
   static const double fontSizeIdiomCardTitle = 18;
   static const double fontSizeIdiomCardContent = 12;
 
-
   // Strings
   static final String appVersion = "v.1.0";
   static final String appName = 'Find Mentor';
   static final String appDescription = 'Change Your Career';
-  static final String appLongDescription ='';
+  static final String appLongDescription = '';
   static final String appLongRichDescription = "How To Be A 🌟GREAT🌟 Mentee?";
   static final String phoneNumber = 'We Don\'t Know Yet';
   static final String eposta = 'yunus192alpu@gmail.com';
- 
+
   static final String jobsText = AppLocalizations.getString('Jobs');
   static final String eventsText = AppLocalizations.getString('Events');
   static final String mentorshipsText = AppLocalizations.getString('Mentorships');
@@ -69,6 +84,7 @@ class AppConstant {
   static final String sendText = AppLocalizations.getString('Send');
   static final String cancelText = AppLocalizations.getString('Cancel');
   static final String socialText = AppLocalizations.getString("Social");
+  static final String getConnectedText = AppLocalizations.getString("Get Connected");
   static final String feedbackText = AppLocalizations.getString('Feedback'); // Contribution & Suggestions
   static final String joinUsText = AppLocalizations.getString('Join Us');
   static final String joinUsNowText = AppLocalizations.getString('Join Us Now');
@@ -77,6 +93,8 @@ class AppConstant {
   static final String howItWorksText = AppLocalizations.getString("How It Works?");
   static final String searchText = AppLocalizations.getString('Search in network');
   static final String searchHistoryText = AppLocalizations.getString('Search History');
+  static final String searchMentorText = AppLocalizations.getString('Search in mentors by name...');
+  static final String searchMenteeText = AppLocalizations.getString('Search in mentees by name...');
   static final String contactDetailsText = AppLocalizations.getString('Contact Details');
   static final String websiteBtnText = AppLocalizations.getString('Find Mentor Network');
   static final String contributionsText = AppLocalizations.getString('Feel free to contribute!');
@@ -86,11 +104,12 @@ class AppConstant {
   static final String websiteLink = 'https://findmentor.network/';
   static final String discordLink = 'https://discord.gg/EDwkj6Z7W2';
   static final String twitterLink = 'https://twitter.com/findmentorapp';
+  static final String apiPersonsURL = 'https://findmentor.network/persons.json';
   static final String githubLink = 'https://github.com/findmentor-network/find-mentor';
   static final String googleFormLink = 'https://github.com/findmentor-network/find-mentor';
   static final String linkedinLink = 'https://www.linkedin.com/company/find-mentor-network';
   static final String youtubeLink = 'https://www.youtube.com/channel/UCx7Q-6Qqrf9TU5gY-i9xovA';
-  
+
   // Splash Screen
   static final String splashAnimatedText1 = 'Find & Match';
   static final String splashAnimatedText2 = 'Meet, Ask, Listen, Learn';
@@ -100,6 +119,7 @@ class AppConstant {
   static final String callErrorText = 'Call failed';
   static final String mailErrorText = 'E-Mail not delivered';
   static final String websiteErrorText = 'Couldn\'t open website!';
+  static final String apiErrorText = 'Unable to retrieve mentors.';
 
   // Pages
   static final String pageSplash = "/";
@@ -112,11 +132,23 @@ class AppConstant {
   static final String svgYoutube = "assets/icons/Youtube.svg";
   static final String svgTwitter = "assets/icons/Twitter1.svg";
   static final String svgLinkedin = "assets/icons/Linkedin.svg";
+  static final String pngDummyImage = "assets/images/dummy.png";
   static final String pngBackgroundImage = "assets/images/bg.png";
   static final String svgBackgroundImage = "assets/images/bg.svg";
   static final String svgLogo = "assets/images/find_mentor_logo.svg";
-  static final String svgMessage1 = "assets/icons/icon_message1.svg"; 
-  static final String svgMessage2 = "assets/icons/icon_message2.svg"; 
-  static final String svgMessage3 = "assets/icons/icon_message3.svg"; 
-  static final String svgMessage4 = "assets/icons/icon_message4.svg"; 
+  static final String svgMessage1 = "assets/icons/icon_message1.svg";
+  static final String svgMessage2 = "assets/icons/icon_message2.svg";
+  static final String svgMessage3 = "assets/icons/icon_message3.svg";
+  static final String svgMessage4 = "assets/icons/icon_message4.svg";
+  static final String svgMentorGitHub = "assets/icons/Github2.svg";
+  static final String svgMentorTwitter = "assets/icons/Twitter2.svg";
+  static final String svgMentorLinkedin = "assets/icons/Linkedin3.svg";
+  static final String svgMenteeGitHub = "assets/icons/Github3.svg";
+  static final String svgMenteeTwitter = "assets/icons/Twitter3.svg";
+  static final String svgMenteeLinkedin = "assets/icons/Linkedin4.svg";
+  
+
+  // Global Variables
+  static int mentorCount = 0;
+  static int menteesCount = 0;
 }

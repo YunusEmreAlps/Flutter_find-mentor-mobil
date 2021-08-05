@@ -8,8 +8,8 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:find_mentor/page/home/jobs_page.dart';
 import 'package:find_mentor/page/home/home_page.dart';
 import 'package:find_mentor/page/home/events_page.dart';
-import 'package:find_mentor/page/home/mentors_page.dart';
-import 'package:find_mentor/page/home/mentees_page.dart';
+import 'package:find_mentor/page/home/mentors_page/mentors_page.dart';
+import 'package:find_mentor/page/home/mentees_page/mentees_page.dart';
 
 class HomeNavigator extends StatefulWidget {
   @override
@@ -52,7 +52,7 @@ class _HomeNavigatorState extends State<HomeNavigator> {
           TabItem(icon: Icons.work_outline, title: ''),
           TabItem(icon: Icons.search_outlined, title: ''),
           TabItem(icon: Icons.school_outlined, title: ''), // fiber_smart_record_outlined
-          TabItem(icon: Icons.person_outline, title: ''),
+          TabItem(icon: Icons.cast_for_education_outlined, title: ''), // person_outline
         ],
       ),
       body: _pages[_currentPage],
