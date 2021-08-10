@@ -174,9 +174,9 @@ class MentorCard extends StatelessWidget {
                                               Radius.circular(50)),
                                           child: CachedNetworkImage(
                                             imageUrl: mentor.avatar,
-                                            fit: BoxFit.cover,
+                                            fit: BoxFit.contain,
                                             errorWidget:
-                                                (context, url, error) =>  Image.asset(AppConstant.pngDummyImage),
+                                                (context, url, error) =>  Image.asset(AppConstant.pngUserImage),
                                           ),
                                         ),
                                       ),

@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:find_mentor/services/fetchJobs.dart';
+import 'package:find_mentor/page/home/jobs_page/jobs_detail_page.dart';
 
 class JobsPage extends StatefulWidget {
   @override
@@ -8,10 +10,7 @@ class JobsPage extends StatefulWidget {
 }
 
 class _JobsPageState extends State<JobsPage> {
-  PageController _pageController = PageController(initialPage: 1);
   bool isEmpty = false;
-  int _selectedCategory = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,10 @@ class _JobsPageState extends State<JobsPage> {
         centerTitle: true,
         backgroundColor: AppConstant.colorPageBg,
         title: Text(
-          AppConstant.jobsText,
+          AppConstant.jobsText +
+              ((AppConstant.jobsCount != 0)
+                  ? " (${AppConstant.jobsCount})"
+                  : ""),
           style: TextStyle(
               fontFamily: "Gilroy",
               foreground: Paint()
@@ -37,7 +39,9 @@ class _JobsPageState extends State<JobsPage> {
       ),
       body: Stack(
         alignment: Alignment.center,
-        children: <Widget>[],
+        children: <Widget>[
+          JobsDetailPage(),
+        ],
       ),
     );
   }

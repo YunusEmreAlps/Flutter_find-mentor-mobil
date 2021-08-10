@@ -1,5 +1,12 @@
+import 'dart:convert';
 import 'package:find_mentor/enums.dart';
 import 'package:find_mentor/model/contribution.dart';
+
+List<Person> personFromJson(String str) =>
+    List<Person>.from(json.decode(str).map((x) => Person.fromJson(x)));
+
+String personToJson(List<Person> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Person {
   Person({
@@ -15,9 +22,10 @@ class Person {
     this.avatar,
     this.displayInterests,
     this.isHireable,
-    this.mail,
     this.mentorships,
     this.contributions,
+    this.mail,
+    this.stackoverflow,
   });
 
   String registeredAt;
@@ -32,9 +40,10 @@ class Person {
   String avatar;
   String displayInterests;
   bool isHireable;
-  String mail;
   List<Contribution> mentorships;
   List<Contribution> contributions;
+  String mail;
+  String stackoverflow;
 
   factory Person.fromJson(Map<String, dynamic> json) {
     return Person(
@@ -50,13 +59,14 @@ class Person {
       avatar: json["avatar"],
       displayInterests: json["displayInterests"],
       isHireable: json["isHireable"],
-      mail: json["mail"],
       mentorships: List<Contribution>.from(json["mentorships"].map((x) => Contribution.fromJson(x))),
       contributions: List<Contribution>.from(json["contributions"].map((x) => Contribution.fromJson(x))),
+      mail: json["mail"] == null ? null : json["mail"],
+      stackoverflow:json["stackoverflow"] == null ? null : json["stackoverflow"],
     );
   }
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "registered_at": registeredAt,
         "name": name,
         "twitter_handle": twitterHandle,
@@ -69,28 +79,26 @@ class Person {
         "avatar": avatar,
         "displayInterests": displayInterests,
         "isHireable": isHireable,
-        "mail": mail,
         "mentorships": List<dynamic>.from(mentorships.map((x) => x.toJson())),
         "contributions": List<dynamic>.from(contributions.map((x) => x.toJson())),
-      };
+        "mail": mail == null ? null : mail,
+        "stackoverflow": stackoverflow == null ? null : stackoverflow,
+    };
 }
 
-final mentorValues = EnumValues({
-    "Both": Mentor.BOTH,
-    "Mentee": Mentor.MENTEE,
-    "Mentor": Mentor.MENTOR
-});
+final mentorValues = EnumValues(
+    {"Both": Mentor.BOTH, "Mentee": Mentor.MENTEE, "Mentor": Mentor.MENTOR});
 
 class EnumValues<T> {
-    Map<String, T> map;
-    Map<T, String> reverseMap;
+  Map<String, T> map;
+  Map<T, String> reverseMap;
 
-    EnumValues(this.map);
+  EnumValues(this.map);
 
-    Map<T, String> get reverse {
-        if (reverseMap == null) {
-            reverseMap = map.map((k, v) => new MapEntry(v, k));
-        }
-        return reverseMap;
+  Map<T, String> get reverse {
+    if (reverseMap == null) {
+      reverseMap = map.map((k, v) => new MapEntry(v, k));
     }
+    return reverseMap;
+  }
 }

@@ -1,4 +1,5 @@
 // Splash Screen
+import 'package:find_mentor/util/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:find_mentor/util/app_constant.dart';
@@ -32,6 +33,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations.of(context);
     return Scaffold(
       body: DecoratedBox(
         position: DecorationPosition.background,

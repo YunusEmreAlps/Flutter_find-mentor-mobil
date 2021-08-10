@@ -17,11 +17,7 @@ Future<List<Person>> fetchMentees() async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    List<Person> persons = List();
-
-    persons = (json.decode(response.body) as List)
-        .map((data) => Person.fromJson(data))
-        .toList();
+    var persons = personFromJson(response.body);
 
     // Filtering
     List<Person> menteesList = List();
@@ -32,12 +28,13 @@ Future<List<Person>> fetchMentees() async {
     }
     persons.clear();
 
-    print("Mentees List Size: ${menteesList.length}");
     AppConstant.menteesCount = menteesList.length;
+    print("Mentees List Size: ${menteesList.length}");
     return menteesList;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception(AppConstant.apiErrorText);
+    print(response.reasonPhrase);
+    throw json.decode(response.body)['error']['message'];
   }
 }

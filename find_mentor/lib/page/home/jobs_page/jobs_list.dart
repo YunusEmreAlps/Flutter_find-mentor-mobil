@@ -3,19 +3,19 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:find_mentor/enums.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:find_mentor/model/person.dart';
+import 'package:find_mentor/model/job_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class Mentees extends StatelessWidget {
-  const Mentees({
+class Jobs extends StatelessWidget {
+  const Jobs({
     Key key,
-    this.mentees,
+    this.jobs,
   }) : super(key: key);
-  // Because our Api provide us list of mentees
-  final List<Person> mentees;
+  // Because our Api provide us list of jobs
+  final List<Job> jobs;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class Mentees extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         // just for demo
-        itemCount: mentees.length,
-        itemBuilder: (context, index) => MenteeCard(
-          mentees: mentees[index],
+        itemCount: jobs.length,
+        itemBuilder: (context, index) => JobCard(
+          job: jobs[index],
           press: () {
             /*Navigator.push(
               context,
@@ -45,15 +45,15 @@ class Mentees extends StatelessWidget {
   }
 }
 
-// Mentee Card
-class MenteeCard extends StatelessWidget {
-  const MenteeCard({
+// Job Card
+class JobCard extends StatelessWidget {
+  const JobCard({
     Key key,
-    this.mentees,
+    this.job,
     this.press,
   }) : super(key: key);
 
-  final Person mentees;
+  final Job job;
   final Function press;
 
   @override
@@ -62,12 +62,12 @@ class MenteeCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: GestureDetector(
         onTap: press,
-        child: menteeItem(),
+        child: jobItem(),
       ),
     );
   }
 
-  Widget menteeItem() {
+  Widget jobItem() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Container(
@@ -75,7 +75,7 @@ class MenteeCard extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: (mentees.displayInterests.length <= 75) ? 285.0 : 310.0,
+              height: (job.company.length <= 75) ? 285.0 : 310.0,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.bottomLeft,
@@ -155,16 +155,10 @@ class MenteeCard extends StatelessWidget {
                                           shape: BoxShape.circle,
                                           gradient: RadialGradient(
                                             colors: [
-                                              (mentees.mentor != Mentor.BOTH)
-                                                  ? AppConstant.colorMentee
-                                                      .withOpacity(0.3)
-                                                  : AppConstant.colorBoth
-                                                      .withOpacity(0.3),
-                                              (mentees.mentor != Mentor.BOTH)
-                                                  ? AppConstant.colorMentee
-                                                      .withOpacity(0.6)
-                                                  : AppConstant.colorBoth
-                                                      .withOpacity(0.6),
+                                              AppConstant.colorGreyLight
+                                                  .withOpacity(0.3),
+                                              AppConstant.colorGreyLight
+                                                  .withOpacity(0.6)
                                             ],
                                             stops: [.5, 1],
                                           ),
@@ -173,18 +167,13 @@ class MenteeCard extends StatelessWidget {
                                           borderRadius: const BorderRadius.all(
                                               Radius.circular(50)),
                                           child: CachedNetworkImage(
-                                            imageUrl: mentees.avatar,
+                                            imageUrl: job.logo,
                                             fit: BoxFit.contain,
                                             errorWidget:
-                                                (context, url, error) =>  Image.asset(AppConstant.pngUserImage),
+                                                (context, url, error) =>
+                                                    Image.asset(AppConstant
+                                                        .pngCompanyImage),
                                           ),
-
-                                          /*Image.network(
-                                            (mentees.avatar != null)
-                                                ? mentees.avatar
-                                                : randomColor(),
-                                            fit: BoxFit.cover,
-                                          ),*/
                                         ),
                                       ),
                                     ),
@@ -198,11 +187,12 @@ class MenteeCard extends StatelessWidget {
                                           Container(
                                             width: 175,
                                             child: Text(
-                                              mentees.name,
+                                              job.company,
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontFamily: "Gilroy",
-                                                color: AppConstant.colorMentee,
+                                                color:
+                                                    AppConstant.colortextDark,
                                               ),
                                             ),
                                           ),
@@ -212,7 +202,7 @@ class MenteeCard extends StatelessWidget {
                                           Container(
                                             width: 175,
                                             child: Text(
-                                              mentees.displayInterests,
+                                              job.position,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
@@ -221,6 +211,9 @@ class MenteeCard extends StatelessWidget {
                                                 color: Color(0xFF898989),
                                               ),
                                             ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
                                           ),
                                         ],
                                       ),
@@ -246,7 +239,7 @@ class MenteeCard extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 10),
                                 child: Text(
-                                  AppConstant.getConnectedText,
+                                  AppConstant.requirementsText,
                                   style: TextStyle(
                                     color: AppConstant.colorLightGreen,
                                     fontWeight: FontWeight.w600,
@@ -268,95 +261,87 @@ class MenteeCard extends StatelessWidget {
                           height: 80,
                           child: ClipRect(
                             child: BackdropFilter(
-                              filter:
-                                  ui.ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-                              child: Container(
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(14.0)),
-                                child: Row(
+                                filter: ui.ImageFilter.blur(
+                                    sigmaX: 8.0, sigmaY: 8.0),
+                                child: Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius:
+                                          BorderRadius.circular(14.0)),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 20.0),
+                                    child: SizedBox(
+                                      height: 30,
+                                      child: ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (context, index) {
+                                            if (job.tags[index].length > 0) {
+                                              return Container(
+                                                alignment: Alignment.center,
+                                                margin:
+                                                    EdgeInsets.only(
+                                                      left: 10.0,
+                                                       right: index == job.tags.length - 1 ? 10 : 0,),
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 10,
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Color(0xFFB5BFD0)),
+                                                  borderRadius:
+                                                      BorderRadius.circular(6),
+                                                ),
+                                                child: Text(
+                                                  job.tags[index][0].toUpperCase() + job.tags[index].substring(1),
+                                                  style: TextStyle(
+                                                      color: Color(0xFF12153D)
+                                                          .withOpacity(0.8),
+                                                      fontFamily: 'Gilroy',),
+                                                ),
+                                              );
+                                            }
+                                          },
+                                          separatorBuilder: (context, index) =>
+                                              SizedBox(
+                                                height: 0,
+                                              ),
+                                          itemCount: job.tags.length),
+
+                                      /*Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    // Twitter
-                                    InkWell(
-                                      onTap: () {
-                                        _launchURL(mentees.twitterHandle);
-                                      },
-                                      child: Container(
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: SizeConfig.defaultSize,
-                                        ), // 10
-                                        padding: EdgeInsets.all(
-                                          SizeConfig.defaultSize * 0.1,
-                                        ), // 1
-                                        height:
-                                            SizeConfig.defaultSize * 4, // 40
-                                        width: SizeConfig.defaultSize * 4, // 40
-                                        decoration: BoxDecoration(
-                                          color: AppConstant.colorPrimary,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          AppConstant.svgMentorTwitter,
-                                        ),
-                                      ),
-                                    ),
-                                    // GitHub
-                                    InkWell(
-                                      onTap: () {
-                                        _launchURL(mentees.github);
-                                      },
-                                      child: Container(
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: SizeConfig.defaultSize,
-                                        ), // 10
-                                        padding: EdgeInsets.all(
-                                          SizeConfig.defaultSize * 0.1,
-                                        ), // 6
-                                        height:
-                                            SizeConfig.defaultSize * 4, // 40
-                                        width: SizeConfig.defaultSize * 4, // 40
-                                        decoration: BoxDecoration(
-                                          color: AppConstant.colorPrimary,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          AppConstant.svgMentorGitHub,
-                                        ),
-                                      ),
-                                    ),
-                                    // LinkedIn
-                                    InkWell(
-                                      onTap: () {
-                                        _launchURL(mentees.linkedin);
-                                      },
-                                      child: Container(
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: SizeConfig.defaultSize,
-                                        ), // 10
-                                        padding: EdgeInsets.all(
-                                          SizeConfig.defaultSize * 0.1,
-                                        ), // 6
-                                        height:
-                                            SizeConfig.defaultSize * 4, // 40
-                                        width: SizeConfig.defaultSize * 4, // 40
-                                        decoration: BoxDecoration(
-                                          color: AppConstant.colorPrimary,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: SvgPicture.asset(
-                                          AppConstant.svgMentorLinkedin,
-                                        ),
-                                      ),
-                                    ),
                                   ],
-                                ),
-                              ),
-                            ),
+                                ),*/
+                                    ),
+                                  ),
+                                )),
                           ),
                         )
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 5,
+                    left: 20,
+                    right: 20,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Remote: ${remoteValues.reverse[job.remote]}",
+                          style: TextStyle(
+                              fontFamily: "Gilroy",
+                              color: AppConstant.colorGrey),
+                        ),
+                        Text(
+                          '${job.date.substring(0, 10)}',
+                          style: TextStyle(
+                              fontFamily: "Gilroy",
+                              color: AppConstant.colorGrey),
+                        ),
                       ],
                     ),
                   ),
@@ -376,6 +361,38 @@ class MenteeCard extends StatelessWidget {
     } else {
       throw AppConstant.websiteErrorText;
     }
+  }
+
+  Widget _makeElement(String tag) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 4,
+        ),
+        child: Text(
+          tag,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _getChildList(List<String> tagList) {
+    List<Widget> widgetList = [];
+    tagList.forEach((listElement) {
+      widgetList.add(_makeElement(listElement));
+    });
+    return widgetList;
   }
 }
 

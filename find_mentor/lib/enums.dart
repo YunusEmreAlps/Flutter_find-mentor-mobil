@@ -1,2 +1,3 @@
-enum Mentor { MENTOR, MENTEE, BOTH }
 enum Remote { EVET, HIBRIT, HAYIR }
+enum Mentor { MENTOR, MENTEE, BOTH }
+

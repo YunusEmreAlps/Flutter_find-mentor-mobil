@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_localizations.dart';
 
-// Constants
 class AppConstant {
   // Colors
   static final Color colorPrimary = Color(0xFF71BFBC); // Color(0xFFE11E3C);
@@ -31,13 +30,17 @@ class AppConstant {
   static const Color colorLightOrange = Color(0xFFFA9881);
   static const Color colorSubTitleTextColor = Color(0xFFB9BFCD);
   static const Color colorGrey = Color(0xFFB8BFCE);
+  static const Color colorGreyIcon = Color(0xFFE2E6EB);
+  static const Color colorGreyLight = Color(0xffEEEFF1);
   static final Color colorDarkGrey = Color(0xFF7B8BB2);
   static const Color colorPurple = Color(0xFF8873F4);
   static const Color colorPurpleLight = Color(0xFF9489F4);
   static const Color colorPurpleExtraLight = Color(0xFFB1A5F6);
-  static const Color colorIconColor = Color(0xffcbd0db);
+  static const Color colorIconColor = Color(0xFFCBD0DB);
   static const Color colorGreen = Color(0xFF4CD1BC);
   static const Color colorLightGreen = Color(0xFF5ED6C3);
+
+  
 
   static const Color colorGitHub = Color(0xFF222123);
   static const Color colorTwitter = Color(0xFF65AFF6);
@@ -82,6 +85,7 @@ class AppConstant {
   static final String mentorsText = AppLocalizations.getString('Mentors');
   static final String menteesText = AppLocalizations.getString('Mentees');
   static final String sendText = AppLocalizations.getString('Send');
+  static final String requirementsText = AppLocalizations.getString('Requirements');
   static final String cancelText = AppLocalizations.getString('Cancel');
   static final String socialText = AppLocalizations.getString("Social");
   static final String getConnectedText = AppLocalizations.getString("Get Connected");
@@ -95,6 +99,7 @@ class AppConstant {
   static final String searchHistoryText = AppLocalizations.getString('Search History');
   static final String searchMentorText = AppLocalizations.getString('Search in mentors by name...');
   static final String searchMenteeText = AppLocalizations.getString('Search in mentees by name...');
+  static final String searchJobText = AppLocalizations.getString('Job title, keywords, or company');
   static final String contactDetailsText = AppLocalizations.getString('Contact Details');
   static final String websiteBtnText = AppLocalizations.getString('Find Mentor Network');
   static final String contributionsText = AppLocalizations.getString('Feel free to contribute!');
@@ -104,6 +109,7 @@ class AppConstant {
   static final String websiteLink = 'https://findmentor.network/';
   static final String discordLink = 'https://discord.gg/EDwkj6Z7W2';
   static final String twitterLink = 'https://twitter.com/findmentorapp';
+  static final String apiJobsURL = 'https://findmentor.network/jobs.json';
   static final String apiPersonsURL = 'https://findmentor.network/persons.json';
   static final String githubLink = 'https://github.com/findmentor-network/find-mentor';
   static final String googleFormLink = 'https://github.com/findmentor-network/find-mentor';
@@ -111,15 +117,14 @@ class AppConstant {
   static final String youtubeLink = 'https://www.youtube.com/channel/UCx7Q-6Qqrf9TU5gY-i9xovA';
 
   // Splash Screen
-  static final String splashAnimatedText1 = 'Find & Match';
-  static final String splashAnimatedText2 = 'Meet, Ask, Listen, Learn';
-  static final String splashAnimatedText3 = 'Change Your Career';
+  static final String splashAnimatedText1 =  AppLocalizations.getString('Find & Match');
+  static final String splashAnimatedText2 =  AppLocalizations.getString('Meet, Ask, Listen, Learn');
+  static final String splashAnimatedText3 =  AppLocalizations.getString('Change Your Career');
 
   // Error Messages
-  static final String callErrorText = 'Call failed';
-  static final String mailErrorText = 'E-Mail not delivered';
-  static final String websiteErrorText = 'Couldn\'t open website!';
-  static final String apiErrorText = 'Unable to retrieve mentors.';
+  static final String callErrorText =  AppLocalizations.getString('Call failed');
+  static final String mailErrorText =  AppLocalizations.getString('E-Mail not delivered');
+  static final String websiteErrorText =  AppLocalizations.getString('Could not open website!');
 
   // Pages
   static final String pageSplash = "/";
@@ -132,7 +137,6 @@ class AppConstant {
   static final String svgYoutube = "assets/icons/Youtube.svg";
   static final String svgTwitter = "assets/icons/Twitter1.svg";
   static final String svgLinkedin = "assets/icons/Linkedin.svg";
-  static final String pngDummyImage = "assets/images/dummy.png";
   static final String pngBackgroundImage = "assets/images/bg.png";
   static final String svgBackgroundImage = "assets/images/bg.svg";
   static final String svgLogo = "assets/images/find_mentor_logo.svg";
@@ -140,6 +144,8 @@ class AppConstant {
   static final String svgMessage2 = "assets/icons/icon_message2.svg";
   static final String svgMessage3 = "assets/icons/icon_message3.svg";
   static final String svgMessage4 = "assets/icons/icon_message4.svg";
+  static final String pngUserImage = "assets/images/user2.png";
+  static final String pngCompanyImage = "assets/images/company2.png";
   static final String svgMentorGitHub = "assets/icons/Github2.svg";
   static final String svgMentorTwitter = "assets/icons/Twitter2.svg";
   static final String svgMentorLinkedin = "assets/icons/Linkedin3.svg";
@@ -151,4 +157,5 @@ class AppConstant {
   // Global Variables
   static int mentorCount = 0;
   static int menteesCount = 0;
+  static int jobsCount = 0;
 }

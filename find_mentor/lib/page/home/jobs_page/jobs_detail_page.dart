@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
+import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/services/fetchMentees.dart';
-import 'package:find_mentor/page/home/mentees_page/mentees_list.dart';
+import 'package:find_mentor/services/fetchJobs.dart';
+import 'package:find_mentor/page/home/jobs_page/jobs_list.dart';
 
-import 'package:find_mentor/model/person.dart';
-
-class MenteesDetailPage extends StatefulWidget {
+class JobsDetailPage extends StatefulWidget {
   @override
-  _MenteesDetailPageState createState() => _MenteesDetailPageState();
+  _JobsDetailPageState createState() => _JobsDetailPageState();
 }
 
-class _MenteesDetailPageState extends State<MenteesDetailPage> {
+class _JobsDetailPageState extends State<JobsDetailPage> {
   bool isKeyboardVisible;
-  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     isKeyboardVisible = MediaQuery.of(context).viewInsets.vertical > 0;
     return Scaffold(
       body: Column(
@@ -33,7 +32,7 @@ class _MenteesDetailPageState extends State<MenteesDetailPage> {
                       shadowColor: Colors.black38,
                       elevation: 4,
                       child: AppWidget.getSearchBox(isKeyboardVisible, context,
-                          AppConstant.searchMenteeText),
+                          AppConstant.searchJobText),
                     ),
                   ),
                   SingleChildScrollView(
@@ -43,10 +42,10 @@ class _MenteesDetailPageState extends State<MenteesDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           FutureBuilder(
-                            future: fetchMentees(),
+                            future: fetchJobs(),
                             builder: (context, snapshot) {
                               return snapshot.hasData
-                                  ? Mentees(mentees: snapshot.data)
+                                  ? Jobs(jobs: snapshot.data)
                                   : Center(
                                       child: Column(
                                         mainAxisAlignment:

@@ -5,9 +5,9 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 
 // UI
-import 'package:find_mentor/page/home/jobs_page.dart';
 import 'package:find_mentor/page/home/home_page.dart';
-import 'package:find_mentor/page/home/events_page.dart';
+import 'package:find_mentor/page/home/jobs_page/jobs_page.dart';
+import 'package:find_mentor/page/home/events_page/events_page.dart';
 import 'package:find_mentor/page/home/mentors_page/mentors_page.dart';
 import 'package:find_mentor/page/home/mentees_page/mentees_page.dart';
 

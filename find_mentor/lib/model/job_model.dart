@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:find_mentor/enums.dart';
 
+JobModel jobModelFromJson(String str) => JobModel.fromJson(json.decode(str));
+String jobModelToJson(JobModel data) => json.encode(data.toJson());
+
 class JobModel {
   JobModel({
     this.jobs,
