@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:find_mentor/model/job_model.dart';
+import 'package:find_mentor/services/fetchJobs.dart';
 
 class AppWidget {
   static ThemeData getThemeData() {
@@ -14,18 +16,25 @@ class AppWidget {
       backgroundColor: AppConstant.colorPageBg,
 
       textTheme: TextTheme(
-        display1: TextStyle(fontSize: AppConstant.fontSizeDisplay, fontWeight: FontWeight.bold),
-        headline: TextStyle(fontSize: AppConstant.fontSizeHeadline, fontWeight: FontWeight.bold),
-        title: TextStyle(fontSize: AppConstant.fontSizeTitle, fontWeight: FontWeight.bold),
+        display1: TextStyle(
+            fontSize: AppConstant.fontSizeDisplay, fontWeight: FontWeight.bold),
+        headline: TextStyle(
+            fontSize: AppConstant.fontSizeHeadline,
+            fontWeight: FontWeight.bold),
+        title: TextStyle(
+            fontSize: AppConstant.fontSizeTitle, fontWeight: FontWeight.bold),
         body1: TextStyle(fontSize: AppConstant.fontSizeBody),
-        body2: TextStyle(fontSize: AppConstant.fontSizeBody2, fontWeight: FontWeight.bold),
-        caption: TextStyle(fontSize: AppConstant.fontSizeCaption, fontWeight: FontWeight.bold),
+        body2: TextStyle(
+            fontSize: AppConstant.fontSizeBody2, fontWeight: FontWeight.bold),
+        caption: TextStyle(
+            fontSize: AppConstant.fontSizeCaption, fontWeight: FontWeight.bold),
       ),
       appBarTheme: AppBarTheme(brightness: Brightness.light),
     );
   }
 
-  static Widget getSearchBox(isKeyboardVisible, context, pageHintText, {FocusNode focusNode}) {
+  static Widget getSearchBox(isKeyboardVisible, context, pageHintText,
+      {FocusNode focusNode}) {
     TextEditingController _searchController = TextEditingController();
     return Row(
       children: <Widget>[
@@ -36,24 +45,38 @@ class AppWidget {
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: isKeyboardVisible ? Color(0xFFF3A5B1) : Colors.transparent),
+                border: Border.all(
+                    color: isKeyboardVisible
+                        ? Color(0xFFF3A5B1)
+                        : Colors.transparent),
                 boxShadow: [
                   !isKeyboardVisible
-                      ? BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 5.0, offset: Offset(0, 10))
-                      : BoxShadow(color: AppConstant.colorPrimary.withOpacity(0.1), offset: Offset(0, 0), blurRadius: 3, spreadRadius: 1)
+                      ? BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          blurRadius: 5.0,
+                          offset: Offset(0, 10))
+                      : BoxShadow(
+                          color: AppConstant.colorPrimary.withOpacity(0.1),
+                          offset: Offset(0, 0),
+                          blurRadius: 3,
+                          spreadRadius: 1)
                 ]),
             margin: const EdgeInsets.symmetric(horizontal: 16),
             child: Theme(
-              data: AppWidget.getThemeData().copyWith(primaryColor: Colors.grey),
+              data:
+                  AppWidget.getThemeData().copyWith(primaryColor: Colors.grey),
               child: Row(
                 children: <Widget>[
                   Flexible(
                     child: TextFormField(
                       focusNode: focusNode,
-                      controller: _searchController,
+                      onChanged: (searchText) {
+                        // print(searchText);
+                      },
                       decoration: InputDecoration(
                         hintText: pageHintText,
-                        hintStyle: TextStyle(fontSize: 14, color: AppConstant.colorBackButton),
+                        hintStyle: TextStyle(
+                            fontSize: 14, color: AppConstant.colorBackButton),
                         //
                         filled: true,
                         fillColor: Colors.white,
@@ -92,7 +115,7 @@ class AppWidget {
                             _searchController.text = "";
                           },
                         )
-                      : Container()
+                      : Container(),
                 ],
               ),
             ),
@@ -109,10 +132,13 @@ class AppWidget {
                       FocusScope.of(context).requestFocus(FocusNode());
                     },
                     child: Container(
-                        padding: EdgeInsets.only(top: 12, bottom: 12, right: 4, left: 4),
+                        padding: EdgeInsets.only(
+                            top: 12, bottom: 12, right: 4, left: 4),
                         child: Text(
                           AppConstant.cancelText,
-                          style: TextStyle(color: AppConstant.colorHeading, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              color: AppConstant.colorHeading,
+                              fontWeight: FontWeight.w500),
                         )),
                   ),
                 ),
@@ -128,7 +154,9 @@ class AppWidget {
           child: Container(
             width: 58,
             height: 4,
-            decoration: BoxDecoration(color: color, borderRadius: BorderRadius.all(Radius.circular(14))),
+            decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.all(Radius.circular(14))),
           ),
         ),
       );

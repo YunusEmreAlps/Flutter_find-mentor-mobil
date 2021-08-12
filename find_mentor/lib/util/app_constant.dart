@@ -41,7 +41,7 @@ class AppConstant {
   static const Color colorLightGreen = Color(0xFF5ED6C3);
 
   
-
+static const Color colorLink = Color(0xFF007BFF);
   static const Color colorGitHub = Color(0xFF222123);
   static const Color colorTwitter = Color(0xFF65AFF6);
   static const Color colorLinkedin = Color(0xFF007AB9);
@@ -115,6 +115,7 @@ class AppConstant {
   static final String googleFormLink = 'https://github.com/findmentor-network/find-mentor';
   static final String linkedinLink = 'https://www.linkedin.com/company/find-mentor-network';
   static final String youtubeLink = 'https://www.youtube.com/channel/UCx7Q-6Qqrf9TU5gY-i9xovA';
+  static final String addJobLink = 'https://docs.google.com/forms/d/e/1FAIpQLSehaOyJDsY_mKOPNYtwrgLv3ynbLUBDsIUFJqyTnNfW16ijPA/viewform';
 
   // Splash Screen
   static final String splashAnimatedText1 =  AppLocalizations.getString('Find & Match');

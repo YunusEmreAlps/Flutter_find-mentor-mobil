@@ -378,19 +378,3 @@ class MenteeCard extends StatelessWidget {
     }
   }
 }
-
-// Null Avatar
-Color randomColor() {
-  var random = Random();
-  final colorList = [
-    AppConstant.colorPrimary,
-    AppConstant.colorOrange,
-    AppConstant.colorGreen,
-    AppConstant.colorGrey,
-    AppConstant.colorLightOrange,
-    AppConstant.colorSkyBlue,
-    AppConstant.colorPurpleExtraLight,
-  ];
-  var color = colorList[random.nextInt(colorList.length)];
-  return color;
-}

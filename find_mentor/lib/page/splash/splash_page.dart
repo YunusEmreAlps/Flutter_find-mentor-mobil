@@ -1,8 +1,8 @@
 // Splash Screen
-import 'package:find_mentor/util/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:find_mentor/util/app_localizations.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 /*
@@ -43,6 +43,8 @@ class _SplashPageState extends State<SplashPage> {
               image: AssetImage(AppConstant.pngBackgroundImage),
               fit: BoxFit.cover),
         ),
+        
+
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
