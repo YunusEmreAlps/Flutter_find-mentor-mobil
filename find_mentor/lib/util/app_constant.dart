@@ -27,7 +27,7 @@ class AppConstant {
   static const Color colorLightBlue = Color(0xFF7FBCFB);
   static const Color colorExtraLightBlue = Color(0xFFD9EEFF);
   static const Color colorOrange = Color(0xFFFA8C73);
-  static const Color colorLightOrange = Color(0xFFFA9881);
+  static const Color colorLightOrange = Color(0xFFFF7643); // Color(0xFFFA9881);
   static const Color colorSubTitleTextColor = Color(0xFFB9BFCD);
   static const Color colorGrey = Color(0xFFB8BFCE);
   static const Color colorGreyIcon = Color(0xFFE2E6EB);
@@ -39,9 +39,9 @@ class AppConstant {
   static const Color colorIconColor = Color(0xFFCBD0DB);
   static const Color colorGreen = Color(0xFF4CD1BC);
   static const Color colorLightGreen = Color(0xFF5ED6C3);
-
+  static const Color colorRed = Color(0xFFFC5565);
   
-static const Color colorLink = Color(0xFF007BFF);
+  static const Color colorLink = Color(0xFF007BFF);
   static const Color colorGitHub = Color(0xFF222123);
   static const Color colorTwitter = Color(0xFF65AFF6);
   static const Color colorLinkedin = Color(0xFF007AB9);
@@ -86,6 +86,7 @@ static const Color colorLink = Color(0xFF007BFF);
   static final String menteesText = AppLocalizations.getString('Mentees');
   static final String sendText = AppLocalizations.getString('Send');
   static final String requirementsText = AppLocalizations.getString('Requirements');
+  static final String speakersText = AppLocalizations.getString('Speakers');
   static final String cancelText = AppLocalizations.getString('Cancel');
   static final String socialText = AppLocalizations.getString("Social");
   static final String getConnectedText = AppLocalizations.getString("Get Connected");
@@ -100,15 +101,19 @@ static const Color colorLink = Color(0xFF007BFF);
   static final String searchMentorText = AppLocalizations.getString('Search in mentors by name...');
   static final String searchMenteeText = AppLocalizations.getString('Search in mentees by name...');
   static final String searchJobText = AppLocalizations.getString('Job title, keywords, or company');
+  static final String searchEventText = AppLocalizations.getString('Search for the event you want to join');
   static final String contactDetailsText = AppLocalizations.getString('Contact Details');
   static final String websiteBtnText = AppLocalizations.getString('Find Mentor Network');
   static final String contributionsText = AppLocalizations.getString('Feel free to contribute!');
   static final String suggestionsDetails = 'Every night & every deploy, the spreadsheet will be parsed by GitHub actions, then generate this beauty.\n\n\nIf you have any queries or issues for which you need your assistance: Feel free to mail us.';
+  static final String jobsPageGuide = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can list your job listing below for 30 days.';
+  static final String eventsPageGuide = 'You can find all the events organized by';
 
   // Links
   static final String websiteLink = 'https://findmentor.network/';
   static final String discordLink = 'https://discord.gg/EDwkj6Z7W2';
   static final String twitterLink = 'https://twitter.com/findmentorapp';
+  static final String apiEventsURL = 'assets/lottie/events.json';
   static final String apiJobsURL = 'https://findmentor.network/jobs.json';
   static final String apiPersonsURL = 'https://findmentor.network/persons.json';
   static final String githubLink = 'https://github.com/findmentor-network/find-mentor';
@@ -159,4 +164,5 @@ static const Color colorLink = Color(0xFF007BFF);
   static int mentorCount = 0;
   static int menteesCount = 0;
   static int jobsCount = 0;
+  static int eventsCount = 0;
 }

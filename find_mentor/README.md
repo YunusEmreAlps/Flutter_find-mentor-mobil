@@ -180,3 +180,7 @@ Mentors Page (Top)             | Mentors Page               | Mentors Page      
 Jobs Page (Top)             | Jobs Page               | Jobs Page                |  Jobs Page (Bottom)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/21.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/22.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/23.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/24.png?raw=true)|
+
+Events Page (Top)             | Events Page               | Events Page                |  Events Page (Bottom)
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/25.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/26.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/27.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/28.png?raw=true)|

@@ -73,6 +73,7 @@ flutter:
     - assets/i18n/
     - assets/icons/
     - assets/images/
+    - assets/lottie/
     - assets/images/splash/
 
   # An image asset can refer to one or more resolution-specific "variants", see

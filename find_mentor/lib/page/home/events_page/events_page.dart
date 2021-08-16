@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:find_mentor/page/home/events_page/events_detail_page.dart';
 
 class EventsPage extends StatefulWidget {
   @override
@@ -8,9 +9,7 @@ class EventsPage extends StatefulWidget {
 }
 
 class _EventsPageState extends State<EventsPage> {
-  PageController _pageController = PageController(initialPage: 0);
   bool isEmpty = false;
-  int _selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,10 @@ class _EventsPageState extends State<EventsPage> {
         centerTitle: true,
         backgroundColor: AppConstant.colorPageBg,
         title: Text(
-          AppConstant.eventsText,
+          AppConstant.eventsText +
+              ((AppConstant.eventsCount != 0)
+                  ? " (${AppConstant.eventsCount})"
+                  : ""),
           style: TextStyle(
               fontFamily: "Gilroy",
               foreground: Paint()
@@ -37,7 +39,9 @@ class _EventsPageState extends State<EventsPage> {
       ),
       body: Stack(
         alignment: Alignment.center,
-        children: <Widget>[],
+        children: <Widget>[
+          EventsDetailPage(),
+        ],
       ),
     );
   }

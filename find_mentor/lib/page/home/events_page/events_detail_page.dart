@@ -1,19 +1,23 @@
+import 'dart:convert';
 import 'dart:ui' as ui;
-import 'package:find_mentor/widget/custom_clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/services/fetchJobs.dart';
-import 'package:find_mentor/page/home/jobs_page/jobs_list.dart';
+import 'package:find_mentor/services/fetchEvents.dart';
+import 'package:find_mentor/page/home/events_page/events_list.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/gestures.dart';
+import 'package:find_mentor/model/event.dart';
 
-class JobsDetailPage extends StatefulWidget {
+class EventsDetailPage extends StatefulWidget {
   @override
-  _JobsDetailPageState createState() => _JobsDetailPageState();
+  _EventsDetailPageState createState() => _EventsDetailPageState();
 }
 
-class _JobsDetailPageState extends State<JobsDetailPage> {
+class _EventsDetailPageState extends State<EventsDetailPage> {
+  List<EventElement> data;
+
   bool isKeyboardVisible;
 
   @override
@@ -35,7 +39,7 @@ class _JobsDetailPageState extends State<JobsDetailPage> {
                       shadowColor: Colors.black38,
                       elevation: 4,
                       child: AppWidget.getSearchBox(isKeyboardVisible, context,
-                          AppConstant.searchJobText),
+                          AppConstant.searchEventText),
                     ),
                   ),
                   // Description
@@ -46,7 +50,7 @@ class _JobsDetailPageState extends State<JobsDetailPage> {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 165.0,
+                            height: 100.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.bottomLeft,
@@ -103,50 +107,57 @@ class _JobsDetailPageState extends State<JobsDetailPage> {
                                                       children: [
                                                         Container(
                                                           width: 260,
-                                                          child: Text(
-                                                            AppConstant.jobsPageGuide,
+                                                          child: RichText(
                                                             textAlign:
                                                                 TextAlign.left,
-                                                            style: TextStyle(
-                                                              fontFamily:
-                                                                  "Gilroy",
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              fontSize: 12,
-                                                              color: Color(0xff7B7F9E),
-                                                              height: 1.5,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        InkWell(
-                                                          onTap: () {
-                                                            _launchURL(
-                                                                AppConstant
-                                                                    .addJobLink);
-                                                          },
-                                                          child: Container(
-                                                            width: 260,
-                                                            child: Text(
-                                                              "Add your job listing",
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .left,
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    "Gilroy",
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontSize: 13,
-                                                                // color: Color(0xFFB5BFD0),
-                                                                color: AppConstant
-                                                                    .colorLink,
-                                                                height: 1.5,
-                                                              ),
+                                                            text: new TextSpan(
+                                                              children: <
+                                                                  TextSpan>[
+                                                                new TextSpan(
+                                                                  text: AppConstant
+                                                                      .eventsPageGuide,
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontFamily:
+                                                                        "Gilroy",
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    fontSize:
+                                                                        12,
+                                                                    color: Color(
+                                                                        0xff7B7F9E),
+                                                                    height: 1.5,
+                                                                  ),
+                                                                ),
+                                                                new TextSpan(
+                                                                    text: ' '),
+                                                                new TextSpan(
+                                                                  text: AppConstant
+                                                                      .websiteBtnText,
+                                                                  style:
+                                                                      new TextStyle(
+                                                                    fontFamily:
+                                                                        "Gilroy",
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontSize:
+                                                                        13,
+                                                                    // color: Color(0xFFB5BFD0),
+                                                                    color: AppConstant
+                                                                        .colorLink,
+                                                                    height: 1.5,
+                                                                  ),
+                                                                  recognizer:
+                                                                      new TapGestureRecognizer()
+                                                                        ..onTap =
+                                                                            () {
+                                                                          launch(
+                                                                              AppConstant.websiteLink);
+                                                                        },
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
@@ -176,10 +187,10 @@ class _JobsDetailPageState extends State<JobsDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           FutureBuilder(
-                            future: fetchJobs(),
+                            future: fetchEvents(),
                             builder: (context, snapshot) {
                               return snapshot.hasData
-                                  ? Jobs(jobs: snapshot.data)
+                                  ? Events(events: snapshot.data)
                                   : Center(
                                       child: Column(
                                         mainAxisAlignment:

@@ -1,0 +1,48 @@
+{
+  "events":[
+     {
+        "event_name":"Code Crunching With Mentees",
+        "speakers":[
+           {
+              "name":"Find Mentor",
+              "twitter":"https://twitter.com/findmentorapp"
+           },
+           {
+              "name":"Kodluyoruz",
+              "twitter":"https://twitter.com/kodluyoruz"
+           }
+        ],
+        "link":"https://www.hackerrank.com/code-crunching-with-mentees",
+        "date":"2021/03/27",
+        "status":"done"
+     },
+     {
+        "event_name":"What is the findmentor.network? How was start?",
+        "speakers":[
+           {
+              "name":"Çağatay Çalı",
+              "twitter":"https://twitter.com/cagataycali"
+           }
+        ],
+        "link":"https://www.youtube.com/watch?v=IhNCyOx-2Yc&t=1s",
+        "date":"2020/12/20",
+        "status":"done"
+     },
+     {
+        "event_name":"Q/A About Technical Interviews with Orhan ÖZALP",
+        "speakers":[
+           {
+              "name":"Çağatay Çalı",
+              "twitter":"https://twitter.com/cagataycali"
+           },
+           {
+              "name":"Orhan ÖZALP",
+              "twitter":"https://twitter.com/ocozalp"
+           }
+        ],
+        "link":"https://www.youtube.com/watch?v=5ntPmkZXxb8&t=2s",
+        "date":"2020/12/24",
+        "status":"done"
+     }
+  ]
+}
