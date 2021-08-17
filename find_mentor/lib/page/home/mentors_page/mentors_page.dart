@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/page/home/mentors_page/mentors_detail_page.dart';
+import 'package:find_mentor/page/home/mentors_page/mentors_page_body.dart';
 
 class MentorsPage extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _MentorsPageState extends State<MentorsPage> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          MentorsDetailPage(),
+          MentorsPageBody(),
         ],
       ),
     );

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/services/fetchMentors.dart';
-import 'package:find_mentor/page/home/mentors_page/mentors_list.dart';
+import 'package:find_mentor/services/fetchMentees.dart';
+import 'package:find_mentor/page/home/mentees_page/mentees_list.dart';
 
-class MentorsDetailPage extends StatefulWidget {
+
+class MenteesPageBody extends StatefulWidget {
   @override
-  _MentorsDetailPageState createState() => _MentorsDetailPageState();
+  _MenteesPageBodyState createState() => _MenteesPageBodyState();
 }
 
-class _MentorsDetailPageState extends State<MentorsDetailPage> {
+class _MenteesPageBodyState extends State<MenteesPageBody> {
   bool isKeyboardVisible;
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _MentorsDetailPageState extends State<MentorsDetailPage> {
                       shadowColor: Colors.black38,
                       elevation: 4,
                       child: AppWidget.getSearchBox(isKeyboardVisible, context,
-                          AppConstant.searchMentorText),
+                          AppConstant.searchMenteeText),
                     ),
                   ),
                   SingleChildScrollView(
@@ -40,10 +42,10 @@ class _MentorsDetailPageState extends State<MentorsDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           FutureBuilder(
-                            future: fetchMentors(),
+                            future: fetchMentees(),
                             builder: (context, snapshot) {
                               return snapshot.hasData
-                                  ? Mentors(mentors: snapshot.data)
+                                  ? Mentees(mentees: snapshot.data)
                                   : Center(
                                       child: Column(
                                         mainAxisAlignment:

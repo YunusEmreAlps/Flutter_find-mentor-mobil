@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/page/home/events_page/events_detail_page.dart';
+import 'package:find_mentor/page/home/events_page/events_page_body.dart';
 
 class EventsPage extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _EventsPageState extends State<EventsPage> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          EventsDetailPage(),
+          EventsPageBody(),
         ],
       ),
     );

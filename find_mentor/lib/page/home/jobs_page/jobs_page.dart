@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/services/fetchJobs.dart';
-import 'package:find_mentor/page/home/jobs_page/jobs_detail_page.dart';
+import 'package:find_mentor/page/home/jobs_page/jobs_page_body.dart';
 
 class JobsPage extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _JobsPageState extends State<JobsPage> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          JobsDetailPage(),
+          JobsPageBody(),
         ],
       ),
     );

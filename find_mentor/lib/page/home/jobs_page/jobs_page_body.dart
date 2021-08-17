@@ -1,5 +1,4 @@
 import 'dart:ui' as ui;
-import 'package:find_mentor/widget/custom_clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/size_config.dart';
@@ -8,12 +7,12 @@ import 'package:find_mentor/services/fetchJobs.dart';
 import 'package:find_mentor/page/home/jobs_page/jobs_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class JobsDetailPage extends StatefulWidget {
+class JobsPageBody extends StatefulWidget {
   @override
-  _JobsDetailPageState createState() => _JobsDetailPageState();
+  _JobsPageBodyState createState() => _JobsPageBodyState();
 }
 
-class _JobsDetailPageState extends State<JobsDetailPage> {
+class _JobsPageBodyState extends State<JobsPageBody> {
   bool isKeyboardVisible;
 
   @override

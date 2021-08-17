@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:find_mentor/model/job_model.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/page/home/mentees_page/mentees_page_body.dart';
+import 'package:find_mentor/page/home/jobs_page/jobs_page.dart';
 
-class MenteesPage extends StatefulWidget {
-  @override
-  _MenteesPageState createState() => _MenteesPageState();
-}
-
-class _MenteesPageState extends State<MenteesPage> {
-  bool isEmpty = false;
+class JobsDetailPage extends StatelessWidget{
+  final Job jobDetail;
+  const JobsDetailPage({Key key, @required this.jobDetail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => JobsPage(),
+              ),
+            );
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: AppConstant.colorHeading,
@@ -26,10 +30,7 @@ class _MenteesPageState extends State<MenteesPage> {
         centerTitle: true,
         backgroundColor: AppConstant.colorPageBg,
         title: Text(
-          AppConstant.menteesText +
-              ((AppConstant.menteesCount != 0)
-                  ? " (${AppConstant.menteesCount})"
-                  : ""),
+          jobDetail.company,
           style: TextStyle(
               fontFamily: "Gilroy",
               foreground: Paint()
@@ -40,9 +41,9 @@ class _MenteesPageState extends State<MenteesPage> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          MenteesPageBody(),
         ],
       ),
     );
   }
 }
+

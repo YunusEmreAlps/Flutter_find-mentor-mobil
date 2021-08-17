@@ -1,13 +1,12 @@
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:find_mentor/enums.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:find_mentor/model/job_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:find_mentor/page/home/jobs_detail_page/jobs_detail_page.dart';
 
 class Jobs extends StatelessWidget {
   const Jobs({
@@ -30,14 +29,14 @@ class Jobs extends StatelessWidget {
         itemBuilder: (context, index) => JobCard(
           job: jobs[index],
           press: () {
-            /*Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailsScreen(
-                  person: mentors[index],
+                builder: (context) => JobsDetailPage(
+                  jobDetail: jobs[index],
                 ),
               ),
-            );*/
+            );
           },
         ),
       ),

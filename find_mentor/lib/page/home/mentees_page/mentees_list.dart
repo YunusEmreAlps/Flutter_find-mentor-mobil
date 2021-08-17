@@ -175,16 +175,18 @@ class MenteeCard extends StatelessWidget {
                                           child: CachedNetworkImage(
                                             imageUrl: mentees.avatar,
                                             fit: BoxFit.contain,
-                                            errorWidget:
-                                                (context, url, error) =>  Image.asset(AppConstant.pngUserImage),
+                                            placeholder: (context, url) =>
+                                                CircularProgressIndicator(
+                                              strokeWidth: 3,
+                                              valueColor:
+                                                  AlwaysStoppedAnimation(
+                                                      AppConstant.colorPrimary),
+                                            ),
+                                            errorWidget: (context, url,
+                                                    error) =>
+                                                Image.asset(
+                                                    AppConstant.pngUserImage),
                                           ),
-
-                                          /*Image.network(
-                                            (mentees.avatar != null)
-                                                ? mentees.avatar
-                                                : randomColor(),
-                                            fit: BoxFit.cover,
-                                          ),*/
                                         ),
                                       ),
                                     ),

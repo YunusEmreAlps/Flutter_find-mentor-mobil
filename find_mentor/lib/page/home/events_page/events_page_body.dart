@@ -10,12 +10,12 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
 import 'package:find_mentor/model/event.dart';
 
-class EventsDetailPage extends StatefulWidget {
+class EventsPageBody extends StatefulWidget {
   @override
-  _EventsDetailPageState createState() => _EventsDetailPageState();
+  _EventsPageBodyState createState() => _EventsPageBodyState();
 }
 
-class _EventsDetailPageState extends State<EventsDetailPage> {
+class _EventsPageBodyState extends State<EventsPageBody> {
   List<EventElement> data;
 
   bool isKeyboardVisible;

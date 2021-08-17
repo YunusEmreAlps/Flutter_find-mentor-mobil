@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/services/fetchMentees.dart';
-import 'package:find_mentor/page/home/mentees_page/mentees_list.dart';
+import 'package:find_mentor/services/fetchMentors.dart';
+import 'package:find_mentor/page/home/mentors_page/mentors_list.dart';
 
-import 'package:find_mentor/model/person.dart';
-
-class MenteesDetailPage extends StatefulWidget {
+class MentorsPageBody extends StatefulWidget {
   @override
-  _MenteesDetailPageState createState() => _MenteesDetailPageState();
+  _MentorsPageBodyState createState() => _MentorsPageBodyState();
 }
 
-class _MenteesDetailPageState extends State<MenteesDetailPage> {
+class _MentorsPageBodyState extends State<MentorsPageBody> {
   bool isKeyboardVisible;
-  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,7 @@ class _MenteesDetailPageState extends State<MenteesDetailPage> {
                       shadowColor: Colors.black38,
                       elevation: 4,
                       child: AppWidget.getSearchBox(isKeyboardVisible, context,
-                          AppConstant.searchMenteeText),
+                          AppConstant.searchMentorText),
                     ),
                   ),
                   SingleChildScrollView(
@@ -43,10 +40,10 @@ class _MenteesDetailPageState extends State<MenteesDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           FutureBuilder(
-                            future: fetchMentees(),
+                            future: fetchMentors(),
                             builder: (context, snapshot) {
                               return snapshot.hasData
-                                  ? Mentees(mentees: snapshot.data)
+                                  ? Mentors(mentors: snapshot.data)
                                   : Center(
                                       child: Column(
                                         mainAxisAlignment:

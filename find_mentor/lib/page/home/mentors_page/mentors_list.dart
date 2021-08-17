@@ -175,8 +175,10 @@ class MentorCard extends StatelessWidget {
                                           child: CachedNetworkImage(
                                             imageUrl: mentor.avatar,
                                             fit: BoxFit.contain,
-                                            errorWidget:
-                                                (context, url, error) =>  Image.asset(AppConstant.pngUserImage),
+                                            errorWidget: (context, url,
+                                                    error) =>
+                                                Image.asset(
+                                                    AppConstant.pngUserImage),
                                           ),
                                         ),
                                       ),
@@ -199,15 +201,6 @@ class MentorCard extends StatelessWidget {
                                               ),
                                             ),
                                           ),
-
-                                          /*Text(
-                                            mentor.name,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontFamily: "Gilroy",
-                                              color: AppConstant.colorMentor,
-                                            ),
-                                          ),*/
                                           SizedBox(
                                             height: 10,
                                           ),
@@ -297,8 +290,7 @@ class MentorCard extends StatelessWidget {
                                             SizeConfig.defaultSize * 4, // 40
                                         width: SizeConfig.defaultSize * 4, // 40
                                         decoration: BoxDecoration(
-                                          color: AppConstant
-                                              .colorPrimary,
+                                          color: AppConstant.colorPrimary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: SvgPicture.asset(
@@ -322,8 +314,7 @@ class MentorCard extends StatelessWidget {
                                             SizeConfig.defaultSize * 4, // 40
                                         width: SizeConfig.defaultSize * 4, // 40
                                         decoration: BoxDecoration(
-                                          color: AppConstant
-                                              .colorPrimary, 
+                                          color: AppConstant.colorPrimary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: SvgPicture.asset(
@@ -347,8 +338,7 @@ class MentorCard extends StatelessWidget {
                                             SizeConfig.defaultSize * 4, // 40
                                         width: SizeConfig.defaultSize * 4, // 40
                                         decoration: BoxDecoration(
-                                          color: AppConstant
-                                              .colorPrimary,
+                                          color: AppConstant.colorPrimary,
                                           shape: BoxShape.circle,
                                         ),
                                         child: SvgPicture.asset(

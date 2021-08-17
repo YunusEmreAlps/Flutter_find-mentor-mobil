@@ -1,14 +1,10 @@
-import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:find_mentor/enums.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:find_mentor/model/event.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/widget/event_badge.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class Events extends StatelessWidget {
   const Events({
@@ -333,32 +329,6 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  // Speakers
-  Widget buildSpeakersItem(int index) {
-    return GestureDetector(
-      onTap: () {
-        _launchURL(event.speakers[index].twitter);
-      },
-      child: Container(
-        alignment: Alignment.center,
-        margin: EdgeInsets.only(left: SizeConfig.defaultSize * 2),
-        padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.defaultSize * 2, //20
-          vertical: SizeConfig.defaultSize * 0.5, //5
-        ),
-        child: Text(
-          event.speakers[index].name,
-          style: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 12,
-            // color: Color(0xFFB5BFD0),
-            color: Color(0xFF898989),
-          ),
-        ),
-      ),
-    );
-  }
-
   // Event Status
   Widget buildStatusBadge(String eventStatus) {
     Color eventColor;
@@ -386,15 +356,15 @@ class EventCard extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: CustomPaint(
-          painter: EventBadge(color: eventColor),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-            child: Text(
-              eventText,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-          )),
+        painter: EventBadge(color: eventColor),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+          child: Text(
+            eventText,
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
     );
   }
 
