@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:find_mentor/util/app_localizations.dart';
 
 class AppConstant {
@@ -40,7 +42,7 @@ class AppConstant {
   static const Color colorGreen = Color(0xFF4CD1BC);
   static const Color colorLightGreen = Color(0xFF5ED6C3);
   static const Color colorRed = Color(0xFFFC5565);
-  
+
   static const Color colorLink = Color(0xFF007BFF);
   static const Color colorGitHub = Color(0xFF222123);
   static const Color colorTwitter = Color(0xFF65AFF6);
@@ -123,14 +125,14 @@ class AppConstant {
   static final String addJobLink = 'https://docs.google.com/forms/d/e/1FAIpQLSehaOyJDsY_mKOPNYtwrgLv3ynbLUBDsIUFJqyTnNfW16ijPA/viewform';
 
   // Splash Screen
-  static final String splashAnimatedText1 =  AppLocalizations.getString('Find & Match');
-  static final String splashAnimatedText2 =  AppLocalizations.getString('Meet, Ask, Listen, Learn');
-  static final String splashAnimatedText3 =  AppLocalizations.getString('Change Your Career');
+  static final String splashAnimatedText1 = AppLocalizations.getString('Find & Match');
+  static final String splashAnimatedText2 = AppLocalizations.getString('Meet, Ask, Listen, Learn');
+  static final String splashAnimatedText3 = AppLocalizations.getString('Change Your Career');
 
   // Error Messages
-  static final String callErrorText =  AppLocalizations.getString('Call failed');
-  static final String mailErrorText =  AppLocalizations.getString('E-Mail not delivered');
-  static final String websiteErrorText =  AppLocalizations.getString('Could not open website!');
+  static final String callErrorText = AppLocalizations.getString('Call failed');
+  static final String mailErrorText = AppLocalizations.getString('E-Mail not delivered');
+  static final String websiteErrorText = AppLocalizations.getString('Could not open website!');
 
   // Pages
   static final String pageSplash = "/";
@@ -158,11 +160,27 @@ class AppConstant {
   static final String svgMenteeGitHub = "assets/icons/Github3.svg";
   static final String svgMenteeTwitter = "assets/icons/Twitter3.svg";
   static final String svgMenteeLinkedin = "assets/icons/Linkedin4.svg";
-  
 
   // Global Variables
   static int mentorCount = 0;
   static int menteesCount = 0;
   static int jobsCount = 0;
   static int eventsCount = 0;
+
+  // URL
+  static void launchURL(String url) async {
+    if (url == null) {
+      return;
+    }
+    try {
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw AppConstant.websiteErrorText;
+      }
+    } catch (e) {
+      // An exception is thrown if browser app is not installed on Android device.
+      debugPrint(e.toString());
+    }
+  }
 }

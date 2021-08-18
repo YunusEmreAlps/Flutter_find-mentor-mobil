@@ -218,6 +218,7 @@ class MenteeCard extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
+                                                fontFamily: "Gilroy",
                                                 fontSize: 12,
                                                 // color: Color(0xFFB5BFD0),
                                                 color: Color(0xFF898989),
@@ -284,7 +285,7 @@ class MenteeCard extends StatelessWidget {
                                     // Twitter
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentees.twitterHandle);
+                                        AppConstant.launchURL(mentees.twitterHandle);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -308,7 +309,7 @@ class MenteeCard extends StatelessWidget {
                                     // GitHub
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentees.github);
+                                        AppConstant.launchURL(mentees.github);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -332,7 +333,7 @@ class MenteeCard extends StatelessWidget {
                                     // LinkedIn
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentees.linkedin);
+                                        AppConstant.launchURL(mentees.linkedin);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -369,14 +370,5 @@ class MenteeCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
   }
 }

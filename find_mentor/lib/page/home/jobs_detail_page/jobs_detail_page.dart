@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:find_mentor/model/job_model.dart';
 import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/page/home/jobs_page/jobs_page.dart';
+import 'package:find_mentor/page/home/home_navigator.dart';
+import 'package:find_mentor/page/home/jobs_detail_page/jobs_detail_page_body.dart';
 
 class JobsDetailPage extends StatelessWidget{
   final Job jobDetail;
@@ -14,12 +15,7 @@ class JobsDetailPage extends StatelessWidget{
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => JobsPage(),
-              ),
-            );
+            Navigator.of(context).pop();
           },
           icon: Icon(
             Icons.arrow_back_ios,
@@ -41,6 +37,7 @@ class JobsDetailPage extends StatelessWidget{
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
+          JobsDetailPageBody(jobDetail: jobDetail)
         ],
       ),
     );

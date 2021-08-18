@@ -158,7 +158,7 @@ class EventCard extends StatelessWidget {
                                           // Events Link
                                           InkWell(
                                             onTap: () {
-                                              _launchURL(event.link);
+                                              AppConstant.launchURL(event.link);
                                             },
                                             child: Container(
                                               width: 260,
@@ -239,8 +239,7 @@ class EventCard extends StatelessWidget {
                                           if (event.speakers.length > 0) {
                                             return InkWell(
                                               onTap: () {
-                                                _launchURL(event
-                                                    .speakers[index].twitter);
+                                                AppConstant.launchURL(event.speakers[index].twitter);
                                               },
                                               child: Container(
                                                 alignment: Alignment.center,
@@ -282,13 +281,6 @@ class EventCard extends StatelessWidget {
                                               height: 0,
                                             ),
                                         itemCount: event.speakers.length),
-
-                                    /*Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                  ],
-                                ),*/
                                   ),
                                 ),
                               ),
@@ -366,14 +358,5 @@ class EventCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
   }
 }

@@ -221,13 +221,4 @@ class _EventsPageBodyState extends State<EventsPageBody> {
       ),
     );
   }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
-  }
 }

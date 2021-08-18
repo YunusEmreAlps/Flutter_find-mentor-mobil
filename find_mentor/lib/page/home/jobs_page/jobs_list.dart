@@ -1,8 +1,6 @@
-import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:find_mentor/model/job_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -205,6 +203,7 @@ class JobCard extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
+                                                fontFamily: "Gilroy",
                                                 fontSize: 12,
                                                 // color: Color(0xFFB5BFD0),
                                                 color: Color(0xFF898989),
@@ -351,14 +350,5 @@ class JobCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
   }
 }

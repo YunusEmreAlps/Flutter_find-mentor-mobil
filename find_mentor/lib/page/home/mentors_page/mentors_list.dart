@@ -211,6 +211,7 @@ class MentorCard extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
+                                                fontFamily: "Gilroy",
                                                 fontSize: 12,
                                                 // color: Color(0xFFB5BFD0),
                                                 color: Color(0xFF898989),
@@ -277,7 +278,7 @@ class MentorCard extends StatelessWidget {
                                     // Twitter
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentor.twitterHandle);
+                                        AppConstant.launchURL(mentor.twitterHandle);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -301,7 +302,7 @@ class MentorCard extends StatelessWidget {
                                     // GitHub
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentor.github);
+                                        AppConstant.launchURL(mentor.github);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -325,7 +326,7 @@ class MentorCard extends StatelessWidget {
                                     // LinkedIn
                                     InkWell(
                                       onTap: () {
-                                        _launchURL(mentor.linkedin);
+                                        AppConstant.launchURL(mentor.linkedin);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -362,14 +363,5 @@ class MentorCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
   }
 }

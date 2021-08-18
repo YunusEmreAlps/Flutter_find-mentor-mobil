@@ -123,9 +123,7 @@ class _JobsPageBodyState extends State<JobsPageBody> {
                                                         ),
                                                         InkWell(
                                                           onTap: () {
-                                                            _launchURL(
-                                                                AppConstant
-                                                                    .addJobLink);
+                                                            AppConstant.launchURL(AppConstant.addJobLink);
                                                           },
                                                           child: Container(
                                                             width: 260,
@@ -208,14 +206,5 @@ class _JobsPageBodyState extends State<JobsPageBody> {
         ],
       ),
     );
-  }
-
-  // URL
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw AppConstant.websiteErrorText;
-    }
   }
 }
