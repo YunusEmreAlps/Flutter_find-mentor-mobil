@@ -33,29 +33,34 @@ class CompanyCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
-          child: Container(
-            padding: EdgeInsets.all(30 / 192 * 10),
-            height: 75,
-            width: 75,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  AppConstant.colorGreyLight.withOpacity(0.3),
-                  AppConstant.colorGreyLight.withOpacity(0.6)
-                ],
-                stops: [.5, 1],
+        child: InkWell(
+          onTap: () {
+            AppConstant.launchURL('https://www.${model.company}.com');
+          },
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
+            child: Container(
+              padding: EdgeInsets.all(30 / 192 * 10),
+              height: 75,
+              width: 75,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    AppConstant.colorGreyLight.withOpacity(0.3),
+                    AppConstant.colorGreyLight.withOpacity(0.6)
+                  ],
+                  stops: [.5, 1],
+                ),
               ),
-            ),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
-              child: CachedNetworkImage(
-                imageUrl: model.logo,
-                fit: BoxFit.contain,
-                errorWidget: (context, url, error) =>
-                    Image.asset(AppConstant.pngCompanyImage),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
+                child: CachedNetworkImage(
+                  imageUrl: model.logo,
+                  fit: BoxFit.contain,
+                  errorWidget: (context, url, error) =>
+                      Image.asset(AppConstant.pngCompanyImage),
+                ),
               ),
             ),
           ),
