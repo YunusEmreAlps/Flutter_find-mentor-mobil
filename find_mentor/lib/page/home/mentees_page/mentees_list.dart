@@ -1,10 +1,9 @@
-import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:find_mentor/enums.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:find_mentor/model/person.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -285,7 +284,7 @@ class MenteeCard extends StatelessWidget {
                                     // Twitter
                                     InkWell(
                                       onTap: () {
-                                        AppConstant.launchURL(mentees.twitterHandle);
+                                        Utility.launchURL(mentees.twitterHandle);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -309,7 +308,7 @@ class MenteeCard extends StatelessWidget {
                                     // GitHub
                                     InkWell(
                                       onTap: () {
-                                        AppConstant.launchURL(mentees.github);
+                                        Utility.launchURL(mentees.github);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(
@@ -333,7 +332,7 @@ class MenteeCard extends StatelessWidget {
                                     // LinkedIn
                                     InkWell(
                                       onTap: () {
-                                        AppConstant.launchURL(mentees.linkedin);
+                                        Utility.launchURL(mentees.linkedin);
                                       },
                                       child: Container(
                                         margin: EdgeInsets.symmetric(

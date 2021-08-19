@@ -1,11 +1,11 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/services/fetchJobs.dart';
 import 'package:find_mentor/page/home/jobs_page/jobs_list.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class JobsPageBody extends StatefulWidget {
   @override
@@ -123,7 +123,7 @@ class _JobsPageBodyState extends State<JobsPageBody> {
                                                         ),
                                                         InkWell(
                                                           onTap: () {
-                                                            AppConstant.launchURL(AppConstant.addJobLink);
+                                                            Utility.launchURL(AppConstant.addJobLink);
                                                           },
                                                           child: Container(
                                                             width: 260,

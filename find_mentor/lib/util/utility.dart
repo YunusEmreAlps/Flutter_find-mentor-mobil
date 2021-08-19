@@ -1,3 +1,4 @@
+import 'package:find_mentor/util/app_constant.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -18,6 +19,23 @@ class Utility {
     final isOK = await canLaunch(link);
     if (isOK) {
       launch(link);
+    }
+  }
+
+  // URL
+  static void launchURL(String url) async {
+    if (url == null) {
+      return;
+    }
+    try {
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw AppConstant.websiteErrorText;
+      }
+    } catch (e) {
+      // An exception is thrown if browser app is not installed on Android device.
+      debugPrint(e.toString());
     }
   }
 

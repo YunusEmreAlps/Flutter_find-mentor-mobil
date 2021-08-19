@@ -1,7 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:find_mentor/model/event.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/widget/event_badge.dart';
@@ -158,7 +158,7 @@ class EventCard extends StatelessWidget {
                                           // Events Link
                                           InkWell(
                                             onTap: () {
-                                              AppConstant.launchURL(event.link);
+                                              Utility.launchURL(event.link);
                                             },
                                             child: Container(
                                               width: 260,

@@ -42,7 +42,7 @@ class AppConstant {
   static const Color colorGreen = Color(0xFF4CD1BC);
   static const Color colorLightGreen = Color(0xFF5ED6C3);
   static const Color colorRed = Color(0xFFFC5565);
-
+  static const Color jobTextLink = Color(0xFF525A63);
   static const Color colorLink = Color(0xFF007BFF);
   static const Color colorGitHub = Color(0xFF222123);
   static const Color colorTwitter = Color(0xFF65AFF6);
@@ -166,21 +166,4 @@ class AppConstant {
   static int menteesCount = 0;
   static int jobsCount = 0;
   static int eventsCount = 0;
-
-  // URL
-  static void launchURL(String url) async {
-    if (url == null) {
-      return;
-    }
-    try {
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw AppConstant.websiteErrorText;
-      }
-    } catch (e) {
-      // An exception is thrown if browser app is not installed on Android device.
-      debugPrint(e.toString());
-    }
-  }
 }

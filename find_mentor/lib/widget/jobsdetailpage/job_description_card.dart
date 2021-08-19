@@ -1,4 +1,3 @@
-import 'package:find_mentor/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/model/job_model.dart';
@@ -68,10 +67,10 @@ class JobDescriptionCard extends StatelessWidget {
               p: Theme.of(context)
                   .textTheme
                   .body1
-                  .copyWith(fontSize: 14.0, fontFamily: "Gilroy"),
+                  .copyWith(fontSize: 14.0, fontFamily: "Gilroy", color: AppConstant.jobTextLink),
             ),
             onTapLink: (url){
-              AppConstant.launchURL(url);
+              Utility.launchURL(url);
             },
           ),
         ],

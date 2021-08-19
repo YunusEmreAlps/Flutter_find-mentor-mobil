@@ -1,9 +1,9 @@
 import 'dart:ui' as ui;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/model/job_model.dart';
 import 'package:find_mentor/util/app_constant.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CompanyCard extends StatelessWidget {
   const CompanyCard({Key key, this.model}) : super(key: key);
@@ -35,7 +35,7 @@ class CompanyCard extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            AppConstant.launchURL('https://www.${model.company}.com');
+            Utility.launchURL('https://www.${model.company}.com');
           },
           child: Padding(
             padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
@@ -122,7 +122,7 @@ class CompanyCard extends StatelessWidget {
                 // Apply Company Website
                 InkWell(
                   onTap: () {
-                    AppConstant.launchURL(model.address);
+                    Utility.launchURL(model.address);
                   },
                   child: Container(
                     alignment: Alignment.center,
