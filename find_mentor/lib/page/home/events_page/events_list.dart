@@ -239,7 +239,7 @@ class EventCard extends StatelessWidget {
                                           if (event.speakers.length > 0) {
                                             return InkWell(
                                               onTap: () {
-                                                AppConstant.launchURL(event.speakers[index].twitter);
+                                                Utility.launchURL(event.speakers[index].twitter);
                                               },
                                               child: Container(
                                                 alignment: Alignment.center,
@@ -298,7 +298,7 @@ class EventCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "",
+                          '',
                           style: TextStyle(
                               fontFamily: "Gilroy",
                               color: AppConstant.colorGrey),

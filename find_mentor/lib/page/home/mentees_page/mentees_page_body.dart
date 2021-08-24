@@ -1,9 +1,10 @@
+import 'package:find_mentor/model/person.dart';
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/services/fetchMentees.dart';
 import 'package:find_mentor/page/home/mentees_page/mentees_list.dart';
-
+import 'package:scoped_model/scoped_model.dart';
 
 class MenteesPageBody extends StatefulWidget {
   @override
@@ -12,7 +13,26 @@ class MenteesPageBody extends StatefulWidget {
 
 class _MenteesPageBodyState extends State<MenteesPageBody> {
   bool isKeyboardVisible;
+  MenteeModel model = MenteeModel();
   ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Setup the listener.
+    scrollController.addListener(() {
+      if (scrollController.position.maxScrollExtent ==
+          scrollController.offset) {
+        print('Controller at bottom');
+        model.fetchMentees();
+      }
+    });
+    model.addListener(() {
+      print('Change Occured');
+    });
+    model.fetchMentees();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +42,7 @@ class _MenteesPageBodyState extends State<MenteesPageBody> {
         children: <Widget>[
           Expanded(
             child: SingleChildScrollView(
+              controller: scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -35,34 +56,26 @@ class _MenteesPageBodyState extends State<MenteesPageBody> {
                           AppConstant.searchMenteeText),
                     ),
                   ),
-                  SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+                  SizedBox(height: 20,),
+                  Container(
                     child: SafeArea(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          FutureBuilder(
-                            future: fetchMentees(),
-                            builder: (context, snapshot) {
-                              return snapshot.hasData
-                                  ? Mentees(mentees: snapshot.data)
-                                  : Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          CircularProgressIndicator(
-                                            strokeWidth: 3,
-                                            valueColor: AlwaysStoppedAnimation(
-                                                AppConstant.colorPrimary),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                            },
+                          ScopedModel(
+                            model: model,
+                            child: ScopedModelDescendant<MenteeModel>(
+                              builder: (context, child, modelInstance) {
+                                if (model.menteesList.length > 0) {
+                                  return ListView(
+                                    shrinkWrap: true,
+                                    physics: ScrollPhysics(),
+                                    children: _getChildList(model.menteesList),
+                                  );
+                                }
+                                return Container();
+                              },
+                            ),
                           ),
                         ],
                       ),
@@ -75,5 +88,30 @@ class _MenteesPageBodyState extends State<MenteesPageBody> {
         ],
       ),
     );
+  }
+
+  _getChildList(List<Person> menteeList) {
+    List<Widget> widgetList = [];
+    menteeList.forEach((listElement) {
+      widgetList.add(MenteeCard(
+        mentees: listElement,
+      ));
+    });
+    if (widgetList.length > 0) {
+      widgetList.add(
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator(
+                strokeWidth: 3,
+                valueColor: AlwaysStoppedAnimation(AppConstant.colorPrimary),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    return widgetList;
   }
 }

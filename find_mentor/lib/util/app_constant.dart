@@ -162,7 +162,7 @@ class AppConstant {
   static final String svgMenteeLinkedin = "assets/icons/Linkedin4.svg";
 
   // Global Variables
-  static int mentorCount = 0;
+  static int mentorsCount = 0;
   static int menteesCount = 0;
   static int jobsCount = 0;
   static int eventsCount = 0;

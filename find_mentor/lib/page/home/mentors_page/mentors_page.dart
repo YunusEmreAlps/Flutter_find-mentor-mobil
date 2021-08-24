@@ -9,9 +9,7 @@ class MentorsPage extends StatefulWidget {
 }
 
 class _MentorsPageState extends State<MentorsPage> {
-  PageController _pageController = PageController(initialPage: 3);
   bool isEmpty = false;
-  int _selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +27,8 @@ class _MentorsPageState extends State<MentorsPage> {
         backgroundColor: AppConstant.colorPageBg,
         title: Text(
           AppConstant.mentorsText +
-              ((AppConstant.mentorCount != 0)
-                  ? " (${AppConstant.mentorCount})"
+              ((AppConstant.mentorsCount != 0)
+                  ? " (${AppConstant.mentorsCount})"
                   : ""),
           style: TextStyle(
               fontFamily: "Gilroy",

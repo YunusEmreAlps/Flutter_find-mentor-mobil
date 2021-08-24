@@ -19,7 +19,6 @@ class _JobsDetailPageBodyState extends State<JobsDetailPageBody> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    Size size = MediaQuery.of(context).size;
     isKeyboardVisible = MediaQuery.of(context).viewInsets.vertical > 0;
     return Scaffold(
       body: Column(

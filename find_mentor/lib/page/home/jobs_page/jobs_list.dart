@@ -292,7 +292,7 @@ class JobCard extends StatelessWidget {
                                                       BorderRadius.circular(6),
                                                 ),
                                                 child: Text(
-                                                  job.tags[index][0].toUpperCase() + job.tags[index].substring(1),
+                                                  "${job.tags[index][0].toUpperCase() + job.tags[index].substring(1)}",
                                                   style: TextStyle(
                                                       color: Color(0xFF12153D)
                                                           .withOpacity(0.8),
