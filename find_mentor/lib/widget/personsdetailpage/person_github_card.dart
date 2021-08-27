@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:find_mentor/util/utility.dart';
-import 'package:find_mentor/model/job_model.dart';
+import 'package:find_mentor/model/person.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-class JobDescriptionCard extends StatelessWidget {
-  const JobDescriptionCard({Key key, this.model, this.onApplyTap})
+class PersonGitHubCard extends StatelessWidget {
+  const PersonGitHubCard({Key key, this.model, this.onApplyTap})
       : super(key: key);
-  final Job model;
+  final Person model;
   final Function onApplyTap;
   @override
   Widget build(BuildContext context) {
@@ -42,34 +42,27 @@ class JobDescriptionCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Job Created Time
                 Text(
-                  Utility.jobTimeCreatedAt('${model.date.substring(0, 10)}'),
+                  'GitHub',
                   style: TextStyle(
-                      fontFamily: "Gilroy", color: AppConstant.colorGrey),
-                ),
-                // Style or Location
-                Text(
-                  (remoteValues.reverse[model.remote] == 'Evet')
-                      ? 'Remote'
-                      : model.location,
-                  style: TextStyle(
-                      fontFamily: "Gilroy", color: AppConstant.colorGrey),
+                      fontFamily: "Gilroy",
+                      fontSize: 16,
+                      color: AppConstant.colorGrey),
                 ),
               ],
             ),
           ),
           SizedBox(height: 12),
-          MarkdownBody(
-            data: model.description,
+          MarkdownBody( // https://api.github.com/users/${username}
+            data: "GitHub README",
             styleSheet:
-              MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-              p: Theme.of(context)
-                  .textTheme
-                  .body1
-                  .copyWith(fontSize: 14.0, fontFamily: "Gilroy", color: AppConstant.jobTextLink),
+                MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
+              p: Theme.of(context).textTheme.body1.copyWith(
+                  fontSize: 14.0,
+                  fontFamily: "Gilroy",
+                  color: AppConstant.jobTextLink),
             ),
-            onTapLink: (url){
+            onTapLink: (url) {
               Utility.launchURL(url);
             },
           ),

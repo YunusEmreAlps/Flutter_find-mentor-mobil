@@ -7,6 +7,7 @@ import 'package:find_mentor/util/utility.dart';
 import 'package:find_mentor/util/size_config.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:find_mentor/page/home/persons_detail_page/persons_detail_page.dart';
 
 // Mentee Card
 class MenteeCard extends StatelessWidget {
@@ -26,14 +27,14 @@ class MenteeCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: GestureDetector(
           onTap: () {
-            /*Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailsScreen(
-                  person: mentors[index],
+                builder: (context) => PersonsDetailPage(
+                  personDetail: mentees,
                 ),
               ),
-            );*/
+            );
           },
           child: menteeItem(mentees),
         ),

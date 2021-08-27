@@ -107,6 +107,9 @@ class AppConstant {
   static final String contactDetailsText = AppLocalizations.getString('Contact Details');
   static final String websiteBtnText = AppLocalizations.getString('Find Mentor Network');
   static final String contributionsText = AppLocalizations.getString('Feel free to contribute!');
+  static final String applyNowText = AppLocalizations.getString('Apply Now');
+  static final String interestText = AppLocalizations.getString('Interests');
+  static final String goalsText = AppLocalizations.getString('Goals');
   static final String suggestionsDetails = 'Every night & every deploy, the spreadsheet will be parsed by GitHub actions, then generate this beauty.\n\n\nIf you have any queries or issues for which you need your assistance: Feel free to mail us.';
   static final String jobsPageGuide = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can list your job listing below for 30 days.';
   static final String eventsPageGuide = 'You can find all the events organized by';
@@ -140,6 +143,7 @@ class AppConstant {
 
   // Assets
   static final String svgJoin = "assets/icons/Join.svg";
+  static final String svgQuestion = "assets/icons/Question.svg";
   static final String svgGitHub = "assets/icons/Github.svg";
   static final String svgDiscord = "assets/icons/Discord.svg";
   static final String svgYoutube = "assets/icons/Youtube.svg";
@@ -160,6 +164,9 @@ class AppConstant {
   static final String svgMenteeGitHub = "assets/icons/Github3.svg";
   static final String svgMenteeTwitter = "assets/icons/Twitter3.svg";
   static final String svgMenteeLinkedin = "assets/icons/Linkedin4.svg";
+  static final String svgYellowCircle = "assets/images/yellow_circle.svg";
+  static final String svgSemiCircle = "assets/images/semi_circle.svg";
+  static final String svgBlueEllipse = "assets/images/blue_ellipse.svg";
 
   // Global Variables
   static int mentorsCount = 0;

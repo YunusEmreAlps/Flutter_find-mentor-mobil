@@ -11,8 +11,8 @@ class CompanyCard extends StatelessWidget {
   Widget _companyInitial(ThemeData theme) {
     return Center(
       child: Container(
-        width: 75,
-        height: 75,
+        width: 100,
+        height: 100,
         margin: EdgeInsets.symmetric(horizontal: 25),
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -41,8 +41,8 @@ class CompanyCard extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
             child: Container(
               padding: EdgeInsets.all(30 / 192 * 10),
-              height: 75,
-              width: 75,
+              height: 100,
+              width: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
@@ -107,7 +107,7 @@ class CompanyCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 30),
+                SizedBox(height: 60),
                 Center(
                   child: Text(
                     model.position,
@@ -131,7 +131,7 @@ class CompanyCard extends StatelessWidget {
                         color: AppConstant.colorPrimary,
                         borderRadius: BorderRadius.circular(5)),
                     child: Text(
-                      "Apply Now",
+                      AppConstant.applyNowText,
                       style: theme.textTheme.button.copyWith(
                           color: theme.colorScheme.onPrimary,
                           fontWeight: FontWeight.bold),

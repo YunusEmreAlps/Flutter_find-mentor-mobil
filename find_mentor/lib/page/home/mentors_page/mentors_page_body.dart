@@ -83,39 +83,6 @@ class _MentorsPageBodyState extends State<MentorsPageBody> {
                       ),
                     ),
                   ),
-                  /*SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-                    child: SafeArea(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          FutureBuilder(
-                            future: fetchMentors(),
-                            builder: (context, snapshot) {
-                              return snapshot.hasData
-                                  ? Mentors(mentors: snapshot.data)
-                                  : Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          CircularProgressIndicator(
-                                            strokeWidth: 3,
-                                            valueColor: AlwaysStoppedAnimation(
-                                                AppConstant.colorPrimary),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),*/
                 ],
               ),
             ),
