@@ -323,7 +323,7 @@ Widget mentorItem(Person mentor) {
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
