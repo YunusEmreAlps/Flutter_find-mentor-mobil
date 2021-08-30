@@ -110,6 +110,7 @@ class AppConstant {
   static final String goalsText = AppLocalizations.getString('Goals');
   static final String suggestionsDetails = 'Every night & every deploy, the spreadsheet will be parsed by GitHub actions, then generate this beauty.\n\n\nIf you have any queries or issues for which you need your assistance: Feel free to mail us.';
   static final String jobsPageGuide = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can list your job listing below for 30 days.';
+  static final String mentorshipsPageGuide = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can find the mentors active mentorship campaigns below. Pick one & contribute. You\'re mentee now.';
   static final String eventsPageGuide = 'You can find all the events organized by';
 
   // Links
@@ -119,11 +120,13 @@ class AppConstant {
   static final String apiEventsURL = 'assets/lottie/events.json';
   static final String apiJobsURL = 'https://findmentor.network/jobs.json';
   static final String apiPersonsURL = 'https://findmentor.network/persons.json';
+  static final String apiMentorshipsURL = 'https://findmentor.network/activeMentorships.json';
   static final String githubLink = 'https://github.com/findmentor-network/find-mentor';
   static final String googleFormLink = 'https://github.com/findmentor-network/find-mentor';
   static final String linkedinLink = 'https://www.linkedin.com/company/find-mentor-network';
   static final String youtubeLink = 'https://www.youtube.com/channel/UCx7Q-6Qqrf9TU5gY-i9xovA';
   static final String addJobLink = 'https://docs.google.com/forms/d/e/1FAIpQLSehaOyJDsY_mKOPNYtwrgLv3ynbLUBDsIUFJqyTnNfW16ijPA/viewform';
+  static final String addMentorshipsLink = 'https://docs.google.com/forms/d/e/1FAIpQLSeL6-beT2prYlrD3gyRqZz2ex94CNAe2T9-Ev2I_pd92BOS7g/viewform';
 
   // Splash Screen
   static final String splashAnimatedText1 = AppLocalizations.getString('Find & Match');
@@ -171,4 +174,5 @@ class AppConstant {
   static int menteesCount = 0;
   static int jobsCount = 0;
   static int eventsCount = 0;
+  static int mentorshipsCount = 0;
 }

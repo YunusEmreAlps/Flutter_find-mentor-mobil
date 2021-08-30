@@ -6,9 +6,9 @@ import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/util/app_widget.dart';
 import 'package:find_mentor/util/system_overlay.dart';
 import 'package:find_mentor/widget/homepage/bottom_sheet.dart';
-import 'package:find_mentor/widget/homepage/home_page_list_view.dart';
 import 'package:find_mentor/widget/homepage/search_box.dart';
 import 'package:find_mentor/widget/homepage/find_mentor_cover.dart';
+import 'package:find_mentor/widget/homepage/home_page_list_view.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);

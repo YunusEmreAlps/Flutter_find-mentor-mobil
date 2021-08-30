@@ -50,7 +50,7 @@ class _HomeNavigatorState extends State<HomeNavigator> {
         items: <TabItem>[
           TabItem(icon: Icons.event_outlined, title: ''),
           TabItem(icon: Icons.work_outline, title: ''),
-          TabItem(icon: Icons.search_outlined, title: ''),
+          TabItem(icon: Icons.supervised_user_circle_outlined, title: ''),
           TabItem(icon: Icons.school_outlined, title: ''), // fiber_smart_record_outlined
           TabItem(icon: Icons.local_library_outlined, title: ''), // group, people_alt_outlined, person_outline, cast_for_education_outlined
         ],

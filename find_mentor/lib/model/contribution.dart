@@ -1,3 +1,24 @@
+import 'dart:convert';
+
+ActiveMentorship activeMentorshipFromJson(String str) => ActiveMentorship.fromJson(json.decode(str));
+String activeMentorshipToJson(ActiveMentorship data) => json.encode(data.toJson());
+
+class ActiveMentorship {
+    ActiveMentorship({
+        this.mentorships,
+    });
+
+    List<Contribution> mentorships;
+
+    factory ActiveMentorship.fromJson(Map<String, dynamic> json) => ActiveMentorship(
+        mentorships: List<Contribution>.from(json["mentorships"].map((x) => Contribution.fromJson(x))),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "mentorships": List<dynamic>.from(mentorships.map((x) => x.toJson())),
+    };
+}
+
 class Contribution {
   Contribution({
     this.empty,
