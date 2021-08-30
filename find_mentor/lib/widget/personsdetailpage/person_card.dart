@@ -60,7 +60,7 @@ class PersonCard extends StatelessWidget {
                   imageUrl: model.avatar,
                   fit: BoxFit.contain,
                   errorWidget: (context, url, error) =>
-                      Image.asset(AppConstant.pngCompanyImage),
+                      Image.asset(AppConstant.pngUserImage),
                 ),
               ),
             ),
@@ -128,66 +128,17 @@ class PersonCard extends StatelessWidget {
                     SizedBox(height: 8),
                     Container(
                       height: 50,
+                      alignment: FractionalOffset.center,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           // Twitter
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                            ),
-                            child: IconButton(
-                              icon: SvgPicture.asset(
-                                AppConstant.svgTwitter,
-                              ),
-                              onPressed: () {
-                                Utility.launchURL(model.twitterHandle);
-                              },
-                            ),
-                          ),
+                          (model.twitterHandle.length != 0) ? socialContainer(AppConstant.svgTwitter, model.twitterHandle) : Container(height: 0, width: 0),
                           // GitHub,
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                            ),
-                            child: IconButton(
-                              color: Colors.redAccent,
-                              icon: SvgPicture.asset(
-                                AppConstant.svgGitHub,
-                              ),
-                              onPressed: () {
-                                Utility.launchURL(model.github);
-                              },
-                            ),
-                          ),
+                          (model.github.length != 0) ? socialContainer(AppConstant.svgGitHub, model.github) : Container(height: 0, width: 0),
                           // LinkedIn,
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                            ),
-                            child: IconButton(
-                              color: Colors.redAccent,
-                              icon: SvgPicture.asset(
-                                AppConstant.svgLinkedin,
-                              ),
-                              onPressed: () {
-                                Utility.launchURL(model.linkedin);
-                              },
-                            ),
-                          ),
+                          (model.linkedin.length != 0) ? socialContainer(AppConstant.svgLinkedin, model.linkedin) : Container(height: 0, width: 0),
                           // Question,
                           Container(
                             width: 40,
@@ -246,7 +197,7 @@ class PersonCard extends StatelessWidget {
     );
   }
 
-// Launch Color
+  // Launch Color
   Color randomColor() {
     var color;
     if (model.mentor == Mentor.MENTOR) {
@@ -257,5 +208,25 @@ class PersonCard extends StatelessWidget {
       color = AppConstant.colorBoth;
     }
     return color;
+  }
+
+  Widget socialContainer(String svgImg, String socialLink) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.1),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+      child: IconButton(
+        color: Colors.redAccent,
+        icon: SvgPicture.asset(
+          svgImg,
+        ),
+        onPressed: () {
+          Utility.launchURL(socialLink);
+        },
+      ),
+    );
   }
 }
