@@ -17,9 +17,9 @@ class HomeNavigator extends StatefulWidget {
 }
 
 // Mentorships (+)
-// Mentors
-// Mentees
-// Home (+)
+// Mentors (+)
+// Mentees (+)
+// Home (+) 
 // Events (+)
 // Jobs (+)
 // Job Seekers

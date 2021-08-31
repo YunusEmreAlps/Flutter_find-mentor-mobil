@@ -272,28 +272,6 @@ class MentorshipCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Positioned(
-                    bottom: 5,
-                    left: 20,
-                    right: 20,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '',
-                          style: TextStyle(
-                              fontFamily: "Gilroy",
-                              color: AppConstant.colorGrey),
-                        ),
-                        Text(
-                          '${mentorship.empty.substring(0, 10)}',
-                          style: TextStyle(
-                              fontFamily: "Gilroy",
-                              color: AppConstant.colorGrey),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),

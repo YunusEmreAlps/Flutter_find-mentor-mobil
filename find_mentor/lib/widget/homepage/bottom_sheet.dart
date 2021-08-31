@@ -1,5 +1,8 @@
+import 'package:find_mentor/util/utility.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:find_mentor/util/app_constant.dart';
 import 'package:find_mentor/util/app_widget.dart';
@@ -24,7 +27,7 @@ class AppBottomSheetWidgets {
           children: <Widget>[
             AppWidget.pullDown(AppConstant.colorPullDown1),
             widget,
-            // 
+            //
             Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: Center(
@@ -130,8 +133,8 @@ class AppBottomSheetWidgets {
             // Google Form
             Padding(
               padding: const EdgeInsets.only(left: 32),
-              child: AppBottomSheetWidgets.socialRow(
-                  AppConstant.joinUsNowText, AppConstant.googleFormLink, AppConstant.svgJoin),
+              child: AppBottomSheetWidgets.socialRow(AppConstant.joinUsNowText,
+                  AppConstant.googleFormLink, AppConstant.svgJoin),
             ),
             // Discord
             Padding(
