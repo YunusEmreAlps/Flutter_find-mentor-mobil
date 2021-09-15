@@ -48,6 +48,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Hello to everyone! If you are looking for a mentor or mentee, if you enjoy sharing your knowledge with others, if you want to meet and chat with like-minded people during the pandemic period, you can use the Find Mentor application. I developed the mobile version of Find Mentor using Flutter. You can take a look at the project and give feedback about the missing and wrong parts and contribute to the development process.
+
 Meet -> Ask -> Listen -> Learn -> Change Your Career
 
 - [x] App Structure (Updated)
@@ -57,7 +59,7 @@ Meet -> Ask -> Listen -> Learn -> Change Your Career
 - [x] Mentees Page (I'm working on pagination part because I keep getting error and afterwards my application crash. (Mentee Data > 400)) (Solved)
 - [x] Events Page 
 - [x] Jobs Page (If you tap the company logo on the details page. You can go to the company website.)
-- [ ] Home Page
+- [x] Home Page
 - [ ] ...
 
 <!-- API -->
