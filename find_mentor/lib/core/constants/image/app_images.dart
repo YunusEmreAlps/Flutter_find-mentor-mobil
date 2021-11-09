@@ -12,16 +12,8 @@ class AppImages {
   static String get pngLoginBackground => "assets/images/bg2.png";
 
   //
-  static String get pngUser => "assets/images/user2.png";
-  static String get pngCompanyImage => "assets/images/company2.png";
-
-  // Onboard
-  static String get pngSlider1 => "assets/images/onboard/onboarding_image_1.png"; // onboarding_image_1
-  static String get pngSlider2 => "assets/images/onboard/onboarding_image_2.png"; // onboarding_image_2
-  static String get pngSlider3 => "assets/images/onboard/onboarding_image_3.png"; // onboarding_image_3
-
-  // Login Success
-  static String get pngSuccess => "assets/images/success/success.png";
+  static String get pngUser => "assets/images/user.png";
+  static String get pngCompanyImage => "assets/images/company.png";
 
   // Icons
   static String get iconJoin => "assets/icons/Join.svg";
@@ -40,7 +32,6 @@ class AppImages {
   static String get iconMessage2 => "assets/icons/icon_message2.svg";
   static String get iconMessage3 => "assets/icons/icon_message3.svg";
   static String get iconMessage4 => "assets/icons/icon_message4.svg";
-
   static String get iconMentorGitHub => "assets/icons/Github2.svg";
   static String get iconMentorTwitter => "assets/icons/Twitter2.svg";
   static String get iconMentorLinkedin => "assets/icons/Linkedin3.svg";

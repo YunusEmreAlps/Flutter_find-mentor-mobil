@@ -60,7 +60,7 @@ Meet -> Ask -> Listen -> Learn -> Change Your Career
 - [x] Events Page 
 - [x] Jobs Page (If you tap the company logo on the details page. You can go to the company website.)
 - [x] Home Page
-- [ ] ...
+- [x] Mentee & Mentors GitHub README (HTML problem)
 
 <!-- API -->
 ## API
@@ -194,6 +194,10 @@ Mentees Page (Top)             | Mentees Page               | Mentees Page      
 Mentees Detail Page             | Mentees Detail Page               | Mentees Detail Page                |  Mentees Detail Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/41.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/42.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/43.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/44.png?raw=true)|
+
+Mentees Detail Page             | Mentees Detail Page               | Mentees Detail Page                |  Mentees Detail Page
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/49.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/50.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/51.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/52.png?raw=true)|
 
 Jobs Page (Top)             | Jobs Page               | Jobs Page                |  Jobs Page (Bottom)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:

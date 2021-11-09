@@ -60,32 +60,30 @@ class PersonGitHubCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 12),
-          (model.github.length != 0)
-              ? FutureBuilder(
-                  future: fetchReadMe(model.github.substring(19)),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return MarkdownBody(
-                        selectable: true,
-                        shrinkWrap: true,
-                        fitContent: true,
-                        data: snapshot.data,
-                        styleSheet:
-                            MarkdownStyleSheet.fromTheme(Theme.of(context))
-                                .copyWith(
-                          p: Theme.of(context).textTheme.body1.copyWith(
-                              fontSize: 14.0,
-                              fontFamily: "Gilroy",
-                              color: AppColors.jobTextLink),
-                        ),
-                        onTapLink: (url) {
-                          Utility.launchURL(url);
-                        },
-                      );
-                    }
-                    return Container();
-                  })
-              : Container(),
+          FutureBuilder(
+            future: fetchReadMe(model.github.substring(19)),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return MarkdownBody(
+                  selectable: true,
+                  shrinkWrap: true,
+                  fitContent: true,
+                  data: snapshot.data,
+                  styleSheet:
+                      MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
+                    p: Theme.of(context).textTheme.body1.copyWith(
+                        fontSize: 14.0,
+                        fontFamily: "Gilroy",
+                        color: AppColors.jobTextLink),
+                  ),
+                  onTapLink: (url) {
+                    Utility.launchURL(url);
+                  },
+                );
+              }
+              return Container();
+            },
+          ),
         ],
       ),
     );
