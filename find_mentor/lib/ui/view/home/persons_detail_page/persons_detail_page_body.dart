@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:find_mentor/ui/components/personsdetailpage/person_contribution_card.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -64,24 +65,42 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                                     curve: Curves.linearToEaseOut);
                               }),
                           SizedBox(height: 16),
-                          (widget.personDetail.github.length != 0) 
-                          ? FutureBuilder(
-                            future: fetchReadMe(widget.personDetail.github.substring(19)),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return PersonGitHubCard(
+                          // Contributed
+                          (widget.personDetail.contributions.length != 0)
+                              ? PersonContributionCard(
                                   model: widget.personDetail,
                                   onApplyTap: () {
                                     controller.animateTo(
                                         controller.position.maxScrollExtent,
-                                        duration: Duration(milliseconds: 100),
+                                        duration: Duration(milliseconds: 500),
                                         curve: Curves.linearToEaseOut);
                                   },
-                                );
-                              }
-                              return Container();
-                            },
-                          ) : Container(),
+                                )
+                              : Container(),
+                          SizedBox(height: 16),
+                          // GitHub
+                          (widget.personDetail.github.length != 0)
+                              ? FutureBuilder(
+                                  future: fetchReadMe(
+                                      widget.personDetail.github.substring(19)),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return PersonGitHubCard(
+                                        model: widget.personDetail,
+                                        onApplyTap: () {
+                                          controller.animateTo(
+                                              controller
+                                                  .position.maxScrollExtent,
+                                              duration:
+                                                  Duration(milliseconds: 100),
+                                              curve: Curves.linearToEaseOut);
+                                        },
+                                      );
+                                    }
+                                    return Container();
+                                  },
+                                )
+                              : Container(),
                         ],
                       ),
                     ),
