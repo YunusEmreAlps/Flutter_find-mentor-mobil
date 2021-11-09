@@ -1,15 +1,18 @@
-// Find Mentor & Mentees Network
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:find_mentor/util/app_constant.dart';
-import 'package:find_mentor/util/app_localizations.dart';
+
+// Package imports:
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-// UI
-import 'package:find_mentor/page/splash/splash_page.dart';
-import 'package:find_mentor/page/home/home_navigator.dart';
+// Project imports:
+import 'package:find_mentor/core/constants/core.dart';
+import 'package:find_mentor/core/init/app_localizations.dart';
+import 'package:find_mentor/core/navigation/navigation_constants.dart';
+import 'package:find_mentor/ui/view/home/home_navigator.dart';
+import 'package:find_mentor/ui/view/splash/splash_page.dart';
 
-
+// Find Mentor & Mentees Network
 void main() => runApp(FindMentor());
 
 class FindMentor extends StatefulWidget {
@@ -29,7 +32,7 @@ class _FindMentorState extends State<FindMentor> {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: AppConstant.appName,
+      title: AppStrings.APP_NAME,
       debugShowCheckedModeBanner: false,
       // Internationalization
       supportedLocales: [Locale("en"), Locale("tr")],
@@ -39,10 +42,10 @@ class _FindMentorState extends State<FindMentor> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      initialRoute: AppConstant.pageSplash,
+      initialRoute: NavigationConstants.SPLASH,
       routes: {
-        AppConstant.pageSplash: (context) => SplashPage(),
-        AppConstant.pageHome: (context) => HomeNavigator(),
+        NavigationConstants.SPLASH: (context) => SplashPage(),
+        NavigationConstants.HOME: (context) => HomeNavigator(),
       },
     );
   }
