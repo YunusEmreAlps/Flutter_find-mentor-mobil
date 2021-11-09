@@ -42,10 +42,7 @@ class PersonGitHubCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 12),
-          Positioned(
-            top: 50,
-            left: 20,
-            right: 20,
+          Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

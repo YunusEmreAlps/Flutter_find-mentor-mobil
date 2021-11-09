@@ -64,7 +64,8 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                                     curve: Curves.linearToEaseOut);
                               }),
                           SizedBox(height: 16),
-                          FutureBuilder(
+                          (widget.personDetail.github.length != 0) 
+                          ? FutureBuilder(
                             future: fetchReadMe(widget.personDetail.github.substring(19)),
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
@@ -80,7 +81,7 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                               }
                               return Container();
                             },
-                          ),
+                          ) : Container(),
                         ],
                       ),
                     ),

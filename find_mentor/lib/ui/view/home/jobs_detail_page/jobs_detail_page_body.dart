@@ -54,13 +54,14 @@ class _JobsDetailPageBodyState extends State<JobsDetailPageBody> {
                           ),
                           SizedBox(height: 16),
                           JobDescriptionCard(
-                              model: widget.jobDetail,
-                              onApplyTap: () {
-                                controller.animateTo(
-                                    controller.position.maxScrollExtent,
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.linearToEaseOut);
-                              }),
+                            model: widget.jobDetail,
+                            onApplyTap: () {
+                              controller.animateTo(
+                                  controller.position.maxScrollExtent,
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.linearToEaseOut);
+                            },
+                          ),
                         ],
                       ),
                     ),
