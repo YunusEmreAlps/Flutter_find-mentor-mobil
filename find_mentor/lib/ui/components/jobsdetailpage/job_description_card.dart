@@ -48,7 +48,7 @@ class JobDescriptionCard extends StatelessWidget {
                 Text(
                   Utility.jobTimeCreatedAt('${model.date.substring(0, 10)}'),
                   style: TextStyle(
-                      fontFamily: "Gilroy", color: AppColors.colorGrey),
+                      fontFamily: AppStrings.FONT_FAMILY, color: AppColors.colorGrey),
                 ),
                 // Style or Location
                 Text(
@@ -56,7 +56,7 @@ class JobDescriptionCard extends StatelessWidget {
                       ? 'Remote'
                       : model.location,
                   style: TextStyle(
-                      fontFamily: "Gilroy", color: AppColors.colorGrey),
+                      fontFamily: AppStrings.FONT_FAMILY, color: AppColors.colorGrey),
                 ),
               ],
             ),
@@ -69,7 +69,7 @@ class JobDescriptionCard extends StatelessWidget {
               p: Theme.of(context)
                   .textTheme
                   .body1
-                  .copyWith(fontSize: 14.0, fontFamily: "Gilroy", color: AppColors.jobTextLink),
+                  .copyWith(fontSize: 14.0, fontFamily: AppStrings.FONT_FAMILY, color: AppColors.jobTextLink),
             ),
             onTapLink: (url){
               Utility.launchURL(url);

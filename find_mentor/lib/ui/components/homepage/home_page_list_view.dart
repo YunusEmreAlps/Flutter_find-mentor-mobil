@@ -86,7 +86,7 @@ class HomePageListView extends StatelessWidget {
                                                         .MENTORSHIPSPAGE_GUIDE,
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
-                                                      fontFamily: "Gilroy",
+                                                      fontFamily: AppStrings.FONT_FAMILY,
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       fontSize: 12,
@@ -108,7 +108,7 @@ class HomePageListView extends StatelessWidget {
                                                       "Add your mentorship campaign",
                                                       textAlign: TextAlign.left,
                                                       style: TextStyle(
-                                                        fontFamily: "Gilroy",
+                                                        fontFamily: AppStrings.FONT_FAMILY,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                         fontSize: 13,

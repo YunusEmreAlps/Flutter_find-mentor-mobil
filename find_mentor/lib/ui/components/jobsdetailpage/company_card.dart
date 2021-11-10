@@ -120,7 +120,7 @@ class CompanyCard extends StatelessWidget {
                     model.position,
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontFamily: "Gilroy",
+                        fontFamily: AppStrings.FONT_FAMILY,
                         fontSize: 18,
                         color: AppColors.colorHeading),
                   ),

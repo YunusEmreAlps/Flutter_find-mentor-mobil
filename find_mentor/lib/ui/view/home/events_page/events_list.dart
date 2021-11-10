@@ -171,7 +171,7 @@ class EventCard extends StatelessWidget {
                                                 event.eventName,
                                                 style: TextStyle(
                                                   fontSize: 16,
-                                                  fontFamily: "Gilroy",
+                                                  fontFamily: AppStrings.FONT_FAMILY,
                                                   color:
                                                       AppColors.colortextDark,
                                                 ),
@@ -274,7 +274,7 @@ class EventCard extends StatelessWidget {
                                                   style: TextStyle(
                                                     color: Color(0xFF12153D)
                                                         .withOpacity(0.8),
-                                                    fontFamily: 'Gilroy',
+                                                    fontFamily: AppStrings.FONT_FAMILY,
                                                   ),
                                                 ),
                                               ),
@@ -305,13 +305,13 @@ class EventCard extends StatelessWidget {
                         Text(
                           '',
                           style: TextStyle(
-                              fontFamily: "Gilroy",
+                              fontFamily: AppStrings.FONT_FAMILY,
                               color: AppColors.colorGrey),
                         ),
                         Text(
                           '${event.date}',
                           style: TextStyle(
-                              fontFamily: "Gilroy",
+                              fontFamily: AppStrings.FONT_FAMILY,
                               color: AppColors.colorGrey),
                         ),
                       ],

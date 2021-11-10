@@ -113,7 +113,7 @@ class _JobsPageBodyState extends State<JobsPageBody> {
                                                                 TextAlign.left,
                                                             style: TextStyle(
                                                               fontFamily:
-                                                                  "Gilroy",
+                                                                  AppStrings.FONT_FAMILY,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -139,7 +139,7 @@ class _JobsPageBodyState extends State<JobsPageBody> {
                                                                       .left,
                                                               style: TextStyle(
                                                                 fontFamily:
-                                                                    "Gilroy",
+                                                                    AppStrings.FONT_FAMILY,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,

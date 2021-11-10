@@ -31,7 +31,7 @@ class JobsDetailPage extends StatelessWidget{
         title: Text(
           jobDetail.company,
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

@@ -42,7 +42,7 @@ class FindMentorCover extends StatelessWidget {
             AppStrings.APP_NAME,
             style: TextStyle(
                 fontSize: 36.0,
-                fontFamily: "Gilroy",
+                fontFamily: AppStrings.FONT_FAMILY,
                 foreground: Paint()
                   ..shader = AppGradients.primaryTextGradientColor),
           ),

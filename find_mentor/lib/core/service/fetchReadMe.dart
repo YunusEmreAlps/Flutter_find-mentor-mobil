@@ -3,10 +3,10 @@ import 'dart:convert';
 
 // Package imports:
 import 'package:http/http.dart' as http;
-
-Future<String> fetchReadMe(String username) async {
+// username, reponame, branchname
+Future<String> fetchReadMe(String username, String reponame, String branchname) async {
   final response = await http.get(
-    Uri.encodeFull("https://raw.githubusercontent.com/${username}/${username}/master/README.md"),
+    Uri.encodeFull("https://raw.githubusercontent.com/${username}/${reponame}/${branchname}/README.md"),
     headers: {
       "Accept": "application/json",
       "Access-Control-Allow-Origin": "*",

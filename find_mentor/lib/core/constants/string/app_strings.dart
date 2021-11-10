@@ -87,6 +87,7 @@ class AppStrings {
   static final String FEEDBACK_TEXT = AppLocalizations.getString("Every night & every deploy, the spreadsheet will be parsed by GitHub actions, then generate this beauty.\n\n\nIf you have any queries or issues for which you need your assistance: Feel free to mail us.");
 
   // Links
+  static const String JOIN_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSc3uWpEeBUCXMoGAJ5qm31p9URBppxXT5L4RJFrTOJee9TFjQ/viewform';
   static const String DISCORD_LINK = 'https://discord.gg/EDwkj6Z7W2';
   static const String TWITTER_LINK = 'https://twitter.com/findmentorapp';
   static const String WEB_LINK = 'https://findmentor.network/';
@@ -114,6 +115,7 @@ class AppStrings {
   static const String ONBOARDING_TITLE_2 = "No need to send text messages asking\n \"Where have you been today?\"";
   static const String ONBOARDING_TITLE_3 = "Stay connected with your \nfamily and friends all the time";
 
+  static final String CONTRIBUTED = AppLocalizations.getString("Contributed");
   static final String JOBS = AppLocalizations.getString("Jobs");
   static final String EVENTS = AppLocalizations.getString("Events");
   static final String MENTORSHIPS = AppLocalizations.getString("Mentorships");
@@ -132,7 +134,7 @@ class AppStrings {
   static final String JOBSPAGE_GUIDE = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can list your job listing below for 30 days.';
   static final String MENTORSHIPSPAGE_GUIDE = 'This community, driven/developed by a fellow community. As you can see, this project is the mentorship project. Developed by mentees.\nYou can find the mentors active mentorship campaigns below. Pick one & contribute. You\'re mentee now.';
   static final String EVENTSPAGE_GUIDE = 'You can find all the events organized by';
-
+  static final String ACTIVE_MENTORSHIPS = AppLocalizations.getString("Active Mentorships");
 
   // Error Messages
   static final String EMAIL_NULL_ERROR = "Please Enter your email";

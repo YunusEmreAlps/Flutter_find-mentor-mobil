@@ -38,9 +38,10 @@ dependencies:
   convex_bottom_bar: ^2.1.1
   simple_animations: ^1.3.3
   animated_text_kit: ^1.1.0
+  expansion_tile_card: ^1.1.0
   cached_network_image: ^2.3.0
   flutter_feather_icons: ^1.0.3
-
+  
   # Multiple Language
   flutter_localizations:
     sdk: flutter

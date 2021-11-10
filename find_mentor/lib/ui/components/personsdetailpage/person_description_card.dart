@@ -47,7 +47,7 @@ class PersonDescriptionCard extends StatelessWidget {
                 Text(
                   '${AppStrings.INTERESTS}',
                   style: TextStyle(
-                      fontFamily: "Gilroy",
+                      fontFamily: AppStrings.FONT_FAMILY,
                       fontSize: 16,
                       color: AppColors.colorGreen),
                 ),
@@ -61,7 +61,7 @@ class PersonDescriptionCard extends StatelessWidget {
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
               p: Theme.of(context).textTheme.body1.copyWith(
                   fontSize: 14.0,
-                  fontFamily: "Gilroy",
+                  fontFamily: AppStrings.FONT_FAMILY,
                   color: AppColors.jobTextLink),
             ),
             onTapLink: (url) {
@@ -81,7 +81,7 @@ class PersonDescriptionCard extends StatelessWidget {
                 Text(
                   '${AppStrings.GOALS}',
                   style: TextStyle(
-                      fontFamily: "Gilroy",
+                      fontFamily: AppStrings.FONT_FAMILY,
                       fontSize: 16,
                       color: AppColors.colorGreen),
                 ),
@@ -95,7 +95,7 @@ class PersonDescriptionCard extends StatelessWidget {
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
               p: Theme.of(context).textTheme.body1.copyWith(
                   fontSize: 14.0,
-                  fontFamily: "Gilroy",
+                  fontFamily: AppStrings.FONT_FAMILY,
                   color: AppColors.jobTextLink),
             ),
             onTapLink: (url) {

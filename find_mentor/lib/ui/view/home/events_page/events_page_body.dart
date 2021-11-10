@@ -126,7 +126,7 @@ class _EventsPageBodyState extends State<EventsPageBody> {
                                                                   style:
                                                                       TextStyle(
                                                                     fontFamily:
-                                                                        "Gilroy",
+                                                                        AppStrings.FONT_FAMILY,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w400,
@@ -145,7 +145,7 @@ class _EventsPageBodyState extends State<EventsPageBody> {
                                                                   style:
                                                                       new TextStyle(
                                                                     fontFamily:
-                                                                        "Gilroy",
+                                                                        AppStrings.FONT_FAMILY,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,

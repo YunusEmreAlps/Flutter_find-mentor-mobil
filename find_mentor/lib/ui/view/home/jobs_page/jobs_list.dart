@@ -194,7 +194,7 @@ class JobCard extends StatelessWidget {
                                               job.company,
                                               style: TextStyle(
                                                 fontSize: 16,
-                                                fontFamily: "Gilroy",
+                                                fontFamily: AppStrings.FONT_FAMILY,
                                                 color:
                                                     AppColors.colortextDark,
                                               ),
@@ -210,7 +210,7 @@ class JobCard extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
-                                                fontFamily: "Gilroy",
+                                                fontFamily: AppStrings.FONT_FAMILY,
                                                 fontSize: 12,
                                                 // color: Color(0xFFB5BFD0),
                                                 color: Color(0xFF898989),
@@ -303,7 +303,7 @@ class JobCard extends StatelessWidget {
                                                   style: TextStyle(
                                                       color: Color(0xFF12153D)
                                                           .withOpacity(0.8),
-                                                      fontFamily: 'Gilroy',),
+                                                      fontFamily: AppStrings.FONT_FAMILY,),
                                                 ),
                                               );
                                             }
@@ -338,13 +338,13 @@ class JobCard extends StatelessWidget {
                         Text(
                           "Remote: ${remoteValues.reverse[job.remote]}",
                           style: TextStyle(
-                              fontFamily: "Gilroy",
+                              fontFamily: AppStrings.FONT_FAMILY,
                               color: AppColors.colorGrey),
                         ),
                         Text(
                           '${job.date.substring(0, 10)}',
                           style: TextStyle(
-                              fontFamily: "Gilroy",
+                              fontFamily: AppStrings.FONT_FAMILY,
                               color: AppColors.colorGrey),
                         ),
                       ],

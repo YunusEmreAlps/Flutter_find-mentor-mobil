@@ -177,7 +177,7 @@ Widget mentorItem(Person mentor) {
                                             mentor.name,
                                             style: TextStyle(
                                               fontSize: 16,
-                                              fontFamily: "Gilroy",
+                                              fontFamily: AppStrings.FONT_FAMILY,
                                               color: AppColors.colorMentor,
                                             ),
                                           ),
@@ -192,7 +192,7 @@ Widget mentorItem(Person mentor) {
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
-                                              fontFamily: "Gilroy",
+                                              fontFamily: AppStrings.FONT_FAMILY,
                                               fontSize: 12,
                                               // color: Color(0xFFB5BFD0),
                                               color: Color(0xFF898989),

@@ -83,7 +83,7 @@ class _SplashPageState extends State<SplashPage> {
                       ],
                       textStyle: TextStyle(
                           fontSize: 18.0,
-                          fontFamily: "Gilroy",
+                          fontFamily: AppStrings.FONT_FAMILY,
                           foreground: Paint()
                             ..shader = AppGradients.primaryTextGradientColor),
                     ),

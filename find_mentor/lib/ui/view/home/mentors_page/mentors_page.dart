@@ -34,7 +34,7 @@ class _MentorsPageState extends State<MentorsPage> {
                   ? " (${AppConstants.mentorsCount})"
                   : ""),
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

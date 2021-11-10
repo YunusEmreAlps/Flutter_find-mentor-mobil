@@ -49,7 +49,7 @@ class PersonGitHubCard extends StatelessWidget {
                 Text(
                   'GitHub',
                   style: TextStyle(
-                      fontFamily: "Gilroy",
+                      fontFamily: AppStrings.FONT_FAMILY,
                       fontSize: 16,
                       color: AppColors.colorGrey),
                 ),
@@ -58,7 +58,7 @@ class PersonGitHubCard extends StatelessWidget {
           ),
           SizedBox(height: 12),
           FutureBuilder(
-            future: fetchReadMe(model.github.substring(19)),
+            future: fetchReadMe(model.github.substring(19), model.github.substring(19), "master"),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return MarkdownBody(
@@ -70,7 +70,7 @@ class PersonGitHubCard extends StatelessWidget {
                       MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
                     p: Theme.of(context).textTheme.body1.copyWith(
                         fontSize: 14.0,
-                        fontFamily: "Gilroy",
+                        fontFamily: AppStrings.FONT_FAMILY,
                         color: AppColors.jobTextLink),
                   ),
                   onTapLink: (url) {

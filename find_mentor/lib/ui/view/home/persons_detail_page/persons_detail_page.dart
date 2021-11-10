@@ -34,7 +34,7 @@ class PersonsDetailPage extends StatelessWidget {
               ? mentorValues.reverse[personDetail.mentor]
               : 'Mentor & Mentee',
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

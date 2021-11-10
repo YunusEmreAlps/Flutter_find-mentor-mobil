@@ -35,7 +35,7 @@ class _MenteesPageState extends State<MenteesPage> {
                   ? " (${AppConstants.menteesCount})"
                   : ""),
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:find_mentor/ui/components/personsdetailpage/person_contribution_card.dart';
+import 'package:find_mentor/ui/components/personsdetailpage/person_mentorships_card.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -65,6 +66,18 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                                     curve: Curves.linearToEaseOut);
                               }),
                           SizedBox(height: 16),
+                          // Active Mentorships
+                          (widget.personDetail.mentorships.length != 0)
+                              ? PersonMentorshipsCard(
+                                  model: widget.personDetail,
+                                  onApplyTap: () {
+                                    controller.animateTo(
+                                        controller.position.maxScrollExtent,
+                                        duration: Duration(milliseconds: 500),
+                                        curve: Curves.linearToEaseOut);
+                                  },
+                                )
+                              : Container(),
                           // Contributed
                           (widget.personDetail.contributions.length != 0)
                               ? PersonContributionCard(
@@ -81,8 +94,7 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                           // GitHub
                           (widget.personDetail.github.length != 0)
                               ? FutureBuilder(
-                                  future: fetchReadMe(
-                                      widget.personDetail.github.substring(19)),
+                                  future: fetchReadMe(widget.personDetail.github.substring(19), widget.personDetail.github.substring(19), "master"),
                                   builder: (context, snapshot) {
                                     if (snapshot.hasData) {
                                       return PersonGitHubCard(

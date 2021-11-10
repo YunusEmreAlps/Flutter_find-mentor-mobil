@@ -186,7 +186,7 @@ Widget menteeItem(Person mentees) {
                                             mentees.name,
                                             style: TextStyle(
                                               fontSize: 16,
-                                              fontFamily: "Gilroy",
+                                              fontFamily: AppStrings.FONT_FAMILY,
                                               color: AppColors.colorMentee,
                                             ),
                                           ),
@@ -201,7 +201,7 @@ Widget menteeItem(Person mentees) {
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
                                               fontWeight: FontWeight.w300,
-                                              fontFamily: "Gilroy",
+                                              fontFamily: AppStrings.FONT_FAMILY,
                                               fontSize: 12,
                                               // color: Color(0xFFB5BFD0),
                                               color: Color(0xFF898989),

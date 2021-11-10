@@ -117,7 +117,7 @@ class PersonCard extends StatelessWidget {
                         model.name,
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontFamily: "Gilroy",
+                            fontFamily: AppStrings.FONT_FAMILY,
                             fontSize: 18,
                             color: AppColors.colorHeading),
                       ),
@@ -126,7 +126,7 @@ class PersonCard extends StatelessWidget {
                       child: Text(
                         "@${model.slug}",
                         style: TextStyle(
-                            fontFamily: "Gilroy",
+                            fontFamily: AppStrings.FONT_FAMILY,
                             fontSize: 14,
                             color: AppColors.colorSubTitleTextColor),
                       ),

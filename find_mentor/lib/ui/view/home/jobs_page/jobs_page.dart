@@ -33,7 +33,7 @@ class _JobsPageState extends State<JobsPage> {
                   ? " (${AppConstants.jobsCount})"
                   : ""),
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

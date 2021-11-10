@@ -34,7 +34,7 @@ class _EventsPageState extends State<EventsPage> {
                   ? " (${AppConstants.eventsCount})"
                   : ""),
           style: TextStyle(
-              fontFamily: "Gilroy",
+              fontFamily: AppStrings.FONT_FAMILY,
               foreground: Paint()
                 ..shader = AppGradients.primaryTextGradientColor),
         ),

@@ -38,7 +38,7 @@ class AppBottomSheetWidgets {
                   AppStrings.APP_NAME,
                   style: TextStyle(
                       fontSize: 24.0,
-                      fontFamily: "Gilroy",
+                      fontFamily: AppStrings.FONT_FAMILY,
                       foreground: Paint()
                         ..shader = AppGradients.primaryTextGradientColor),
                 ),
@@ -96,7 +96,7 @@ class AppBottomSheetWidgets {
                             text: AppStrings.FEEDBACK_LINK_TEXT,
                             style: new TextStyle(
                                 color: AppColors.colorPrimary,
-                                fontFamily: "Gilroy",
+                                fontFamily: AppStrings.FONT_FAMILY,
                                 fontWeight: FontWeight.bold),
                             recognizer: new TapGestureRecognizer()
                               ..onTap = () {
@@ -107,7 +107,7 @@ class AppBottomSheetWidgets {
                           new TextSpan(
                             text: AppStrings.SUGGESTIONS_DETAILS,
                             style: TextStyle(
-                              fontFamily: "Gilroy",
+                              fontFamily: AppStrings.FONT_FAMILY,
                             ),
                           ),
                         ],
@@ -137,7 +137,7 @@ class AppBottomSheetWidgets {
             Padding(
               padding: const EdgeInsets.only(left: 32),
               child: AppBottomSheetWidgets.socialRow(AppStrings.JOIN_US_NOW,
-                  AppStrings.googleFormLink, AppImages.iconJoin),
+                  AppStrings.JOIN_LINK, AppImages.iconJoin),
             ),
             // Discord
             Padding(
@@ -252,7 +252,7 @@ class AppBottomSheetWidgets {
             child: Text(
               socialAppName,
               style: TextStyle(
-                fontFamily: "Gilroy",
+                fontFamily: AppStrings.FONT_FAMILY,
               ),
             ),
           ),

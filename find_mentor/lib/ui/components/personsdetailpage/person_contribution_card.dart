@@ -50,9 +50,9 @@ class PersonContributionCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Contributed',
+                  AppStrings.CONTRIBUTED,
                   style: TextStyle(
-                      fontFamily: "Gilroy",
+                      fontFamily: AppStrings.FONT_FAMILY,
                       fontSize: 16,
                       color: AppColors.colorGrey),
                 ),
@@ -108,7 +108,7 @@ class PersonContributionCard extends StatelessWidget {
                                     "${model.contributions[index].slug[0].toUpperCase() + model.contributions[index].slug.substring(1)}",
                                     style: TextStyle(
                                       color: Color(0xFF12153D).withOpacity(0.8),
-                                      fontFamily: 'Gilroy',
+                                      fontFamily: AppStrings.FONT_FAMILY,
                                     ),
                                   ),
                                 ),
@@ -142,7 +142,7 @@ class PersonContributionCard extends StatelessWidget {
                           "${model.contributions[i].slug[0].toUpperCase() + model.contributions[i].slug.substring(1)}",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontFamily: "Gilroy",
+                            fontFamily: AppStrings.FONT_FAMILY,
                             fontSize: 18,
                             color: AppColors.colortextDark.withOpacity(0.8),
                           ),
@@ -152,7 +152,7 @@ class PersonContributionCard extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontWeight: FontWeight.w300,
-                            fontFamily: "Gilroy",
+                            fontFamily: AppStrings.FONT_FAMILY,
                             fontSize: 12,
                             // color: Color(0xFFB5BFD0),
                             color: Color(0xFF898989),

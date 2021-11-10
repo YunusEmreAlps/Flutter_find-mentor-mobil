@@ -170,13 +170,15 @@ class MentorshipCard extends StatelessWidget {
                                             child: Container(
                                               width: 260,
                                               child: Text(
-                                                mentorship.slug.toUpperCase(),
+                                                "${mentorship.slug.toUpperCase()}",
                                                 style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontFamily: "Gilroy",
-                                                    foreground: Paint()
-                                                      ..shader = AppGradients
-                                                          .primaryTextGradientColor),
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily:
+                                                      AppStrings.FONT_FAMILY,
+                                                  fontSize: 18,
+                                                  color: AppColors.colortextDark
+                                                      .withOpacity(0.8),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -190,7 +192,8 @@ class MentorshipCard extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w300,
-                                                fontFamily: "Gilroy",
+                                                fontFamily:
+                                                    AppStrings.FONT_FAMILY,
                                                 fontSize: 12,
                                                 // color: Color(0xFFB5BFD0),
                                                 color: Color(0xFF898989),
@@ -206,7 +209,8 @@ class MentorshipCard extends StatelessWidget {
                                               text: TextSpan(
                                                   text: 'Visit',
                                                   style: TextStyle(
-                                                    fontFamily: "Gilroy",
+                                                    fontFamily:
+                                                        AppStrings.FONT_FAMILY,
                                                     fontWeight: FontWeight.w400,
                                                     fontSize: 13,
                                                     color: Color(0xff7B7F9E),
@@ -216,7 +220,8 @@ class MentorshipCard extends StatelessWidget {
                                                     TextSpan(
                                                         text: ' Mentor profile',
                                                         style: TextStyle(
-                                                          fontFamily: "Gilroy",
+                                                          fontFamily: AppStrings
+                                                              .FONT_FAMILY,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontSize: 13,
@@ -234,7 +239,8 @@ class MentorshipCard extends StatelessWidget {
                                                     TextSpan(
                                                       text: ' and',
                                                       style: TextStyle(
-                                                        fontFamily: "Gilroy",
+                                                        fontFamily: AppStrings
+                                                            .FONT_FAMILY,
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         fontSize: 13,
@@ -246,7 +252,8 @@ class MentorshipCard extends StatelessWidget {
                                                     TextSpan(
                                                         text: ' Project repo',
                                                         style: TextStyle(
-                                                          fontFamily: "Gilroy",
+                                                          fontFamily: AppStrings
+                                                              .FONT_FAMILY,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontSize: 13,
