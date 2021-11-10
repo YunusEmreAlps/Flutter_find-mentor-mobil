@@ -55,14 +55,15 @@ Meet -> Ask -> Listen -> Learn -> Change Your Career
 - [x] App Structure (Updated)
 - [x] Portrait Mode
 - [x] Support Multiple Language (TR/EN)
+- [x] Mentors Page
+- [x] Mentees Page
 - [x] User Pagination
-- [x] Mentors Page (This part working very well because (Mentor Data < 400)) 
-- [x] Mentees Page (I'm working on pagination part because I keep getting error and afterwards my application crash. (Mentee Data > 400)) (Solved)
 - [x] Events Page 
 - [x] Jobs Page (If you tap the company logo on the details page. You can go to the company website.)
 - [x] Home Page
-- [x] Mentee & Mentors GitHub README (HTML problem)
-- [x] Mentee & Mentors Contributions
+- [x] Users Details Page Active Mentorships Card
+- [x] Users Details Page Contributions Card
+- [x] Users Details Page GitHub README Card (HTML problem)
 
 <!-- API -->
 ## API
@@ -200,6 +201,10 @@ Mentees Detail Page             | Mentees Detail Page               | Mentees De
 Users Detail Page             | Users Detail Page               | Users Detail Page                |  Users Detail Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/49.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/50.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/51.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/52.png?raw=true)|
+
+Users Detail Page             | Users Detail Page               | Users Detail Page                |  Users Detail Page
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/61.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/62.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/63.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/64.png?raw=true)|
 
 Users Detail Page             | Users Detail Page               | Users Detail Page                |  Users Detail Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:

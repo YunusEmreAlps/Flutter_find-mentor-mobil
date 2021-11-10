@@ -12,6 +12,8 @@ Future<String> fetchReadMe(String username, String reponame, String branchname) 
       "Access-Control-Allow-Origin": "*",
     },
   );
+  print(username);
+  print(reponame);
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

@@ -26,7 +26,6 @@ class PersonMentorshipsCard extends StatefulWidget {
 }
 
 class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -186,6 +185,41 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                     SizedBox(
                                       height: 10,
                                     ),
+                                    FutureBuilder(
+                                      future: fetchReadMe(
+                                          widget.model.mentorships[i].projectAdress.split('/')[3],
+                                          widget.model.mentorships[i].projectAdress.split('/')[4],
+                                          "master"),
+                                      builder: (context, snapshot) {
+                                        if (snapshot.hasData) {
+                                          return MarkdownBody(
+                                            selectable: true,
+                                            shrinkWrap: true,
+                                            fitContent: true,
+                                            data: snapshot.data,
+                                            styleSheet:
+                                                MarkdownStyleSheet.fromTheme(
+                                                        Theme.of(context))
+                                                    .copyWith(
+                                              p: Theme.of(context)
+                                                  .textTheme
+                                                  .body1
+                                                  .copyWith(
+                                                      fontSize: 14.0,
+                                                      fontFamily: AppStrings
+                                                          .FONT_FAMILY,
+                                                      color: AppColors
+                                                          .jobTextLink),
+                                            ),
+                                            onTapLink: (url) {
+                                              Utility.launchURL(url);
+                                            },
+                                          );
+                                        }
+                                        return Container();
+                                      },
+                                    ),
+                                    // End
                                   ],
                                 ),
                               ),
