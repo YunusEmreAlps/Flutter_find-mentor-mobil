@@ -26,7 +26,6 @@ class PersonMentorshipsCard extends StatefulWidget {
 }
 
 class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
-  final GlobalKey<ExpansionTileCardState> cardMentorships = new GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +81,6 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         ExpansionTile(
-                          key: cardMentorships,
                           leading:
                               SvgPicture.asset(AppImages.iconJoin, height: 20),
                           title: Text(
