@@ -52,18 +52,25 @@ Hello to everyone! If you are looking for a mentor or mentee, if you enjoy shari
 
 Meet -> Ask -> Listen -> Learn -> Change Your Career
 
-- [x] App Structure (Updated)
-- [x] Portrait Mode
+<!-- ToDo -->
+## ToDo
+
+- [x] App Structure             (Updated)
+- [x] File Architecture         (Updated)
 - [x] Support Multiple Language (TR/EN)
+- [x] Jobs Page
+- [x] Jobs Detail Page
+- [x] Events Page
 - [x] Mentors Page
 - [x] Mentees Page
 - [x] User Pagination
-- [x] Events Page 
-- [x] Jobs Page (If you tap the company logo on the details page. You can go to the company website.)
-- [x] Home Page
+- [x] Users Details Page
 - [x] Users Details Page Active Mentorships Card
 - [x] Users Details Page Contributions Card
-- [x] Users Details Page GitHub README Card (HTML problem)
+- [x] Users Details Page GitHub README Card
+- [x] Home Page
+- [ ] Search Bar
+- [ ] ...
 
 <!-- API -->
 ## API
@@ -126,19 +133,26 @@ flutter run
 
 See the [open issues](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/issues) for a list of proposed features (and known issues).
 
-
 <!-- CONTRIBUTING -->
 ## 🤔 Contributing (Feel free to contribute!)
 
+Awesome! Contributions of all kinds are greatly appreciated. To help smoothen the process we have a few non-exhaustive guidelines to follow which should get you going in no time.
 
 Every night & every deploy, the spread sheet will be parsed by GitHub actions, then generate this beauty. Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Using GitHub Issues
 
+- Feel free to use GitHub issues for questions, bug reports, and feature requests
+- Use the search feature to check for an existing issue
+- Include as much information as possible and provide any relevant resources (Eg. screenshots)
+- For bug reports ensure you have a reproducible test case
+  - A pull request with a breaking test would be super preferable here but isn't required
+
+### Submitting a Pull Request
+
+- Squash commits
+- Lint your code with eslint (config provided)
+- Include relevant test updates/additions
 
 <!-- LICENSE -->
 ## 📝 License

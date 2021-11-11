@@ -1,6 +1,4 @@
 // Flutter imports:
-import 'package:find_mentor/ui/components/personsdetailpage/person_contribution_card.dart';
-import 'package:find_mentor/ui/components/personsdetailpage/person_mentorships_card.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -8,8 +6,10 @@ import 'package:find_mentor/core/init/size_config.dart';
 import 'package:find_mentor/core/model/person.dart';
 import 'package:find_mentor/core/service/fetchReadMe.dart';
 import 'package:find_mentor/ui/components/personsdetailpage/person_card.dart';
+import 'package:find_mentor/ui/components/personsdetailpage/person_contribution_card.dart';
 import 'package:find_mentor/ui/components/personsdetailpage/person_description_card.dart';
 import 'package:find_mentor/ui/components/personsdetailpage/person_github_card.dart';
+import 'package:find_mentor/ui/components/personsdetailpage/person_mentorships_card.dart';
 
 class PersonsDetailPageBody extends StatefulWidget {
   final Person personDetail;

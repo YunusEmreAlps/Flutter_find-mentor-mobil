@@ -1,19 +1,21 @@
-// Flutter imports:
+// Dart imports:
 import 'dart:ui' as ui;
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:expansion_tile_card/expansion_tile_card.dart';
-import 'package:find_mentor/core/init/size_config.dart';
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
+import 'package:find_mentor/core/init/size_config.dart';
 import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/person.dart';
 import 'package:find_mentor/core/service/fetchReadMe.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class PersonMentorshipsCard extends StatefulWidget {
   PersonMentorshipsCard({Key key, this.model, this.onApplyTap})

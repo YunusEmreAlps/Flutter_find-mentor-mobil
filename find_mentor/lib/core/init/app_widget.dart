@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:find_mentor/core/model/person.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,8 @@ class AppWidget {
 
       textTheme: TextTheme(
         display1: TextStyle(
-            fontSize: AppConstants.fontSizeDisplay, fontWeight: FontWeight.bold),
+            fontSize: AppConstants.fontSizeDisplay,
+            fontWeight: FontWeight.bold),
         headline: TextStyle(
             fontSize: AppConstants.fontSizeHeadline,
             fontWeight: FontWeight.bold),
@@ -28,7 +30,8 @@ class AppWidget {
         body2: TextStyle(
             fontSize: AppConstants.fontSizeBody2, fontWeight: FontWeight.bold),
         caption: TextStyle(
-            fontSize: AppConstants.fontSizeCaption, fontWeight: FontWeight.bold),
+            fontSize: AppConstants.fontSizeCaption,
+            fontWeight: FontWeight.bold),
       ),
       appBarTheme: AppBarTheme(brightness: Brightness.light),
     );
@@ -37,6 +40,7 @@ class AppWidget {
   static Widget getSearchBox(isKeyboardVisible, context, pageHintText,
       {FocusNode focusNode}) {
     TextEditingController _searchController = TextEditingController();
+
     return Row(
       children: <Widget>[
         Flexible(
@@ -72,13 +76,15 @@ class AppWidget {
                     child: TextFormField(
                       focusNode: focusNode,
                       onChanged: (searchText) {
-                        // print(searchText);
+                        print(searchText);
+                        
                       },
                       decoration: InputDecoration(
                         hintText: pageHintText,
                         hintStyle: TextStyle(
-                            fontSize: 14, color: AppColors.colorBackButton),
-                        //
+                          fontSize: 14,
+                          color: AppColors.colorBackButton,
+                        ),
                         filled: true,
                         fillColor: Colors.white,
                         prefixIcon: Container(
