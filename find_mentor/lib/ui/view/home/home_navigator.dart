@@ -24,7 +24,6 @@ class HomeNavigator extends StatefulWidget {
 // Home (+) 
 // Events (+)
 // Jobs (+)
-// Job Seekers
 
 class _HomeNavigatorState extends State<HomeNavigator> {
   int _currentPage = 2;

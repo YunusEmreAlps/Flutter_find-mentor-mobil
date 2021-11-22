@@ -45,6 +45,7 @@ class Utility {
   }
 
   static String jobTimeCreatedAt(String value){
+    print(value);
     var list = value.split(".");
     var yy = int.parse(list.last);
     var dt = int.parse(list[0]);
@@ -81,7 +82,7 @@ class Utility {
 
   static int toMonthIndex(String value){
     switch (value) {
-      case "Jan": return 1;
+      /*case "Jan": return 1;
       case "Feb": return 2;
       case "Mar": return 3;
       case "Apr": return 4;
@@ -94,6 +95,21 @@ class Utility {
       case "Nov": return 11;
       case "Dec": return 12;
       default: return 1;
+      */
+      case '01': return 1;
+      case '02': return 2;
+      case '03': return 3;
+      case '04': return 4;
+      case '05': return 5;
+      case '06': return 6;
+      case '07': return 7;
+      case '08': return 8;
+      case '09': return 9;
+      case '10': return 10;
+      case '11': return 11;
+      case '12': return 12;
+      default: return 1;
+      
     }
   }
 }
