@@ -1,7 +1,10 @@
 // Flutter imports:
+import 'package:find_mentor/core/init/utility.dart';
+import 'package:find_mentor/core/service/fetchReadMe.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 // Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,22 +48,41 @@ class AppBottomSheetWidgets {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(40, 32, 40, 0),
+              padding: const EdgeInsets.fromLTRB(32, 30, 32, 24),
               child: Center(
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.colorAppDescription),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: AppStrings.APP_LONGRICH_DESCRIPTION,
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: AppStrings.APP_LONG_DESCRIPTION),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    FutureBuilder(
+                      future: fetchReadMe(
+                        "findmentor-network",
+                        "find-mentor",
+                        "master",
+                        "content/mentees",
+                      ),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return MarkdownBody(
+                            selectable: true,
+                            shrinkWrap: true,
+                            fitContent: true,
+                            data: snapshot.data,
+                            styleSheet:
+                                MarkdownStyleSheet.fromTheme(Theme.of(context))
+                                    .copyWith(
+                              p: Theme.of(context).textTheme.body1.copyWith(
+                                  fontSize: 14.0,
+                                  fontFamily: AppStrings.FONT_FAMILY,
+                                  color: AppColors.jobTextLink),
+                            ),
+                            onTapLink: (url) {
+                              Utility.launchURL(url);
+                            },
+                          );
+                        }
+                        return Container();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -172,8 +194,8 @@ class AppBottomSheetWidgets {
             // LinkedIn
             Padding(
               padding: const EdgeInsets.only(left: 32),
-              child: AppBottomSheetWidgets.socialRow('LinkedIn',
-                  AppStrings.LINKEDIN_LINK, AppImages.iconLinkedin),
+              child: AppBottomSheetWidgets.socialRow(
+                  'LinkedIn', AppStrings.LINKEDIN_LINK, AppImages.iconLinkedin),
             ),
             // Website Button
             Padding(

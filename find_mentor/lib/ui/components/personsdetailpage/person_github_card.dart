@@ -58,7 +58,7 @@ class PersonGitHubCard extends StatelessWidget {
           ),
           SizedBox(height: 12),
           FutureBuilder(
-            future: fetchReadMe(model.github.substring(19), model.github.substring(19), "master"),
+            future: fetchReadMe(model.github.substring(19), model.github.substring(19), "master", "README"),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return MarkdownBody(

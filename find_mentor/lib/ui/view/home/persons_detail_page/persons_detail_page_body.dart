@@ -94,7 +94,7 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                           // GitHub
                           (widget.personDetail.github.length != 0)
                               ? FutureBuilder(
-                                  future: fetchReadMe(widget.personDetail.github.substring(19), widget.personDetail.github.substring(19), "master"),
+                                  future: fetchReadMe(widget.personDetail.github.substring(19), widget.personDetail.github.substring(19), "master", "README"),
                                   builder: (context, snapshot) {
                                     if (snapshot.hasData) {
                                       return PersonGitHubCard(

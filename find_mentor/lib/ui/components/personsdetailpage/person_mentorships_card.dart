@@ -191,7 +191,8 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                       future: fetchReadMe(
                                           widget.model.mentorships[i].projectAdress.split('/')[3],
                                           widget.model.mentorships[i].projectAdress.split('/')[4],
-                                          "master"),
+                                          "master",
+                                          "README"),
                                       builder: (context, snapshot) {
                                         if (snapshot.hasData) {
                                           return MarkdownBody(
