@@ -128,7 +128,7 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                         return InkWell(
                                           onTap: () {
                                             Utility.launchURL(
-                                                "https://findmentor.network/" +
+                                                "https://findmentor.network" +
                                                     widget
                                                         .model
                                                         .mentorships[i]

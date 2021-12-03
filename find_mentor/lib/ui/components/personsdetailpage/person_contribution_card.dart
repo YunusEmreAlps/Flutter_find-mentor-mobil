@@ -174,7 +174,7 @@ class PersonContributionCard extends StatelessWidget {
                             return InkWell(
                               onTap: () {
                                 Utility.launchURL(
-                                    "https://findmentor.network/" +
+                                    "https://findmentor.network" +
                                         model.contributions[i].contributors[j]
                                             .fmnUrl);
                               },
