@@ -69,13 +69,12 @@ Meet -> Ask -> Listen -> Learn -> Change Your Career
 - [x] Users Details Page Contributions Card
 - [x] Users Details Page GitHub README Card
 - [x] Home Page
-- [ ] Search Bar isn't working. (Events, Jobs, Home, Mentees, Mentors)
+- [ ] Search Bar not working. (Events, Jobs, Home, Mentees, Mentors)
 - [ ] Users requirements part can be like [this](https://github.com/sbilketay/animated_selection_slide).
 - [ ] We need to online to use this app. We can add [this](https://github.com/jogboms/flutter_offline)
 - [ ] GitHub README does not work very well because When we have combined markdown + HTML just the markdown part is worked. [Problem](https://github.com/YunusEmreAlps/Flutter_find-mentor-mobil/blob/master/find_mentor/ss/problem_1.png?raw=true)
 - [ ] Settings Page
 - [ ] Dark Mode
-- [ ] I'm not really sure for this but maybe we can coordinate like social media you can subscribe mentee or mentor of your profile.
 - [ ] With great power comes great responsibility. You can add your idea of this section... 
        
 <!-- API -->
