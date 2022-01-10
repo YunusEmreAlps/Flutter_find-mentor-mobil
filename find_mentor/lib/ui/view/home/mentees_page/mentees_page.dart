@@ -17,35 +17,46 @@ class _MenteesPageState extends State<MenteesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.colorHeading,
-          ),
+      appBar: buildAppBar(),
+      body: buildStack(),
+    );
+  }
+
+  Stack buildStack() {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        MenteesPageBody(),
+      ],
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      leading: buildIconButton(),
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: AppColors.colorPageBg,
+      title: Text(
+        AppStrings.MENTEES +
+            ((AppConstants.menteesCount != 0)
+                ? " (${AppConstants.menteesCount})"
+                : ""),
+        style: TextStyle(
+          fontFamily: AppStrings.FONT_FAMILY,
+          foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
         ),
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: AppColors.colorPageBg,
-        title: Text(
-          AppStrings.MENTEES +
-              ((AppConstants.menteesCount != 0)
-                  ? " (${AppConstants.menteesCount})"
-                  : ""),
-          style: TextStyle(
-              fontFamily: AppStrings.FONT_FAMILY,
-              foreground: Paint()
-                ..shader = AppGradients.primaryTextGradientColor),
-        ),
-        brightness: Brightness.light,
       ),
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          MenteesPageBody(),
-        ],
+      brightness: Brightness.light,
+    );
+  }
+
+  IconButton buildIconButton() {
+    return IconButton(
+      onPressed: () {},
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: AppColors.colorHeading,
       ),
     );
   }

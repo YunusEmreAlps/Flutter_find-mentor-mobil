@@ -16,47 +16,63 @@ class PersonsDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.colorHeading,
-          ),
-        ),
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: AppColors.colorPageBg,
-        title: Text(
-          mentorValues.reverse[personDetail.mentor] != 'Both'
-              ? mentorValues.reverse[personDetail.mentor]
-              : 'Mentor & Mentee',
-          style: TextStyle(
-              fontFamily: AppStrings.FONT_FAMILY,
-              foreground: Paint()
-                ..shader = AppGradients.primaryTextGradientColor),
-        ),
-        brightness: Brightness.light,
-      ),
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[PersonsDetailPageBody(personDetail: personDetail)],
-      ),
+      appBar: buildAppBar(context),
+      body: buildStack(),
       floatingActionButton: (personDetail.isHireable)
-          ? FloatingActionButton(
-              tooltip: 'HIRE ME!',
-              onPressed: () {
-                Utility.launchURL(personDetail.mail);
-              },
-              child: Icon(
-                Icons.message,
-                color: Colors.white,
-              ),
-              backgroundColor: AppColors.colorPrimary,
-            )
+          ? buildFloatingActionButton()
           : Container(),
+    );
+  }
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+            tooltip: 'HIRE ME!',
+            onPressed: () {
+              Utility.launchURL(personDetail.mail);
+            },
+            child: Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+            backgroundColor: AppColors.colorPrimary,
+          );
+  }
+
+  Stack buildStack() {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[PersonsDetailPageBody(personDetail: personDetail)],
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      leading: buildIconButton(context),
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: AppColors.colorPageBg,
+      title: Text(
+        mentorValues.reverse[personDetail.mentor] != 'Both'
+            ? mentorValues.reverse[personDetail.mentor]
+            : 'Mentor & Mentee',
+        style: TextStyle(
+            fontFamily: AppStrings.FONT_FAMILY,
+            foreground: Paint()
+              ..shader = AppGradients.primaryTextGradientColor),
+      ),
+      brightness: Brightness.light,
+    );
+  }
+
+  IconButton buildIconButton(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: AppColors.colorHeading,
+      ),
     );
   }
 }

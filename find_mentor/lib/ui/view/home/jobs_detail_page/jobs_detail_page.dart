@@ -15,33 +15,45 @@ class JobsDetailPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.colorHeading,
-          ),
-        ),
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: AppColors.colorPageBg,
-        title: Text(
-          jobDetail.company,
-          style: TextStyle(
-              fontFamily: AppStrings.FONT_FAMILY,
-              foreground: Paint()
-                ..shader = AppGradients.primaryTextGradientColor),
-        ),
-        brightness: Brightness.light,
+      appBar: buildAppBar(context),
+      body: buildStack(),
+    );
+  }
+
+  Stack buildStack() {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        JobsDetailPageBody(jobDetail: jobDetail)
+      ],
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      leading: buildIconButton(context),
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: AppColors.colorPageBg,
+      title: Text(
+        jobDetail.company,
+        style: TextStyle(
+            fontFamily: AppStrings.FONT_FAMILY,
+            foreground: Paint()
+              ..shader = AppGradients.primaryTextGradientColor),
       ),
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          JobsDetailPageBody(jobDetail: jobDetail)
-        ],
+      brightness: Brightness.light,
+    );
+  }
+
+  IconButton buildIconButton(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: AppColors.colorHeading,
       ),
     );
   }

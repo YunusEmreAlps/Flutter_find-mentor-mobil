@@ -55,13 +55,18 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Column(
             children: <Widget>[
-              FindMentorCover(isKeyboardVisible: _isKeyboardVisible, context: context, scale: 0.35),
+              FindMentorCover(
+                  isKeyboardVisible: _isKeyboardVisible,
+                  context: context,
+                  scale: 0.35),
               Expanded(
                 child: SingleChildScrollView(
                   controller: _scrollController,
                   child: Padding(
-                    padding: EdgeInsets.only(top: _isKeyboardVisible ? 102 : 52, bottom: 32),
-                    child: _isKeyboardVisible ? SearchPage() : HomePageListView(),
+                    padding: EdgeInsets.only(
+                        top: _isKeyboardVisible ? 102 : 52, bottom: 32),
+                    child:
+                        _isKeyboardVisible ? SearchPage() : HomePageListView(),
                   ),
                 ),
               ),
@@ -110,7 +115,8 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
                 _onDrawerButtonPressed();
               },
-              child: new Icon(Icons.arrow_back_ios, color: AppColors.colorBackButton, size: 13.0),
+              child: new Icon(Icons.arrow_back_ios,
+                  color: AppColors.colorBackButton, size: 13.0),
               shape: new CircleBorder(),
               elevation: 0,
               fillColor: AppColors.colorDrawerButton,
@@ -118,7 +124,11 @@ class _HomePageState extends State<HomePage> {
             ),
             Spacer(),
             Center(
-              child: Text(heading, style: TextStyle(fontSize: 14, color: AppColors.colorHeading, fontWeight: FontWeight.w500)),
+              child: Text(heading,
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: AppColors.colorHeading,
+                      fontWeight: FontWeight.w500)),
             ),
             Spacer(),
             Spacer(),
@@ -130,13 +140,19 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              FindMentorCover(isKeyboardVisible: _isKeyboardVisible, context: context, scale: 0.20),
+              FindMentorCover(
+                  isKeyboardVisible: _isKeyboardVisible,
+                  context: context,
+                  scale: 0.20),
               Center(
                 child: Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .14),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * .14),
                   child: Column(
                     children: <Widget>[
-                      Text(AppStrings.APP_DESCRIPTION, style: TextStyle(fontSize: 14, color: AppColors.colorDarkGrey)),
+                      Text(AppStrings.APP_DESCRIPTION,
+                          style: TextStyle(
+                              fontSize: 14, color: AppColors.colorDarkGrey)),
                     ],
                   ),
                 ),
@@ -157,8 +173,13 @@ class _HomePageState extends State<HomePage> {
                   height: 48,
                   elevation: 0,
                   color: AppColors.colorDrawerButton,
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8)),
-                  child: Text(AppStrings.HOW_IT_WORKS, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.colorHeading)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(8)),
+                  child: Text(AppStrings.HOW_IT_WORKS,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.colorHeading)),
                   onPressed: () {
                     _onHowItWorksButtonPressed();
                   },
@@ -171,8 +192,13 @@ class _HomePageState extends State<HomePage> {
                   height: 48,
                   elevation: 0,
                   color: AppColors.colorDrawerButton,
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8)),
-                  child: Text(AppStrings.CONTACT_US, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.colorHeading)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(8)),
+                  child: Text(AppStrings.CONTACT_US,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.colorHeading)),
                   onPressed: () {
                     _onIletisimButtonPressed();
                   },
@@ -194,13 +220,16 @@ class _HomePageState extends State<HomePage> {
                 });
               },
               children: <Widget>[
-                AppBottomSheetWidgets.buildIletisimItem(_itemTopMenu(AppStrings.CONTACT_DETAILS)),
-                AppBottomSheetWidgets.buildKatkiItem(_itemTopMenu(AppStrings.FEEDBACK))
+                AppBottomSheetWidgets.buildIletisimItem(
+                    _itemTopMenu(AppStrings.CONTACT_DETAILS)),
+                AppBottomSheetWidgets.buildKatkiItem(
+                    _itemTopMenu(AppStrings.FEEDBACK))
               ],
             ),
           ),
           AppBottomSheetWidgets.selectCategory(
-              _horizontalCategoryItem(id: 0, title: AppStrings.CONTACT_US), _horizontalCategoryItem(id: 1, title: AppStrings.FEEDBACK))
+              _horizontalCategoryItem(id: 0, title: AppStrings.CONTACT_US),
+              _horizontalCategoryItem(id: 1, title: AppStrings.FEEDBACK))
         ],
       );
 
@@ -210,7 +239,8 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           _selectedCategory = 1;
         });
-        _pageController.animateToPage(_selectedCategory, duration: Duration(milliseconds: 300), curve: Curves.ease);
+        _pageController.animateToPage(_selectedCategory,
+            duration: Duration(milliseconds: 300), curve: Curves.ease);
       },
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -224,13 +254,20 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('$title',
-                  textAlign: TextAlign.center, style: TextStyle(fontWeight: _selectedCategory == id ? FontWeight.bold : FontWeight.normal, fontSize: 14)),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: _selectedCategory == id
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                      fontSize: 14)),
               SizedBox(height: 4),
               AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 height: 2,
                 width: _selectedCategory == id ? title.length * 2.5 : 0,
-                decoration: BoxDecoration(color: AppColors.colorPrimary, borderRadius: BorderRadius.circular(4)),
+                decoration: BoxDecoration(
+                    color: AppColors.colorPrimary,
+                    borderRadius: BorderRadius.circular(4)),
               ),
             ],
           ),
@@ -244,45 +281,53 @@ class _HomePageState extends State<HomePage> {
       FocusScope.of(context).unfocus();
     } catch (e) {}
     showModalBottomSheet(
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height * .5,
-            child: Container(child: _buildDrawerItem, decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration),
-          );
-        });
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * .5,
+          child: Container(
+              child: _buildDrawerItem,
+              decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration),
+        );
+      },
+    );
   }
 
   void _onHowItWorksButtonPressed() {
     Navigator.pop(context);
     showModalBottomSheet(
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height * .5,
-            child: Container(
-              child: AppBottomSheetWidgets.buildHowItWorksItem(_itemTopMenu(AppStrings.HOW_IT_WORKS)),
-              decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration,
-            ),
-          );
-        });
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * .5,
+          child: Container(
+            child: AppBottomSheetWidgets.buildHowItWorksItem(
+                _itemTopMenu(AppStrings.HOW_IT_WORKS)),
+            decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration,
+          ),
+        );
+      },
+    );
   }
 
   void _onIletisimButtonPressed() {
     Navigator.pop(context);
     showModalBottomSheet<dynamic>(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) => Container(
-              height: MediaQuery.of(context).size.height * .9,
-              child: Container(child: _renderItem(setState), decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration),
-            ),
-          );
-        });
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) => Container(
+            height: MediaQuery.of(context).size.height * .9,
+            child: Container(
+                child: _renderItem(setState),
+                decoration: AppBottomSheetWidgets.bottomSheetBoxDecoration),
+          ),
+        );
+      },
+    );
   }
 }
