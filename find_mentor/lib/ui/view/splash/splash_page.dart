@@ -1,5 +1,3 @@
-// Splash Screen
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -12,12 +10,6 @@ import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/core/init/app_localizations.dart';
 import 'package:find_mentor/core/navigation/navigation_constants.dart';
 
-/*
-  Find & Match With Your Mentor/Mentee 
-  Meet -> Ask -> Listen -> Learn
-  Change Your Career
-*/
-
 class SplashPage extends StatefulWidget {
   SplashPage({Key key}) : super(key: key);
 
@@ -27,7 +19,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   startTimeout() {
-    Future.delayed(Duration(seconds: 8), () {
+    Future.delayed(Duration(seconds: AppConstants.duration), () {
       Navigator.pushReplacementNamed(context, NavigationConstants.HOME);
     });
   }
@@ -42,57 +34,93 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     AppLocalizations.of(context);
     return Scaffold(
-      body: DecoratedBox(
-        position: DecorationPosition.background,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          image: DecorationImage(
-              image: AssetImage(AppImages.pngBackgroundImage),
-              fit: BoxFit.cover),
+      body: buildDecoratedBox(),
+    );
+  }
+
+  DecoratedBox buildDecoratedBox() {
+    return DecoratedBox(
+      position: DecorationPosition.background,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        image: DecorationImage(
+          image: AssetImage(AppImages.pngBackgroundImage),
+          fit: BoxFit.cover,
         ),
-        
+      ),
+      child: buildStack(),
+    );
+  }
 
-        child: Stack(
-          fit: StackFit.expand,
+  Stack buildStack() {
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        iconWidget(),
+        loadingWidget(),
+        animatedColumn(),
+      ],
+    );
+  }
+
+  // Loading...
+  static Widget loadingWidget() {
+    return Align(
+      alignment: Alignment.center,
+      child: SizedBox(
+        width: 200,
+        height: 200,
+        child: CircularProgressIndicator(
+          strokeWidth: 10,
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Colors.white.withOpacity(0.5),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Find Mentor Logo
+  static Widget iconWidget() {
+    return Center(
+      child: SvgPicture.asset(
+        AppImages.svgLogo,
+        height: 160,
+      ),
+    );
+  }
+
+  static Widget animatedColumn() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Row(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            // Logo
-            Center(
-              child: SvgPicture.asset(
-                AppImages.svgLogo,
-                height: 160,
-              ),
-            ),
-
-            // Animated Text
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    RotateAnimatedTextKit(
-                      alignment: Alignment.center,
-                      onTap: () {
-                        print("Tap Event");
-                      },
-                      text: [
-                        AppStrings.SPLASH_TEXT1,
-                        AppStrings.SPLASH_TEXT2,
-                        AppStrings.SPLASH_TEXT3,
-                      ],
-                      textStyle: TextStyle(
-                          fontSize: 18.0,
-                          fontFamily: AppStrings.FONT_FAMILY,
-                          foreground: Paint()
-                            ..shader = AppGradients.primaryTextGradientColor),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            animatedText(),
           ],
         ),
+      ],
+    );
+  }
+
+  // Animated Text  
+  static Widget animatedText() {
+    return RotateAnimatedTextKit(
+      alignment: Alignment.center,
+      onTap: () {
+        print("Tap Event");
+      },
+      text: [
+        AppStrings.SPLASH_TEXT1,
+        AppStrings.SPLASH_TEXT2,
+        AppStrings.SPLASH_TEXT3,
+      ],
+      textStyle: TextStyle(
+        fontSize: 18.0,
+        fontFamily: AppStrings.FONT_FAMILY,
+        foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
       ),
     );
   }

@@ -5,6 +5,7 @@ class AppConstants {
   static int jobsCount = 0;
   static int eventsCount = 0;
   static int mentorshipsCount = 0;
+  static int duration = 8;
 
   // Fonts
   static const double defaultPadding = 16.0;
