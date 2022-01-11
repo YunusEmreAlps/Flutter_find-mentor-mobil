@@ -32,7 +32,7 @@ class OnSearchBodyList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'kalem',
+                        'Find Mentor',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                       ),
                       Icon(

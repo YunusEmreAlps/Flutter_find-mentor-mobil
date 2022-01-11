@@ -2,6 +2,7 @@
 import 'dart:ui' as ui;
 
 // Flutter imports:
+import 'package:find_mentor/core/model/contribution.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -86,7 +87,8 @@ class HomePageListView extends StatelessWidget {
                                                         .MENTORSHIPSPAGE_GUIDE,
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
-                                                      fontFamily: AppStrings.FONT_FAMILY,
+                                                      fontFamily: AppStrings
+                                                          .FONT_FAMILY,
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       fontSize: 12,
@@ -100,7 +102,8 @@ class HomePageListView extends StatelessWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    Utility.launchURL(AppStrings.ADD_MENTORSHIPS_URL);
+                                                    Utility.launchURL(AppStrings
+                                                        .ADD_MENTORSHIPS_URL);
                                                   },
                                                   child: Container(
                                                     width: 260,
@@ -108,13 +111,14 @@ class HomePageListView extends StatelessWidget {
                                                       "Add your mentorship campaign",
                                                       textAlign: TextAlign.left,
                                                       style: TextStyle(
-                                                        fontFamily: AppStrings.FONT_FAMILY,
+                                                        fontFamily: AppStrings
+                                                            .FONT_FAMILY,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                         fontSize: 13,
                                                         // color: Color(0xFFB5BFD0),
-                                                        color: AppColors
-                                                            .colorLink,
+                                                        color:
+                                                            AppColors.colorLink,
                                                         height: 1.5,
                                                       ),
                                                     ),
@@ -139,37 +143,45 @@ class HomePageListView extends StatelessWidget {
               ),
             ),
           ),
-          SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                FutureBuilder(
-                  future: fetchMentorships(),
-                  builder: (context, snapshot) {
-                    return snapshot.hasData
-                        ? Mentorships(mentorships: snapshot.data)
-                        : Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 25,
-                                ),
-                                CircularProgressIndicator(
-                                  strokeWidth: 3,
-                                  valueColor: AlwaysStoppedAnimation(
-                                      AppColors.colorPrimary),
-                                ),
-                              ],
-                            ),
-                          );
-                  },
-                ),
-              ],
-            ),
-          ),
+          buildMentorshipArea(),
         ],
       ),
+    );
+  }
+
+  SafeArea buildMentorshipArea() {
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          mentorshipList(),
+        ],
+      ),
+    );
+  }
+
+  FutureBuilder<List<Contribution>> mentorshipList() {
+    return FutureBuilder(
+      future: fetchMentorships(),
+      builder: (context, snapshot) {
+        return snapshot.hasData
+            ? Mentorships(mentorships: snapshot.data)
+            : Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 25,
+                    ),
+                    CircularProgressIndicator(
+                      strokeWidth: 3,
+                      valueColor:
+                          AlwaysStoppedAnimation(AppColors.colorPrimary),
+                    ),
+                  ],
+                ),
+              );
+      },
     );
   }
 }

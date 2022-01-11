@@ -121,6 +121,8 @@ class AppStrings {
   static final String MENTORSHIPS = AppLocalizations.getString("Mentorships");
   static final String MENTORS = AppLocalizations.getString("Mentors");
   static final String MENTEES = AppLocalizations.getString("Mentees");
+  static final String MENTOR = AppLocalizations.getString("Mentor");
+  static final String MENTEE = AppLocalizations.getString("Mentee");
   static final String APPLY_NOW = AppLocalizations.getString("Apply Now");
   static final String SOCIAL = AppLocalizations.getString("Social");
   static final String GOALS = AppLocalizations.getString("Goals");

@@ -64,7 +64,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   // Loading...
-  static Widget loadingWidget() {
+  Widget loadingWidget() {
     return Align(
       alignment: Alignment.center,
       child: SizedBox(
@@ -81,7 +81,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   // Find Mentor Logo
-  static Widget iconWidget() {
+  Widget iconWidget() {
     return Center(
       child: SvgPicture.asset(
         AppImages.svgLogo,
@@ -90,7 +90,7 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
-  static Widget animatedColumn() {
+  Widget animatedColumn() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
@@ -106,7 +106,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   // Animated Text  
-  static Widget animatedText() {
+  Widget animatedText() {
     return RotateAnimatedTextKit(
       alignment: Alignment.center,
       onTap: () {

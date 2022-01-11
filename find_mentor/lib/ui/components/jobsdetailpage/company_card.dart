@@ -94,23 +94,7 @@ class CompanyCard extends StatelessWidget {
             margin:
                 EdgeInsets.symmetric(vertical: 5) + EdgeInsets.only(top: 20),
             padding: EdgeInsets.only(left: 16, right: 16, bottom: 20, top: 30),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [
-                    AppColors.colorPageBg, // Color(0xFF216383) strong
-                    AppColors.colorPageBg, // Color(0xFF71BFBC) light
-                  ]),
-              borderRadius: BorderRadius.circular(15.0),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 4),
-                  blurRadius: 20,
-                  color: Color(0xFFB0CCE1).withOpacity(0.32),
-                ),
-              ],
-            ),
+            decoration: buildBoxDecoration(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -151,6 +135,26 @@ class CompanyCard extends StatelessWidget {
           _companyInitial(theme),
         ],
       ),
+    );
+  }
+
+  BoxDecoration buildBoxDecoration() {
+    return BoxDecoration(
+      gradient: LinearGradient(
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight,
+          colors: [
+            AppColors.colorPageBg, // Color(0xFF216383) strong
+            AppColors.colorPageBg, // Color(0xFF71BFBC) light
+          ]),
+      borderRadius: BorderRadius.circular(15.0),
+      boxShadow: [
+        BoxShadow(
+          offset: Offset(0, 4),
+          blurRadius: 20,
+          color: Color(0xFFB0CCE1).withOpacity(0.32),
+        ),
+      ],
     );
   }
 }

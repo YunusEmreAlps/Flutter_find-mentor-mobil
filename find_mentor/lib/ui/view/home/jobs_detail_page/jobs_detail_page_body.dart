@@ -37,31 +37,9 @@ class _JobsDetailPageBodyState extends State<JobsDetailPageBody> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Container(
-                            child: Stack(
-                              alignment: Alignment.topCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Container(
-                                    height: 65,
-                                    width: double.infinity,
-                                  ),
-                                ),
-                                CompanyCard(model: widget.jobDetail),
-                              ],
-                            ),
-                          ),
+                          buildCompanyCardContainer(),
                           SizedBox(height: 16),
-                          JobDescriptionCard(
-                            model: widget.jobDetail,
-                            onApplyTap: () {
-                              controller.animateTo(
-                                  controller.position.maxScrollExtent,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.linearToEaseOut);
-                            },
-                          ),
+                          buildJobDescriptionCard(),
                         ],
                       ),
                     ),
@@ -72,6 +50,35 @@ class _JobsDetailPageBodyState extends State<JobsDetailPageBody> {
           ),
         ],
       ),
+    );
+  }
+
+  Container buildCompanyCardContainer() {
+    return Container(
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: 65,
+              width: double.infinity,
+            ),
+          ),
+          CompanyCard(model: widget.jobDetail),
+        ],
+      ),
+    );
+  }
+
+  JobDescriptionCard buildJobDescriptionCard() {
+    return JobDescriptionCard(
+      model: widget.jobDetail,
+      onApplyTap: () {
+        controller.animateTo(controller.position.maxScrollExtent,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.linearToEaseOut);
+      },
     );
   }
 }

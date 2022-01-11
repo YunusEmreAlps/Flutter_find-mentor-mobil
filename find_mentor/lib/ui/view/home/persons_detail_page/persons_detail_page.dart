@@ -10,32 +10,35 @@ import 'package:find_mentor/ui/view/home/persons_detail_page/persons_detail_page
 
 class PersonsDetailPage extends StatelessWidget {
   final Person personDetail;
-  const PersonsDetailPage({Key key, @required this.personDetail})
-      : super(key: key);
+  const PersonsDetailPage({
+    Key key,
+    @required this.personDetail,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
       body: buildStack(),
-      floatingActionButton: (personDetail.isHireable)
+      floatingActionButton: ((personDetail.isHireable)
           ? buildFloatingActionButton()
-          : Container(),
+          : Container()),
     );
   }
 
+  // Job Seeker!
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-            tooltip: 'HIRE ME!',
-            onPressed: () {
-              Utility.launchURL(personDetail.mail);
-            },
-            child: Icon(
-              Icons.message,
-              color: Colors.white,
-            ),
-            backgroundColor: AppColors.colorPrimary,
-          );
+      tooltip: 'HIRE ME!',
+      onPressed: () {
+        Utility.launchURL("mailto:"+personDetail.mail);
+      },
+      child: Icon(
+        Icons.message,
+        color: Colors.white,
+      ),
+      backgroundColor: AppColors.colorPrimary,
+    );
   }
 
   Stack buildStack() {
@@ -52,13 +55,13 @@ class PersonsDetailPage extends StatelessWidget {
       centerTitle: true,
       backgroundColor: AppColors.colorPageBg,
       title: Text(
-        mentorValues.reverse[personDetail.mentor] != 'Both'
+        (mentorValues.reverse[personDetail.mentor] != 'Both')
             ? mentorValues.reverse[personDetail.mentor]
-            : 'Mentor & Mentee',
+            : AppStrings.MENTOR + ' & ' + AppStrings.MENTEE,
         style: TextStyle(
-            fontFamily: AppStrings.FONT_FAMILY,
-            foreground: Paint()
-              ..shader = AppGradients.primaryTextGradientColor),
+          fontFamily: AppStrings.FONT_FAMILY,
+          foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
+        ),
       ),
       brightness: Brightness.light,
     );

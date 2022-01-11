@@ -41,77 +41,24 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Container(
-                            child: Stack(
-                              alignment: Alignment.topCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Container(
-                                    height: 65,
-                                    width: double.infinity,
-                                  ),
-                                ),
-                                PersonCard(model: widget.personDetail),
-                              ],
-                            ),
-                          ),
+                          // Avatar, Full Name, Name-Tag
+                          personDetailContainer(),
                           SizedBox(height: 16),
-                          PersonDescriptionCard(
-                              model: widget.personDetail,
-                              onApplyTap: () {
-                                controller.animateTo(
-                                    controller.position.maxScrollExtent,
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.linearToEaseOut);
-                              }),
+                          // Goals & Interests
+                          buildPersonDescriptionCard(),
                           SizedBox(height: 16),
                           // Active Mentorships
                           (widget.personDetail.mentorships.length != 0)
-                              ? PersonMentorshipsCard(
-                                  model: widget.personDetail,
-                                  onApplyTap: () {
-                                    controller.animateTo(
-                                        controller.position.maxScrollExtent,
-                                        duration: Duration(milliseconds: 500),
-                                        curve: Curves.linearToEaseOut);
-                                  },
-                                )
+                              ? buildPersonMentorshipsCard()
                               : Container(),
                           // Contributed
                           (widget.personDetail.contributions.length != 0)
-                              ? PersonContributionCard(
-                                  model: widget.personDetail,
-                                  onApplyTap: () {
-                                    controller.animateTo(
-                                        controller.position.maxScrollExtent,
-                                        duration: Duration(milliseconds: 500),
-                                        curve: Curves.linearToEaseOut);
-                                  },
-                                )
+                              ? buildPersonContributionCard()
                               : Container(),
                           SizedBox(height: 16),
-                          // GitHub
+                          // GitHub README
                           (widget.personDetail.github.length != 0)
-                              ? FutureBuilder(
-                                  future: fetchReadMe(widget.personDetail.github.substring(19), widget.personDetail.github.substring(19), "master", "README"),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.hasData) {
-                                      return PersonGitHubCard(
-                                        model: widget.personDetail,
-                                        onApplyTap: () {
-                                          controller.animateTo(
-                                              controller
-                                                  .position.maxScrollExtent,
-                                              duration:
-                                                  Duration(milliseconds: 100),
-                                              curve: Curves.linearToEaseOut);
-                                        },
-                                      );
-                                    }
-                                    return Container();
-                                  },
-                                )
+                              ? buildFutureBuilder()
                               : Container(),
                         ],
                       ),
@@ -121,6 +68,82 @@ class _PersonsDetailPageBodyState extends State<PersonsDetailPageBody> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  // GitHub README
+  FutureBuilder<String> buildFutureBuilder() {
+    return FutureBuilder(
+      future: fetchReadMe(widget.personDetail.github.substring(19),
+          widget.personDetail.github.substring(19), "master", "README"),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return PersonGitHubCard(
+            model: widget.personDetail,
+            onApplyTap: () {
+              controller.animateTo(controller.position.maxScrollExtent,
+                  duration: Duration(milliseconds: 100),
+                  curve: Curves.linearToEaseOut);
+            },
+          );
+        }
+        return Container();
+      },
+    );
+  }
+
+  // Contributed
+  PersonContributionCard buildPersonContributionCard() {
+    return PersonContributionCard(
+      model: widget.personDetail,
+      onApplyTap: () {
+        controller.animateTo(controller.position.maxScrollExtent,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.linearToEaseOut);
+      },
+    );
+  }
+
+  // Active Mentorships
+  PersonMentorshipsCard buildPersonMentorshipsCard() {
+    return PersonMentorshipsCard(
+      model: widget.personDetail,
+      onApplyTap: () {
+        controller.animateTo(controller.position.maxScrollExtent,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.linearToEaseOut);
+      },
+    );
+  }
+
+  // Goals & Interests
+  PersonDescriptionCard buildPersonDescriptionCard() {
+    return PersonDescriptionCard(
+      model: widget.personDetail,
+      onApplyTap: () {
+        controller.animateTo(controller.position.maxScrollExtent,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.linearToEaseOut);
+      },
+    );
+  }
+
+  // Avatar, Full Name, Tag
+  Container personDetailContainer() {
+    return Container(
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: 65,
+              width: double.infinity,
+            ),
+          ),
+          PersonCard(model: widget.personDetail),
         ],
       ),
     );

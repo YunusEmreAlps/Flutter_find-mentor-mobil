@@ -2,11 +2,7 @@
 import 'dart:convert';
 
 // Flutter imports:
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-// Package imports:
-import 'package:http/http.dart' as http;
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';

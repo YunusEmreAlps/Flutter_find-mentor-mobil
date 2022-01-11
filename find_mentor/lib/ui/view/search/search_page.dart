@@ -18,6 +18,10 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    return buildFadeAnimation();
+  }
+
+  FadeAnimation buildFadeAnimation() {
     return FadeAnimation(
       0.3,
       Stack(

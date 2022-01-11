@@ -51,48 +51,56 @@ class _MentorsPageBodyState extends State<MentorsPageBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(8),
-                      shadowColor: Colors.black38,
-                      elevation: 4,
-                      child: AppWidget.getSearchBox(isKeyboardVisible, context,
-                          AppStrings.SEARCH_MENTOR),
-                    ),
-                  ),
+                  mentorSearchBox(context),
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    child: SafeArea(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ScopedModel(
-                            model: model,
-                            child: ScopedModelDescendant<MentorModel>(
-                              builder: (context, child, modelInstance) {
-                                if (model.mentorsList.length > 0) {
-                                  return ListView(
-                                    shrinkWrap: true,
-                                    physics: ScrollPhysics(),
-                                    children: _getChildList(model.mentorsList),
-                                  );
-                                }
-                                return Container();
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  mentorListContainer(),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Padding mentorSearchBox(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Material(
+        borderRadius: BorderRadius.circular(8),
+        shadowColor: Colors.black38,
+        elevation: 4,
+        child: AppWidget.getSearchBox(
+            isKeyboardVisible, context, AppStrings.SEARCH_MENTOR),
+      ),
+    );
+  }
+
+  Container mentorListContainer() {
+    return Container(
+      child: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ScopedModel(
+              model: model,
+              child: ScopedModelDescendant<MentorModel>(
+                builder: (context, child, modelInstance) {
+                  if (model.mentorsList.length > 0) {
+                    return ListView(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      children: _getChildList(model.mentorsList),
+                    );
+                  }
+                  return Container();
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
