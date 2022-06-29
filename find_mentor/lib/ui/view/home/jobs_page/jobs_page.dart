@@ -1,10 +1,10 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/ui/view/home/jobs_page/jobs_page_body.dart';
+import 'package:flutter/services.dart';
 
 class JobsPage extends StatefulWidget {
   @override
@@ -46,7 +46,7 @@ class _JobsPageState extends State<JobsPage> {
             foreground: Paint()
               ..shader = AppGradients.primaryTextGradientColor),
       ),
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 

@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:find_mentor/core/init/utility.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -6,7 +7,6 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
-import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/person.dart';
 
 class PersonDescriptionCard extends StatelessWidget {
@@ -59,14 +59,12 @@ class PersonDescriptionCard extends StatelessWidget {
             data: model.interests,
             styleSheet:
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-              p: Theme.of(context).textTheme.body1.copyWith(
+              p: Theme.of(context).textTheme.bodyText2.copyWith(
                   fontSize: 14.0,
                   fontFamily: AppStrings.FONT_FAMILY,
                   color: AppColors.jobTextLink),
             ),
-            onTapLink: (url) {
-              Utility.launchURL(url);
-            },
+            onTapLink: (url, Null, title) => Utility.launchURL(url),
           ),
           SizedBox(height: 12),
           Divider(
@@ -93,14 +91,12 @@ class PersonDescriptionCard extends StatelessWidget {
             data: model.goals,
             styleSheet:
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-              p: Theme.of(context).textTheme.body1.copyWith(
+              p: Theme.of(context).textTheme.bodyText2.copyWith(
                   fontSize: 14.0,
                   fontFamily: AppStrings.FONT_FAMILY,
                   color: AppColors.jobTextLink),
             ),
-            onTapLink: (url) {
-              Utility.launchURL(url);
-            },
+            onTapLink: (url, Null, title) => Utility.launchURL(url),
           ),
         ],
       ),

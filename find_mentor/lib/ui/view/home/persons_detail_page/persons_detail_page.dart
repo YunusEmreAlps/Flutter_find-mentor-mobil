@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -7,6 +6,7 @@ import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/person.dart';
 import 'package:find_mentor/ui/view/home/persons_detail_page/persons_detail_page_body.dart';
+import 'package:flutter/services.dart';
 
 class PersonsDetailPage extends StatelessWidget {
   final Person personDetail;
@@ -31,7 +31,7 @@ class PersonsDetailPage extends StatelessWidget {
     return FloatingActionButton(
       tooltip: 'HIRE ME!',
       onPressed: () {
-        Utility.launchURL("mailto:"+personDetail.mail);
+        Utility.launchURL("mailto:" + personDetail.mail);
       },
       child: Icon(
         Icons.message,
@@ -63,7 +63,7 @@ class PersonsDetailPage extends StatelessWidget {
           foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
         ),
       ),
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 

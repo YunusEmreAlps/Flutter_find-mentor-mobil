@@ -105,23 +105,54 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
-  // Animated Text  
+  // Animated Text
   Widget animatedText() {
-    return RotateAnimatedTextKit(
-      alignment: Alignment.center,
-      onTap: () {
-        print("Tap Event");
-      },
-      text: [
-        AppStrings.SPLASH_TEXT1,
-        AppStrings.SPLASH_TEXT2,
-        AppStrings.SPLASH_TEXT3,
+    return AnimatedTextKit(
+      animatedTexts: [
+        RotateAnimatedText(
+          AppStrings.SPLASH_TEXT1,
+          alignment: Alignment.center,
+          textStyle: TextStyle(
+            fontSize: 18.0,
+            fontFamily: AppStrings.FONT_FAMILY,
+            foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
+          ),
+        ),
+        RotateAnimatedText(
+          AppStrings.SPLASH_TEXT2,
+          alignment: Alignment.center,
+          textStyle: TextStyle(
+            fontSize: 18.0,
+            fontFamily: AppStrings.FONT_FAMILY,
+            foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
+          ),
+        ),
+        RotateAnimatedText(
+          AppStrings.SPLASH_TEXT3,
+          alignment: Alignment.center,
+          textStyle: TextStyle(
+            fontSize: 18.0,
+            fontFamily: AppStrings.FONT_FAMILY,
+            foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
+          ),
+        ),
       ],
-      textStyle: TextStyle(
-        fontSize: 18.0,
-        fontFamily: AppStrings.FONT_FAMILY,
-        foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
-      ),
     );
+    // return RotateAnimatedTextKit(
+    //   alignment: Alignment.center,
+    //   onTap: () {
+    //     print("Tap Event");
+    //   },
+    //   text: [
+    //     AppStrings.SPLASH_TEXT1,
+    //     AppStrings.SPLASH_TEXT2,
+    //     AppStrings.SPLASH_TEXT3,
+    //   ],
+    // textStyle: TextStyle(
+    //   fontSize: 18.0,
+    //   fontFamily: AppStrings.FONT_FAMILY,
+    //   foreground: Paint()..shader = AppGradients.primaryTextGradientColor,
+    // ),
+    // );
   }
 }

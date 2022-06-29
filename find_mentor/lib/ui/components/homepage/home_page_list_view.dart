@@ -51,7 +51,7 @@ class HomePageListView extends StatelessWidget {
                       ],
                     ),
                     child: Stack(
-                      overflow: Overflow.clip,
+                      clipBehavior: Clip.none,
                       children: [
                         Positioned(
                           top: 15,

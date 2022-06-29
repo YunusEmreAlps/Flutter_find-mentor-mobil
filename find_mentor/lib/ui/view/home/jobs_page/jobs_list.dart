@@ -90,7 +90,7 @@ class JobCard extends StatelessWidget {
               height: (job.company.length <= 75) ? 285.0 : 310.0,
               decoration: boxDecoration(),
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.none,
                 children: [
                   // Find Mentor Logo -> 24, 24
                   Positioned(

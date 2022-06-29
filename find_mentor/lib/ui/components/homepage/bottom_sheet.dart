@@ -3,7 +3,6 @@ import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/service/fetchReadMe.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 // Package imports:
@@ -89,14 +88,13 @@ class AppBottomSheetWidgets {
                           styleSheet:
                               MarkdownStyleSheet.fromTheme(Theme.of(context))
                                   .copyWith(
-                            p: Theme.of(context).textTheme.body1.copyWith(
+                            p: Theme.of(context).textTheme.bodyText2.copyWith(
                                 fontSize: 14.0,
                                 fontFamily: AppStrings.FONT_FAMILY,
                                 color: AppColors.jobTextLink),
                           ),
-                          onTapLink: (url) {
-                            Utility.launchURL(url);
-                          },
+                          onTapLink: (url, Null, title) =>
+                              Utility.launchURL(url),
                         );
                       }
                       return Container();
@@ -147,14 +145,14 @@ class AppBottomSheetWidgets {
                           styleSheet:
                               MarkdownStyleSheet.fromTheme(Theme.of(context))
                                   .copyWith(
-                            p: Theme.of(context).textTheme.body1.copyWith(
+                            p: Theme.of(context).textTheme.bodyText2.copyWith(
                                 fontSize: 14.0,
                                 fontFamily: AppStrings.FONT_FAMILY,
                                 color: AppColors.jobTextLink),
                           ),
-                          onTapLink: (url) {
+                          /* onTapLink: (url) {
                             Utility.launchURL(url);
-                          },
+                          }, */
                         );
                       }
                       return Container();
@@ -199,7 +197,7 @@ class AppBottomSheetWidgets {
                                 fontWeight: FontWeight.bold),
                             recognizer: new TapGestureRecognizer()
                               ..onTap = () {
-                                launch(AppStrings.GITHUB_LINK);
+                                launchUrl(Uri.parse(AppStrings.GITHUB_LINK));
                               },
                           ),
                           new TextSpan(text: ' '),
@@ -344,7 +342,7 @@ class AppBottomSheetWidgets {
             icon,
             height: 20,
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               _launchURL(url);
             },
@@ -361,7 +359,7 @@ class AppBottomSheetWidgets {
   static Widget phoneRow(IconData icon) => Row(
         children: <Widget>[
           Icon(icon, size: 15, color: AppColors.colorPrimary),
-          FlatButton(
+          TextButton(
               onPressed: _callPhone, child: Text(AppStrings.PHONE_NUMBER)),
         ],
       );
@@ -369,8 +367,8 @@ class AppBottomSheetWidgets {
   // Mail
   static _sendMail() async {
     final String mail = 'mailto:' + AppStrings.DEV_EMAIL;
-    if (await canLaunch(mail)) {
-      await launch(mail);
+    if (await canLaunchUrl(Uri.parse(mail))) {
+      await launchUrl(Uri.parse(mail));
     } else {
       throw AppStrings.MAIL_ERROR;
     }
@@ -379,8 +377,8 @@ class AppBottomSheetWidgets {
   // Call
   static _callPhone() async {
     final String phone = 'tel:' + AppStrings.PHONE_NUMBER;
-    if (await canLaunch(phone)) {
-      await launch(phone);
+    if (await canLaunchUrl(Uri.parse(phone))) {
+      await launchUrl(Uri.parse(phone));
     } else {
       throw AppStrings.CALL_ERROR;
     }
@@ -388,8 +386,8 @@ class AppBottomSheetWidgets {
 
   // URL
   static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw AppStrings.WEB_ERROR;
     }

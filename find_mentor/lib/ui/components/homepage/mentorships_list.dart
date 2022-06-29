@@ -10,7 +10,6 @@ import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/core/init/size_config.dart';
 import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/contribution.dart';
-import 'package:find_mentor/ui/components/event_badge.dart';
 
 class Mentorships extends StatelessWidget {
   const Mentorships({
@@ -97,7 +96,7 @@ class MentorshipCard extends StatelessWidget {
                 ],
               ),
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.none,
                 children: [
                   /*Positioned(
                     top: 0, // 24

@@ -15,10 +15,14 @@ class HistoryBodyList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          padding: const EdgeInsets.only(top: 24, right: 242, bottom: 12, left: 24),
+          padding:
+              const EdgeInsets.only(top: 24, right: 242, bottom: 12, left: 24),
           child: Text(
             AppStrings.SEARCH_HISTORY.toUpperCase(),
-            style: Theme.of(context).textTheme.body2.copyWith(color: AppColors.colorParagraph2),
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: AppColors.colorParagraph2),
           ),
         ),
         Padding(
@@ -46,7 +50,10 @@ class HistoryBodyList extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
                             historyWord,
-                            style: Theme.of(context).textTheme.body2.copyWith(color: AppColors.colorHeading),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                .copyWith(color: AppColors.colorHeading),
                           ),
                         )
                       ],

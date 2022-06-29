@@ -1,10 +1,10 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/ui/view/home/mentors_page/mentors_page_body.dart';
+import 'package:flutter/services.dart';
 
 class MentorsPage extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class _MentorsPageState extends State<MentorsPage> {
             foreground: Paint()
               ..shader = AppGradients.primaryTextGradientColor),
       ),
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 

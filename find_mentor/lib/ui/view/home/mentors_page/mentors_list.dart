@@ -61,7 +61,7 @@ Widget mentorItem(Person mentor) {
             height: (mentor.displayInterests.length <= 75) ? 285.0 : 310.0,
             decoration: boxDecoration(),
             child: Stack(
-              overflow: Overflow.clip,
+              clipBehavior: Clip.none,
               children: [
                 // Find Mentor Logo -> 24, 24
                 Positioned(

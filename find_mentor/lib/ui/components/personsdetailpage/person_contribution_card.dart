@@ -6,14 +6,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
-import 'package:find_mentor/core/init/size_config.dart';
 import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/person.dart';
-import 'package:find_mentor/core/service/fetchReadMe.dart';
 
 class PersonContributionCard extends StatelessWidget {
   const PersonContributionCard({Key key, this.model, this.onApplyTap})
@@ -173,10 +170,9 @@ class PersonContributionCard extends StatelessWidget {
                               model.contributions[i].contributors.length, (j) {
                             return InkWell(
                               onTap: () {
-                                Utility.launchURL(
-                                    "https://findmentor.network" +
-                                        model.contributions[i].contributors[j]
-                                            .fmnUrl);
+                                Utility.launchURL("https://findmentor.network" +
+                                    model.contributions[i].contributors[j]
+                                        .fmnUrl);
                               },
                               child: Padding(
                                 padding: EdgeInsets.fromLTRB(2, 2, 2, 2),

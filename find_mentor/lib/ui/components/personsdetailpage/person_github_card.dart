@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:find_mentor/core/init/utility.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -6,7 +7,6 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
-import 'package:find_mentor/core/init/utility.dart';
 import 'package:find_mentor/core/model/person.dart';
 import 'package:find_mentor/core/service/fetchReadMe.dart';
 
@@ -58,7 +58,8 @@ class PersonGitHubCard extends StatelessWidget {
           ),
           SizedBox(height: 12),
           FutureBuilder(
-            future: fetchReadMe(model.github.substring(19), model.github.substring(19), "master", "README"),
+            future: fetchReadMe(model.github.substring(19),
+                model.github.substring(19), "master", "README"),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return MarkdownBody(
@@ -68,14 +69,12 @@ class PersonGitHubCard extends StatelessWidget {
                   data: snapshot.data,
                   styleSheet:
                       MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-                    p: Theme.of(context).textTheme.body1.copyWith(
+                    p: Theme.of(context).textTheme.bodyText2.copyWith(
                         fontSize: 14.0,
                         fontFamily: AppStrings.FONT_FAMILY,
                         color: AppColors.jobTextLink),
                   ),
-                  onTapLink: (url) {
-                    Utility.launchURL(url);
-                  },
+                  onTapLink: (url, Null, title) => Utility.launchURL(url),
                 );
               }
               return Container();
