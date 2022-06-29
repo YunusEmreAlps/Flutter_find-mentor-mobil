@@ -110,7 +110,7 @@ class _JobsPageBodyState extends State<JobsPageBody> {
                 ],
               ),
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.none,
                 children: [
                   Positioned(
                     top: 15,

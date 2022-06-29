@@ -1,4 +1,4 @@
-package com.yunusemrealpu.find_mentor
+package com.example.find_mentor
 
 import io.flutter.embedding.android.FlutterActivity
 

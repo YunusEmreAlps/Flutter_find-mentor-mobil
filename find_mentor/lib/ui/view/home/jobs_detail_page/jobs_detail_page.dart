@@ -1,14 +1,13 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/core/model/job_model.dart';
-import 'package:find_mentor/ui/view/home/home_navigator.dart';
 import 'package:find_mentor/ui/view/home/jobs_detail_page/jobs_detail_page_body.dart';
+import 'package:flutter/services.dart';
 
-class JobsDetailPage extends StatelessWidget{
+class JobsDetailPage extends StatelessWidget {
   final Job jobDetail;
   const JobsDetailPage({Key key, @required this.jobDetail}) : super(key: key);
 
@@ -23,9 +22,7 @@ class JobsDetailPage extends StatelessWidget{
   Stack buildStack() {
     return Stack(
       alignment: Alignment.center,
-      children: <Widget>[
-        JobsDetailPageBody(jobDetail: jobDetail)
-      ],
+      children: <Widget>[JobsDetailPageBody(jobDetail: jobDetail)],
     );
   }
 
@@ -42,7 +39,7 @@ class JobsDetailPage extends StatelessWidget{
             foreground: Paint()
               ..shader = AppGradients.primaryTextGradientColor),
       ),
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 
@@ -58,4 +55,3 @@ class JobsDetailPage extends StatelessWidget{
     );
   }
 }
-

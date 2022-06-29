@@ -1,5 +1,3 @@
-// Libraries
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -17,8 +15,8 @@ class SizeConfig {
     screenHeight = _mediaQueryData.size.height;
     orientation = _mediaQueryData.orientation;
     defaultSize = orientation == Orientation.landscape
-      ? screenHeight * 0.024
-      : screenWidth * 0.024;
+        ? screenHeight * 0.024
+        : screenWidth * 0.024;
   }
 }
 
@@ -37,4 +35,5 @@ double getProportionateScreenWidth(double inputWidth) {
 }
 
 Widget paddingHorizontal(BuildContext context, {Widget child}) => Padding(
-  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenHeight(40)), child: child);
+    padding: EdgeInsets.symmetric(horizontal: getProportionateScreenHeight(40)),
+    child: child);

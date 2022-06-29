@@ -1,6 +1,3 @@
-// Dart imports:
-import 'dart:ui' as ui;
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 
@@ -140,11 +137,20 @@ class PersonCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           // Twitter
-                          (model.twitterHandle.length != 0) ? socialContainer(AppImages.iconTwitter, model.twitterHandle) : Container(height: 0, width: 0),
+                          (model.twitterHandle.length != 0)
+                              ? socialContainer(
+                                  AppImages.iconTwitter, model.twitterHandle)
+                              : Container(height: 0, width: 0),
                           // GitHub,
-                          (model.github.length != 0) ? socialContainer(AppImages.iconGitHub, model.github) : Container(height: 0, width: 0),
+                          (model.github.length != 0)
+                              ? socialContainer(
+                                  AppImages.iconGitHub, model.github)
+                              : Container(height: 0, width: 0),
                           // LinkedIn,
-                          (model.linkedin.length != 0) ? socialContainer(AppImages.iconLinkedin, model.linkedin) : Container(height: 0, width: 0),
+                          (model.linkedin.length != 0)
+                              ? socialContainer(
+                                  AppImages.iconLinkedin, model.linkedin)
+                              : Container(height: 0, width: 0),
                           // Question,
                           Container(
                             width: 40,

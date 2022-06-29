@@ -1,10 +1,9 @@
 // Flutter imports:
-import 'package:find_mentor/core/model/person.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
+import 'package:flutter/services.dart';
 
 class AppWidget {
   static ThemeData getThemeData() {
@@ -18,22 +17,22 @@ class AppWidget {
       backgroundColor: AppColors.colorPageBg,
 
       textTheme: TextTheme(
-        display1: TextStyle(
+        headline4: TextStyle(
             fontSize: AppConstants.fontSizeDisplay,
             fontWeight: FontWeight.bold),
-        headline: TextStyle(
+        headline5: TextStyle(
             fontSize: AppConstants.fontSizeHeadline,
             fontWeight: FontWeight.bold),
-        title: TextStyle(
+        headline6: TextStyle(
             fontSize: AppConstants.fontSizeTitle, fontWeight: FontWeight.bold),
-        body1: TextStyle(fontSize: AppConstants.fontSizeBody),
-        body2: TextStyle(
+        bodyText2: TextStyle(fontSize: AppConstants.fontSizeBody),
+        bodyText1: TextStyle(
             fontSize: AppConstants.fontSizeBody2, fontWeight: FontWeight.bold),
         caption: TextStyle(
             fontSize: AppConstants.fontSizeCaption,
             fontWeight: FontWeight.bold),
       ),
-      appBarTheme: AppBarTheme(brightness: Brightness.light),
+      appBarTheme: AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.dark),
     );
   }
 
@@ -77,7 +76,6 @@ class AppWidget {
                       focusNode: focusNode,
                       onChanged: (searchText) {
                         print(searchText);
-                        
                       },
                       decoration: InputDecoration(
                         hintText: pageHintText,

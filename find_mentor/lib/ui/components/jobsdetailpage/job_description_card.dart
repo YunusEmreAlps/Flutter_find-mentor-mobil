@@ -52,14 +52,12 @@ class JobDescriptionCard extends StatelessWidget {
             data: model.description,
             styleSheet:
                 MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-              p: Theme.of(context).textTheme.body1.copyWith(
+              p: Theme.of(context).textTheme.bodyText2.copyWith(
                   fontSize: 14.0,
                   fontFamily: AppStrings.FONT_FAMILY,
                   color: AppColors.jobTextLink),
             ),
-            onTapLink: (url) {
-              Utility.launchURL(url);
-            },
+            onTapLink: (url, Null, title) => Utility.launchURL(url),
           ),
         ],
       ),

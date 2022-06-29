@@ -1,11 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:flutter_svg/svg.dart';
-
 // Project imports:
-import 'package:find_mentor/core/constants/color/app_gradients.dart';
 import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/core/init/screen_util.dart';
 

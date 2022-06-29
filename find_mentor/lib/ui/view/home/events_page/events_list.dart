@@ -80,7 +80,7 @@ class EventCard extends StatelessWidget {
               height: (event.eventName.length <= 75) ? 285.0 : 310.0,
               decoration: boxDecoration(),
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.none,
                 children: [
                   Positioned(
                     top: 0, // 24

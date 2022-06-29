@@ -1,10 +1,10 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:find_mentor/core/constants/core.dart';
 import 'package:find_mentor/ui/view/home/events_page/events_page_body.dart';
+import 'package:flutter/services.dart';
 
 class EventsPage extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class _EventsPageState extends State<EventsPage> {
             foreground: Paint()
               ..shader = AppGradients.primaryTextGradientColor),
       ),
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 
@@ -61,4 +61,3 @@ class _EventsPageState extends State<EventsPage> {
     );
   }
 }
-

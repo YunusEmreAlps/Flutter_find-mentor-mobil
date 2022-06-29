@@ -1,12 +1,8 @@
-// Dart imports:
-import 'dart:ui' as ui;
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -189,8 +185,12 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                     ),
                                     FutureBuilder(
                                       future: fetchReadMe(
-                                          widget.model.mentorships[i].projectAdress.split('/')[3],
-                                          widget.model.mentorships[i].projectAdress.split('/')[4],
+                                          widget.model.mentorships[i]
+                                              .projectAdress
+                                              .split('/')[3],
+                                          widget.model.mentorships[i]
+                                              .projectAdress
+                                              .split('/')[4],
                                           "master",
                                           "README"),
                                       builder: (context, snapshot) {
@@ -206,7 +206,7 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                                     .copyWith(
                                               p: Theme.of(context)
                                                   .textTheme
-                                                  .body1
+                                                  .bodyText2
                                                   .copyWith(
                                                       fontSize: 14.0,
                                                       fontFamily: AppStrings
@@ -214,9 +214,8 @@ class _PersonMentorshipsCardState extends State<PersonMentorshipsCard> {
                                                       color: AppColors
                                                           .jobTextLink),
                                             ),
-                                            onTapLink: (url) {
-                                              Utility.launchURL(url);
-                                            },
+                                            onTapLink: (url, Null, title) =>
+                                                Utility.launchURL(url),
                                           );
                                         }
                                         return Container();

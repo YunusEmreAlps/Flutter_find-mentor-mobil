@@ -1,7 +1,3 @@
-// Flutter imports:
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,38 +17,27 @@ class Utility {
   }
 
   static launchTo(String link) async {
-    final isOK = await canLaunch(link);
+    final isOK = await canLaunchUrl(Uri.parse(link));
     if (isOK) {
-      launch(link);
+      launchUrl(Uri.parse(link));
     }
   }
 
   // URL
   static void launchURL(String url) async {
-    if (url == null) {
-      return;
-    }
-    try {
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw AppStrings.WEB_ERROR;
-      }
-    } catch (e) {
-      // An exception is thrown if browser app is not installed on Android device.
-      debugPrint(e.toString());
-    }
+    if (!await launchUrl(Uri.parse(url))) throw '${AppStrings.LAUNCH_ERROR}';
   }
 
-  static String jobTimeCreatedAt(String value){
+  static String jobTimeCreatedAt(String value) {
     print(value);
     var list = value.split(".");
     var yy = int.parse(list.last);
     var dt = int.parse(list[0]);
     var mm = toMonthIndex(list[1]);
-    final date = DateTime(yy,mm,dt);
+    final date = DateTime(yy, mm, dt);
     return getPassedTime(date.toIso8601String());
   }
+
   static String getPassedTime(String date) {
     if (date == null || date.isEmpty) {
       return '';
@@ -67,20 +52,27 @@ class Utility {
     var dur = DateTime.now().toLocal().difference(dt);
     if (dur.inDays > 0) {
       // msg = '${dur.inDays} days ago';
-      msg = dur.inDays == 1 ? '${dur.inDays} day ago' : '${dur.inDays} days ago';
+      msg =
+          dur.inDays == 1 ? '${dur.inDays} day ago' : '${dur.inDays} days ago';
     } else if (dur.inHours > 0) {
-      msg = dur.inHours == 1 ? '${dur.inHours} hour ago' : '${dur.inHours} hours ago';
+      msg = dur.inHours == 1
+          ? '${dur.inHours} hour ago'
+          : '${dur.inHours} hours ago';
     } else if (dur.inMinutes > 0) {
-      msg = dur.inMinutes == 1 ? '${dur.inMinutes} minute ago' : '${dur.inMinutes} minutes ago';
+      msg = dur.inMinutes == 1
+          ? '${dur.inMinutes} minute ago'
+          : '${dur.inMinutes} minutes ago';
     } else if (dur.inSeconds > 0) {
-      msg = dur.inSeconds == 1 ? '${dur.inSeconds} second ago' : '${dur.inSeconds} seconds ago';
+      msg = dur.inSeconds == 1
+          ? '${dur.inSeconds} second ago'
+          : '${dur.inSeconds} seconds ago';
     } else {
       msg = 'now';
     }
     return msg;
   }
 
-  static int toMonthIndex(String value){
+  static int toMonthIndex(String value) {
     switch (value) {
       /*case "Jan": return 1;
       case "Feb": return 2;
@@ -96,20 +88,32 @@ class Utility {
       case "Dec": return 12;
       default: return 1;
       */
-      case '01': return 1;
-      case '02': return 2;
-      case '03': return 3;
-      case '04': return 4;
-      case '05': return 5;
-      case '06': return 6;
-      case '07': return 7;
-      case '08': return 8;
-      case '09': return 9;
-      case '10': return 10;
-      case '11': return 11;
-      case '12': return 12;
-      default: return 1;
-      
+      case '01':
+        return 1;
+      case '02':
+        return 2;
+      case '03':
+        return 3;
+      case '04':
+        return 4;
+      case '05':
+        return 5;
+      case '06':
+        return 6;
+      case '07':
+        return 7;
+      case '08':
+        return 8;
+      case '09':
+        return 9;
+      case '10':
+        return 10;
+      case '11':
+        return 11;
+      case '12':
+        return 12;
+      default:
+        return 1;
     }
   }
 }

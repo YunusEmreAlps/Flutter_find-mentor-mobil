@@ -1,5 +1,4 @@
 // Dart imports:
-import 'dart:convert';
 import 'dart:ui' as ui;
 
 // Flutter imports:
@@ -124,7 +123,7 @@ class _EventsPageBodyState extends State<EventsPageBody> {
                 ],
               ),
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.none,
                 children: [
                   Positioned(
                     top: 15,
@@ -189,8 +188,9 @@ class _EventsPageBodyState extends State<EventsPageBody> {
                                                     recognizer:
                                                         new TapGestureRecognizer()
                                                           ..onTap = () {
-                                                            launch(AppStrings
-                                                                .WEB_LINK);
+                                                            launchUrl(Uri.parse(
+                                                                AppStrings
+                                                                    .WEB_LINK));
                                                           },
                                                   ),
                                                 ],

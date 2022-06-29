@@ -26,7 +26,7 @@ class MentorModel extends Model {
       List persons = json.decode(response.body);
 
       // Filtering
-      List filteredList = List();
+      List filteredList = List.empty(growable: true);
       for (var i = 0; i < persons.length; i++) {
         if (persons[i]["mentor"] != mentorValues.reverse[Mentor.MENTEE]) {
           filteredList.add(persons[i]);
